@@ -7,7 +7,7 @@ use Exception;
 use Grpc\ChannelCredentials;
 use const Grpc\STATUS_OK;
 
-abstract class Client
+abstract class AbstractClient
 {
     private const SERVICE_BIND = "SERVICE_BIND";
     protected string $hostname;
@@ -15,8 +15,8 @@ abstract class Client
 
     public function __construct()
     {
-        // Retrieve the Nitric service address
-        $this->hostname = getenv(self::SERVICE_BIND) ?? "127.0.0.1:50051";
+        // Retrieve the Nitric service address, defaulting to the standard local ip and port.
+        $this->hostname = getenv(self::SERVICE_BIND) ?: "127.0.0.1:50051";
         $this->opts = [
             'credentials' => ChannelCredentials::createInsecure(),
         ];
