@@ -64,7 +64,7 @@ class DocumentClient extends AbstractClient
 
         [$response, $status] = $this->client->Get($request)->wait();
 //        Add type hint to the response object
-        $response = (fn($r): DocumentGetResponse => $r)($response);
+        $response = (fn($r): DocumentGetResponse|null => $r)($response);
 
         $this->checkStatus($status);
         return json_decode($response->getDocument()->serializeToJsonString());

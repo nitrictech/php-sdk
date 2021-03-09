@@ -1,6 +1,6 @@
 {
   "name": "nitric/php-sdk",
-  "description": "Nitric service library for PHP",
+  "description": "Nitric service client library for PHP",
   "type": "library",
   "require": {
     "php": "^8",

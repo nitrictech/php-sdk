@@ -5,6 +5,7 @@ namespace Nitric\V1;
 
 use Exception;
 use Grpc\ChannelCredentials;
+use const Grpc\STATUS_NOT_FOUND;
 use const Grpc\STATUS_OK;
 
 abstract class AbstractClient
@@ -24,8 +25,9 @@ abstract class AbstractClient
 
     protected function checkStatus($status)
     {
-        // TODO: Handle other status codes
-        if ($status->code != STATUS_OK) {
+        if ($status->code == STATUS_NOT_FOUND) {
+            throw new NotFoundException();
+        } else if ($status->code != STATUS_OK) {
             throw new Exception($status->details);
         }
     }
