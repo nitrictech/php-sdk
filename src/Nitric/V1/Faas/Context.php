@@ -4,6 +4,23 @@
 namespace Nitric\V1\Faas;
 
 
+abstract class SourceType
+{
+    const REQUEST = "REQUEST";
+    const SUBSCRIPTION = "SUBSCRIPTION";
+    const UNKNOWN = "UNKNOWN";
+
+    static function fromString($sourceType)
+    {
+        $sourceType = strtoupper($sourceType);
+        return match ($sourceType) {
+            self::REQUEST => self::REQUEST,
+            self::SUBSCRIPTION => self::SUBSCRIPTION,
+            default => self::UNKNOWN,
+        };
+    }
+}
+
 class Context
 {
     private string|null $requestID;
@@ -22,7 +39,7 @@ class Context
     {
         $this->requestID = $requestID;
         $this->source = $source;
-        $this->sourceType = $sourceType;
+        $this->sourceType = SourceType::fromString($sourceType);
         $this->payloadType = $payloadType;
     }
 
@@ -49,7 +66,7 @@ class Context
     /**
      * @return string
      */
-    public function getRequestID(): string
+    public function getRequestID(): string|null
     {
         return $this->requestID;
     }
@@ -57,7 +74,7 @@ class Context
     /**
      * @param string $requestID
      */
-    public function setRequestID(string $requestID): void
+    public function setRequestID(string|null $requestID): void
     {
         $this->requestID = $requestID;
     }
@@ -65,7 +82,7 @@ class Context
     /**
      * @return string
      */
-    public function getSource(): string
+    public function getSource(): string|null
     {
         return $this->source;
     }
@@ -73,7 +90,7 @@ class Context
     /**
      * @param string $source
      */
-    public function setSource(string $source): void
+    public function setSource(string|null $source): void
     {
         $this->source = $source;
     }
@@ -91,13 +108,13 @@ class Context
      */
     public function setSourceType(string $sourceType): void
     {
-        $this->sourceType = $sourceType;
+        $this->sourceType = SourceType::fromString($sourceType);
     }
 
     /**
      * @return string
      */
-    public function getPayloadType(): string
+    public function getPayloadType(): string|null
     {
         return $this->payloadType;
     }
@@ -105,7 +122,7 @@ class Context
     /**
      * @param string $payloadType
      */
-    public function setPayloadType(string $payloadType): void
+    public function setPayloadType(string|null $payloadType): void
     {
         $this->payloadType = $payloadType;
     }

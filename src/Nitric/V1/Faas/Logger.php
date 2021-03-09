@@ -4,60 +4,22 @@
 namespace Nitric\V1\Faas;
 
 
-use Psr\Log\LoggerInterface;
+use Psr\Log\AbstractLogger;
 
-class Logger implements LoggerInterface
+class Logger extends AbstractLogger
 {
-
-    private function doTheLogThing($message, array $context) {
-        print "\n";
-        print $message;
-        print "\n";
-        print json_encode($context);
-    }
-
-    public function emergency($message, array $context = array())
-    {
-        $this->doTheLogThing($message, $context);
-    }
-
-    public function alert($message, array $context = array())
-    {
-        $this->doTheLogThing($message, $context);
-    }
-
-    public function critical($message, array $context = array())
-    {
-        $this->doTheLogThing($message, $context);
-    }
-
-    public function error($message, array $context = array())
-    {
-        $this->doTheLogThing($message, $context);
-    }
-
-    public function warning($message, array $context = array())
-    {
-        $this->doTheLogThing($message, $context);
-    }
-
-    public function notice($message, array $context = array())
-    {
-        $this->doTheLogThing($message, $context);
-    }
-
-    public function info($message, array $context = array())
-    {
-        $this->doTheLogThing($message, $context);
-    }
-
-    public function debug($message, array $context = array())
-    {
-        $this->doTheLogThing($message, $context);
+    static function interpolate($message, $context): string {
+        $contextTokens = array();
+        foreach ($context as $k => $v) {
+            $contextTokens["{" . $k . "}"] = print_r($v, true);
+        }
+        return strtr($message, $contextTokens);
     }
 
     public function log($level, $message, array $context = array())
     {
-        $this->doTheLogThing($message, $context);
+        $mergedMessage = self::interpolate($message, $context);
+        $exception = isset($context['exception']) ?  $context['exception'] . "\n" : "";
+        printf("%s: %s\n%s", $level, $mergedMessage, $exception);
     }
 }

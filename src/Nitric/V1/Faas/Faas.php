@@ -7,10 +7,8 @@ use Amp\Http\Server\RequestHandler\CallableRequestHandler;
 use Amp\Http\Server\HttpServer;
 use Amp\Http\Server\Request;
 use Amp\Http\Server\Response;
-use Amp\Http\Status;
 use Amp\Loop;
 use Amp\Socket\Server;
-use Psr\Log\NullLogger;
 
 class Faas
 {
@@ -36,22 +34,10 @@ class Faas
                 );
 
                 // Call the handler function
-                try {
-                    $nitricResponse = $handler($nitricRequest);
-                    return self::httpResponse($nitricResponse);
-                } catch (\RuntimeException $e) {
-                    return new Response(Status::OK, [
-                    "content-type" => "text/plain; charset=utf-8"
-                ], $e->getMessage());
-                }
+                $nitricResponse = $handler($nitricRequest);
 
-                // Convert the Nitric Response to HTTP Response
-
-
-//                 Return the response
-//                return new Response(Status::OK, [
-//                    "content-type" => "text/plain; charset=utf-8"
-//                ], "testing");
+                // Return the Nitric Response as an HTTP Response
+                return self::httpResponse($nitricResponse);
             }), new Logger());
 
             yield $server->start();
