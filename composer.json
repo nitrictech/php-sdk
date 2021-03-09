@@ -6,7 +6,8 @@
     "php": "^8",
     "grpc/grpc": "^v1.30.0",
     "ext-grpc": "*",
-    "ext-protobuf": "*"
+    "ext-protobuf": "*",
+    "amphp/http-server": "^2.1"
   },
   "require-dev": {
     "ext-xdebug": "*",
