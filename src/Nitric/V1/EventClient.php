@@ -59,7 +59,7 @@ class EventClient extends AbstractClient
 
         list($reply, $status) = $this->client->Publish($publishRequest)->wait();
 
-        $this->checkStatus($status);
+        $this->okOrThrow($status);
         return $requestId;
     }
 

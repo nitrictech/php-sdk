@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class ContextTest extends TestCase
 {
+
     function testContextFromHeaders() {
         $headers = [
             "x-nitric-payload-type" => ["test payload type"],

@@ -43,7 +43,7 @@ class QueueClient extends AbstractClient
         $nitricEvents = array_map(function (Event $e) {
             $ne = new NitricEvent();
             $ne->setPayload(
-                Utils::structFromClass($e->getPayload())
+                self::structFromClass($e->getPayload())
             );
             $ne->setPayloadType($e->getPayloadType());
             $ne->setRequestId($e->getRequestID());
@@ -53,7 +53,7 @@ class QueueClient extends AbstractClient
         $request->setEvents($nitricEvents);
 
         [$response, $status] = $this->client->BatchPush($request)->wait();
-        $this->checkStatus($status);
+        $this->okOrThrow($status);
         // Add type hint to the response object
         $response = (fn($r): QueueBatchPushResponse => $r)($response);
 
@@ -64,7 +64,7 @@ class QueueClient extends AbstractClient
             $ne = new Event();
             $ne->setRequestID($e->getEvent()->getRequestId());
             $ne->setPayloadType($e->getEvent()->setPayloadType());
-            $ne->setPayload(Utils::classFromStruct($e->getEvent()->getPayload()));
+            $ne->setPayload(AbstractClient::classFromStruct($e->getEvent()->getPayload()));
 
             $fe->setEvent($ne);
             return $fe;
@@ -98,13 +98,13 @@ class QueueClient extends AbstractClient
         $request->setDepth($depth);
 
         [$response, $status] = $this->client->Pop($request)->wait();
-        $this->checkStatus($status);
+        $this->okOrThrow($status);
         $response = (fn($r): QueuePopResponse => $r)($response);
 
         return array_map(function(NitricQueueItem $i) {
             return new QueueItem(
                 new Event(
-                    payload: Utils::classFromStruct($i->getEvent()->getPayload()),
+                    payload: AbstractClient::classFromStruct($i->getEvent()->getPayload()),
                     payloadType: $i->getEvent()->getPayloadType(),
                     requestID: $i->getEvent()->getRequestId()
                 ),

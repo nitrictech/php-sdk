@@ -39,7 +39,7 @@ class StorageClient extends AbstractClient
         $request->setBody($bytes);
 
         [, $status] = $this->client->Put($request)->wait();
-        $this->checkStatus($status);
+        $this->okOrThrow($status);
     }
 
     /**
@@ -55,7 +55,7 @@ class StorageClient extends AbstractClient
         $request->setKey($key);
 
         [$response, $status] = $this->client->Get($request)->wait();
-        $this->checkStatus($status);
+        $this->okOrThrow($status);
         $response = (fn($r): StorageGetResponse => $r)($response);
 
         return $response->getBody();

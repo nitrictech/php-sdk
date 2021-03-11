@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Nitric\V1\Faas;
 
 use Amp\Http\Server\RequestHandler\CallableRequestHandler;

@@ -31,6 +31,6 @@ class UserClient extends AbstractClient
 
         list($reply, $status) = $this->client->Create($request)->wait();
 
-        $this->checkStatus($status);
+        $this->okOrThrow($status);
     }
 }

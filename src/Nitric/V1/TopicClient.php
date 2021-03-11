@@ -30,7 +30,7 @@ class TopicClient extends AbstractClient
      */
     public function list(): array {
         [$response, $status] = $this->client->List(new TopicListRequest())->wait();
-        $this->checkStatus($status);
+        $this->okOrThrow($status);
         $response = (fn($r): TopicListResponse => $r)($response);
 
         return array_map(function (NitricTopic $t): string {

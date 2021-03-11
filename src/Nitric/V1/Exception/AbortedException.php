@@ -6,7 +6,8 @@ namespace Nitric\V1\Exception;
 
 use Exception;
 
-class NotFoundException extends Exception
+class AbortedException extends Exception
 {
 
 }
+

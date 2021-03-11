@@ -4,7 +4,7 @@
 namespace Nitric\V1;
 
 use Exception;
-use \Nitric\BaseClient\V1\Documents\DocumentClient as GrpcClient;
+use Nitric\BaseClient\V1\Documents\DocumentClient as GrpcClient;
 use Nitric\BaseClient\V1\Documents\DocumentCreateRequest;
 use Nitric\BaseClient\V1\Documents\DocumentDeleteRequest;
 use Nitric\BaseClient\V1\Documents\DocumentGetRequest;
@@ -36,7 +36,7 @@ class DocumentClient extends AbstractClient
      */
     public function create(string $collection, string $key, stdClass $document)
     {
-        $docStruct = Utils::structFromClass($document);
+        $docStruct = AbstractClient::structFromClass($document);
 
         $request = new DocumentCreateRequest();
         $request->setCollection($collection);
@@ -45,7 +45,7 @@ class DocumentClient extends AbstractClient
 
         [, $status] = $this->client->Create($request)->wait();
 
-        $this->checkStatus($status);
+        $this->okOrThrow($status);
     }
 
     /**
@@ -66,7 +66,7 @@ class DocumentClient extends AbstractClient
 //        Add type hint to the response object
         $response = (fn($r): DocumentGetResponse|null => $r)($response);
 
-        $this->checkStatus($status);
+        $this->okOrThrow($status);
         return json_decode($response->getDocument()->serializeToJsonString());
     }
 
@@ -80,7 +80,7 @@ class DocumentClient extends AbstractClient
      */
     public function update(string $collection, string $key, stdClass $document)
     {
-        $docStruct = Utils::structFromClass($document);
+        $docStruct = AbstractClient::structFromClass($document);
 
         $request = new DocumentUpdateRequest();
         $request->setCollection($collection);
@@ -89,7 +89,7 @@ class DocumentClient extends AbstractClient
 
         [, $status] = $this->client->Update($request)->wait();
 
-        $this->checkStatus($status);
+        $this->okOrThrow($status);
     }
 
     /**
@@ -106,6 +106,6 @@ class DocumentClient extends AbstractClient
 
         [, $status] = $this->client->Delete($request)->wait();
 
-        $this->checkStatus($status);
+        $this->okOrThrow($status);
     }
 }

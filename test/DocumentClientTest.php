@@ -5,13 +5,16 @@ namespace Nitric\V1;
 use Google\Protobuf\Internal\Message;
 use Grpc\UnaryCall;
 use Nitric\BaseClient\V1\Documents\DocumentGetResponse;
+use Nitric\V1\Exception\NotFoundException;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 use const Grpc\STATUS_NOT_FOUND;
 use const Grpc\STATUS_OK;
 
+
 class DocumentClientTest extends TestCase
 {
+
     public function testCreateDocument()
     {
         $docs = new DocumentClient();
@@ -29,7 +32,7 @@ class DocumentClientTest extends TestCase
         $mockDocument->floatKey = 45.5;
 
         $stubResponse = new DocumentGetResponse();
-        $stubResponse->setDocument(Utils::structFromClass($mockDocument));
+        $stubResponse->setDocument(AbstractClient::structFromClass($mockDocument));
 
         $stubUnaryCall = $this->stubCall(response: $stubResponse);
 
