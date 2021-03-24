@@ -6,4 +6,4 @@ generate-proto:
 	@protoc --php_out=./interfaces/ \
 	 --grpc_out=./interfaces/ \
 	 --plugin=protoc-gen-grpc=/Users/jcusch/Code/grpc/cmake/build/grpc_php_plugin \
-	 -I ./contracts/proto/ ./contracts/proto/**/*.proto
+	 -I ./contracts/proto/ ./contracts/proto/**/**/*.proto

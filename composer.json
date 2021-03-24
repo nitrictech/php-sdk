@@ -16,7 +16,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Nitric\\BaseClient\\": "interfaces/Nitric/BaseClient",
+      "Nitric\\Proto\\": "interfaces/Nitric/Proto",
       "GPBMetadata\\": "interfaces/GPBMetadata",
       "": "src/"
     }
