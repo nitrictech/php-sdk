@@ -34,7 +34,7 @@ class QueueClient extends AbstractClient
      * @return FailedTask[] containing a list containing details of any messages that failed to publish.
      * @throws Exception
      */
-    public function sendBatch(string $queueName, Task...$tasks): array
+    public function sendBatch(string $queueName, array $tasks): array
     {
         $request = new QueueSendBatchRequest();
         $request->setQueue($queueName);
@@ -67,9 +67,9 @@ class QueueClient extends AbstractClient
             $failedTask->setTask($task);
             return $failedTask;
 
-        }, (array)$response->getFailedTasks());
+        }, [...$response->getFailedTasks()]);
 
-        return new $failed;
+        return $failed;
     }
 
     /**
@@ -83,7 +83,7 @@ class QueueClient extends AbstractClient
      *
      * @param string $queue Nitric name for the queue. This will be automatically resolved to the provider specific identifier.
      * @param int $depth The maximum number of queue items to return. Default: 1, Min: 1.
-     * @return array Queue items popped from the queue.
+     * @return Task[] Queue items popped from the queue.
      * @throws Exception
      */
     public function receive(string $queue, int $depth = 1): array
@@ -99,14 +99,15 @@ class QueueClient extends AbstractClient
         $this->okOrThrow($status);
         $response = (fn($r): QueueReceiveResponse => $r)($response);
 
+
         return array_map(function (NitricTask $i) {
             return new Task(
                 payload: AbstractClient::classFromStruct($i->getPayload()),
                 payloadType: $i->getPayloadType(),
                 id: $i->getId(),
-                leaseID: $i->getLeaseId()
+                leaseId: $i->getLeaseId()
             );
-        }, (array)$response->getTasks());
+        }, [...$response->getTasks()]);
     }
 }
 

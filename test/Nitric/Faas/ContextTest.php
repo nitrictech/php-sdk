@@ -4,6 +4,9 @@ namespace Nitric\Faas;
 
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers Context
+ */
 class ContextTest extends TestCase
 {
 

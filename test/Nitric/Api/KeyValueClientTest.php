@@ -12,7 +12,9 @@ use stdClass;
 use const Grpc\STATUS_NOT_FOUND;
 use const Grpc\STATUS_OK;
 
-
+/**
+ * @covers KeyValueClient
+ */
 class KeyValueClientTest extends TestCase
 {
 
@@ -24,7 +26,6 @@ class KeyValueClientTest extends TestCase
         $stubGrpcKVClient
             ->expects($this->once())
             ->method('Put')
-//            ->with($this->objectHasAttribute('payload'))
             ->willReturn($stubUnaryCall);
 
         $kvc = new KeyValueClient($stubGrpcKVClient);
@@ -34,7 +35,7 @@ class KeyValueClientTest extends TestCase
         $this->assertTrue(true);
     }
 
-    public function testGetKeyValue()
+    public function testGetValue()
     {
         $testValue = new stdClass();
         $testValue->stringKey = "string value";
@@ -63,7 +64,7 @@ class KeyValueClientTest extends TestCase
         $this->assertEquals($testValue, $value);
     }
 
-    public function testGetKeyValueThatDoesntExist() {
+    public function testGetKeyThatDoesntExist() {
         $stubUnaryCall = $this->stubCall(STATUS_NOT_FOUND);
 
         $stubGrpcDocClient = $this->createMock(\Nitric\Proto\KeyValue\V1\KeyValueClient::class);
@@ -73,16 +74,20 @@ class KeyValueClientTest extends TestCase
             ->willReturn($stubUnaryCall);
         $kvc = new KeyValueClient($stubGrpcDocClient);
 
-        try {
-            $value = $kvc->get(
-                collection: "test-collection",
-                key: "test-key"
-            );
-            $this->assertFalse(true); // Should not reach here.
-        } catch (NotFoundException $e) {
-        }
+        $this->expectException(NotFoundException::class);
+        $value = $kvc->get(
+            collection: "test-collection",
+            key: "test-key"
+        );
     }
 
+    /**
+     * Stubs a gRPC Client UnaryCall such that it responds with the provided status, message and response.
+     * @param int $statusCode
+     * @param string $statusMsg
+     * @param Message|null $response
+     * @return UnaryCall
+     */
     private function stubCall(int $statusCode = STATUS_OK, string $statusMsg = "", Message|null $response = null): UnaryCall {
         $status = new stdClass();
         $status->code = $statusCode;

@@ -4,6 +4,9 @@ namespace Nitric\Faas;
 
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers Logger
+ */
 class LoggerTest extends TestCase
 {
     function testContextInterpolation()
