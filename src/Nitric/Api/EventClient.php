@@ -36,11 +36,6 @@ class EventClient extends AbstractClient
      */
     public function publish(string $topicName, array $payload = [], string $payloadType = "", string $id = null): string
     {
-        if ($id == null) {
-            // TODO: Move this to Membrane
-            $id = $this->gen_uuid();
-        }
-
         $payloadStruct = new Struct();
         try {
             $payloadStruct->mergeFromJsonString(json_encode($payload));
