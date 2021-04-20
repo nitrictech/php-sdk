@@ -38,7 +38,7 @@
         "vendor/bin/phpstan analyse src tests"
       ],
       "pre-push": [
-        "vendor/bin/phpunit"
+        "vendor/bin/phpunit --do-not-cache-result"
       ],
       "post-merge": "composer install"
     }
