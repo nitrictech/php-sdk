@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Nitric\Api;
 
 use Exception;
@@ -22,6 +21,7 @@ use Nitric\Api\Exception\UnauthenticatedException;
 use Nitric\Api\Exception\UnavailableException;
 use Nitric\Api\Exception\UnimplementedException;
 use stdClass;
+
 use const Grpc\STATUS_ABORTED;
 use const Grpc\STATUS_ALREADY_EXISTS;
 use const Grpc\STATUS_CANCELLED;

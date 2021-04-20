@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Nitric\Faas;
-
 
 class Response
 {
@@ -63,9 +61,10 @@ class Response
 
     /**
      * Response constructor.
+     *
      * @param string $body
-     * @param int $status
-     * @param array $headers
+     * @param int    $status
+     * @param array  $headers
      */
     public function __construct(string $body = "", int $status = 200, array $headers = [])
     {

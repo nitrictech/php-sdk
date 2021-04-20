@@ -20,8 +20,7 @@ use stdClass;
  */
 class QueueClientTest extends TestCase
 {
-
-    function testSendBatch()
+    public function testSendBatch()
     {
         $mockStatusObj = new stdClass();
         $mockStatusObj->code = STATUS_OK;
@@ -57,7 +56,7 @@ class QueueClientTest extends TestCase
         $this->assertCount(0, $resp);
     }
 
-    function testReceive()
+    public function testReceive()
     {
         $mockStatusObj = new stdClass();
         $mockStatusObj->code = STATUS_OK;
@@ -100,7 +99,7 @@ class QueueClientTest extends TestCase
         $this->assertCount(0, (array)$task->getPayload());
     }
 
-    function testSendBatchFailedTask()
+    public function testSendBatchFailedTask()
     {
         $mockStatusObj = new stdClass();
         $mockStatusObj->code = STATUS_OK;
@@ -138,7 +137,7 @@ class QueueClientTest extends TestCase
         $this->assertEquals("it failed", $failedTask->getMessage());
     }
 
-    function testMinReceiveDepth()
+    public function testMinReceiveDepth()
     {
         $mockStatusObj = new stdClass();
         $mockStatusObj->code = STATUS_OK;

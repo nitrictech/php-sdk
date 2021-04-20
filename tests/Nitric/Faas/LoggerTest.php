@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
  */
 class LoggerTest extends TestCase
 {
-    function testContextInterpolation()
+    public function testContextInterpolation()
     {
         $context = [
             "prop" => "test"

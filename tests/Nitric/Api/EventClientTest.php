@@ -18,7 +18,6 @@ use const Grpc\STATUS_UNIMPLEMENTED;
  */
 class EventClientTest extends TestCase
 {
-
     public function testPublish()
     {
         $mockStatusObj = new stdClass();
@@ -46,7 +45,8 @@ class EventClientTest extends TestCase
             payload: [
                 "key" => "value",
             ],
-            id: "abc-123");
+            id: "abc-123"
+        );
 
         $this->assertEquals("abc-123", $id);
     }
@@ -79,7 +79,8 @@ class EventClientTest extends TestCase
             payload: [
                 "key" => "value",
             ],
-            id: "abc-123");
+            id: "abc-123"
+        );
     }
 
     public function testPublishException()
@@ -104,7 +105,7 @@ class EventClientTest extends TestCase
             payload: [
                 "key" => "value",
             ],
-            id: "abc-123");
-
+            id: "abc-123"
+        );
     }
 }

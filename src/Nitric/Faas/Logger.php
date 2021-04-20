@@ -1,14 +1,13 @@
 <?php
 
-
 namespace Nitric\Faas;
-
 
 use Psr\Log\AbstractLogger;
 
 class Logger extends AbstractLogger
 {
-    static function interpolate($message, $context): string {
+    public static function interpolate($message, $context): string
+    {
         $contextTokens = array();
         foreach ($context as $k => $v) {
             $contextTokens["{" . $k . "}"] = print_r($v, true);
