@@ -9,8 +9,8 @@ use PHPUnit\Framework\TestCase;
  */
 class ContextTest extends TestCase
 {
-
-    function testContextFromHeaders() {
+    public function testContextFromHeaders()
+    {
         $headers = [
             "x-nitric-payload-type" => ["test payload type"],
             "x-nitric-request-id" => ["test id"],
@@ -24,22 +24,26 @@ class ContextTest extends TestCase
         $this->assertEquals("REQUEST", $context->getSourceType());
     }
 
-    function testRequestSourceType() {
+    public function testRequestSourceType()
+    {
         $context = new Context("", "", "REQUEST", null);
         $this->assertEquals(SourceType::REQUEST, $context->getSourceType());
     }
 
-    function testSubscriptionSourceType() {
+    public function testSubscriptionSourceType()
+    {
         $context = new Context("", "", "SUBSCRIPTION", null);
         $this->assertEquals(SourceType::SUBSCRIPTION, $context->getSourceType());
     }
 
-    function testUnknownSourceType() {
+    public function testUnknownSourceType()
+    {
         $context = new Context("", "", "invalid source type", null);
         $this->assertEquals(SourceType::UNKNOWN, $context->getSourceType());
     }
 
-    function testContextFromHeadersWithMissingKeys() {
+    public function testContextFromHeadersWithMissingKeys()
+    {
         $headers = [
             // x-nitric keys are missing.
             "content-type" => ["text\/plain"]

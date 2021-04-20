@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Nitric\Faas;
-
 
 class Request
 {
@@ -12,9 +10,10 @@ class Request
 
     /**
      * Request constructor.
+     *
      * @param Context $context
-     * @param string $payload
-     * @param string $path
+     * @param string  $payload
+     * @param string  $path
      */
     public function __construct(Context $context, string $payload, string $path)
     {
@@ -24,7 +23,7 @@ class Request
     }
 
 
-    static function fromHTTPRequest(array $headers, string $payload, string $path): Request
+    public static function fromHTTPRequest(array $headers, string $payload, string $path): Request
     {
         $context = Context::fromHeaders($headers);
 
@@ -33,8 +32,6 @@ class Request
             payload: $payload,
             path: $path
         );
-
-
     }
 
     /**

@@ -9,7 +9,8 @@ use PHPUnit\Framework\TestCase;
  */
 class FaasTest extends TestCase
 {
-    function testStart() {
+    public function testStart()
+    {
         $this->assertTrue(true);
         // TODO
 //        Faas::start(function ($request) {

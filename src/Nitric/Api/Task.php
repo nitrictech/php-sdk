@@ -11,12 +11,16 @@ class Task
     private string $payloadType;
     private string|null $leaseID;
 
-    public function __construct(array|stdClass $payload = null, string $payloadType = "", string $id = "", string $leaseId = null)
-    {
+    public function __construct(
+        array|stdClass $payload = null,
+        string $payloadType = "",
+        string $id = "",
+        string $leaseId = null
+    ) {
         $this->id = $id;
         $this->payload = $payload ?: new stdClass();
         $this->payloadType = $payloadType;
-        $this->leaseId = $leaseId;
+        $this->leaseID = $leaseId;
     }
 
     /**
@@ -72,7 +76,7 @@ class Task
      */
     public function getLeaseId(): string
     {
-        return $this->leaseId;
+        return $this->leaseID;
     }
 
     /**

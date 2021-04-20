@@ -1,25 +1,6 @@
 <?php
 
-
 namespace Nitric\Faas;
-
-
-abstract class SourceType
-{
-    const REQUEST = "REQUEST";
-    const SUBSCRIPTION = "SUBSCRIPTION";
-    const UNKNOWN = "UNKNOWN";
-
-    static function fromString($sourceType)
-    {
-        $sourceType = strtoupper($sourceType);
-        return match ($sourceType) {
-            self::REQUEST => self::REQUEST,
-            self::SUBSCRIPTION => self::SUBSCRIPTION,
-            default => self::UNKNOWN,
-        };
-    }
-}
 
 class Context
 {
@@ -30,13 +11,18 @@ class Context
 
     /**
      * Context constructor.
+     *
      * @param string|null $requestID
      * @param string|null $source
-     * @param string $sourceType
+     * @param string      $sourceType
      * @param string|null $payloadType
      */
-    public function __construct(string|null $requestID, string|null $source, string $sourceType, string|null $payloadType)
-    {
+    public function __construct(
+        string|null $requestID,
+        string|null $source,
+        string $sourceType,
+        string|null $payloadType
+    ) {
         $this->requestID = $requestID;
         $this->source = $source;
         $this->sourceType = SourceType::fromString($sourceType);
@@ -48,7 +34,7 @@ class Context
         return isset($array[$key]) ? $array[$key][0] : null;
     }
 
-    static function fromHeaders(array $headers): Context
+    public static function fromHeaders(array $headers): Context
     {
         $requestId = self::getValueIfExists($headers, "x-nitric-request-id");
         $sourceType = self::getValueIfExists($headers, "x-nitric-source-type") ?: "UNKNOWN";
@@ -126,5 +112,4 @@ class Context
     {
         $this->payloadType = $payloadType;
     }
-
 }

@@ -17,7 +17,6 @@ use const Grpc\STATUS_OK;
  */
 class KeyValueClientTest extends TestCase
 {
-
     public function testPutValue()
     {
         $stubUnaryCall = $this->stubCall(response: new KeyValuePutResponse());
@@ -64,7 +63,8 @@ class KeyValueClientTest extends TestCase
         $this->assertEquals($testValue, $value);
     }
 
-    public function testGetKeyThatDoesntExist() {
+    public function testGetKeyThatDoesntExist()
+    {
         $stubUnaryCall = $this->stubCall(STATUS_NOT_FOUND);
 
         $stubGrpcDocClient = $this->createMock(\Nitric\Proto\KeyValue\V1\KeyValueClient::class);
@@ -88,7 +88,8 @@ class KeyValueClientTest extends TestCase
      * @param Message|null $response
      * @return UnaryCall
      */
-    private function stubCall(int $statusCode = STATUS_OK, string $statusMsg = "", Message|null $response = null): UnaryCall {
+    private function stubCall(int $statusCode = STATUS_OK, string $statusMsg = "", Message|null $response = null): UnaryCall
+    {
         $status = new stdClass();
         $status->code = $statusCode;
         $status->details = $statusMsg;
