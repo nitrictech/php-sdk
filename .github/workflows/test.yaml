@@ -1,0 +1,36 @@
+name: Tests
+
+on: pull_request
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        token: ${{secrets.SUB_MODULE_PAT}}
+        submodules: recursive
+    - name: Setup grpc
+      uses: eWaterCycle/setup-grpc@v4
+      with:
+        grpc-version: 1.30.2
+    - name: Setup PHP with PECL extension
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8'
+        extensions: grpc, protobuf, xdebug
+        tools: phpunit, composer:v2
+    - name: Cache Composer Dependencies
+      uses: actions/cache@v2
+      with:
+        path: 'vendor'
+        key: ${{ runner.os }}-modules-${{ hashFiles('composer.lock') }}
+    - name: Install Modules
+      run: composer install
+    - name: License Header Check
+      run: composer license-header-check
+    - name: Generate proto
+      run: composer gen-sources
+    - name: Run tests
+      run: composer test
