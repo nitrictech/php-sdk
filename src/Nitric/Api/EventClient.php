@@ -25,10 +25,10 @@ use Nitric\Proto\Event\V1\EventPublishRequest;
 use Nitric\Proto\Event\V1\EventClient as GrpcClient;
 
 /**
- * Class AbortedException
+ * Class EventClient provides a client for the Nitric Event Service.
  *
  * @category Sdk
- * @package  Api
+ * @package Nitric\Api
  * @author   Nitric <maintainers@nitric.io>
  * @license  http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link     https://nitric.io

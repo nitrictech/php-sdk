@@ -20,6 +20,10 @@ namespace Nitric\Api\Exception;
 
 use Exception;
 
+/**
+ * Class FailedPreconditionException
+ * @package Nitric\Api\Exception
+ */
 class FailedPreconditionException extends Exception
 {
 }

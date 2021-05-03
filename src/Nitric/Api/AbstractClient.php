@@ -56,11 +56,10 @@ use const Grpc\STATUS_UNAVAILABLE;
 use const Grpc\STATUS_UNIMPLEMENTED;
 
 /**
- * Class AbstractClient
+ * Class AbstractClient, provides common client class functionality and configuration.
+ * Only used when implementing a new gRPC client for the Nitric API.
  *
- * Provides common client class functionality and configuration.
- *
- * @package Nitric\V1
+ * @package Nitric\Api
  */
 abstract class AbstractClient
 {

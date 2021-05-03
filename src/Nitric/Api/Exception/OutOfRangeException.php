@@ -20,6 +20,10 @@ namespace Nitric\Api\Exception;
 
 use Exception;
 
+/**
+ * Class OutOfRangeException
+ * @package Nitric\Api\Exception
+ */
 class OutOfRangeException extends Exception
 {
 }

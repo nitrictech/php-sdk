@@ -30,6 +30,7 @@
     "license-header-check": "docheader check src/",
     "pre-gen-sources": "rm -rf ./interfaces/ && mkdir ./interfaces/",
     "gen-sources": "composer pre-gen-sources && protoc --php_out=./interfaces/ --plugin=protoc-gen-grpc=$(which grpc_php_plugin) --grpc_out=./interfaces/ -I ./contracts/proto/ ./contracts/proto/**/**/*.proto",
+    "gen-docs": "docker run --rm -v $(pwd):/data phpdoc/phpdoc:3.1 -d /data/src -t /data/docs",
     "test": "phpunit",
     "post-install-cmd": [
       "vendor/bin/cghooks add",
@@ -41,7 +42,8 @@
       "pre-commit": [
         "vendor/bin/phpcbf --standard=PSR12 src",
         "vendor/bin/phpcs --standard=PSR12 src",
-        "vendor/bin/phpstan analyse src tests"
+        "vendor/bin/phpstan analyse src tests",
+        "composer gen-docs"
       ],
       "pre-push": [
         "vendor/bin/phpunit --do-not-cache-result"

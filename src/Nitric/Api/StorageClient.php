@@ -24,6 +24,10 @@ use Nitric\Proto\Storage\V1\StorageReadRequest;
 use Nitric\Proto\Storage\V1\StorageReadResponse;
 use Nitric\Proto\Storage\V1\StorageWriteRequest;
 
+/**
+ * Class StorageClient provides a client for the Nitric Storage Service.
+ * @package Nitric\Api
+ */
 class StorageClient extends AbstractClient
 {
     private GrpcClient $client;

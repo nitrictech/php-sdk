@@ -18,6 +18,10 @@
 
 namespace Nitric\Faas;
 
+/**
+ * Class Context represents the metadata of a FaaS request, including the source, payload type, unique request Id, etc.
+ * @package Nitric\Faas
+ */
 class Context
 {
     private string|null $requestID;

@@ -18,6 +18,10 @@
 
 namespace Nitric\Api;
 
+/**
+ * Class FailedTask represents a task that was unable to be sent, along with the reason for the failure.
+ * @package Nitric\Api
+ */
 class FailedTask
 {
     private Task|null $task;

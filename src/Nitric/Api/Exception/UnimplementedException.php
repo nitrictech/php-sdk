@@ -20,6 +20,10 @@ namespace Nitric\Api\Exception;
 
 use Exception;
 
+/**
+ * Class UnimplementedException
+ * @package Nitric\Api\Exception
+ */
 class UnimplementedException extends Exception
 {
 }

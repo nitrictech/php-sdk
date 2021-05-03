@@ -26,6 +26,10 @@ use Nitric\Proto\KeyValue\V1\KeyValueDeleteRequest;
 use Nitric\Proto\KeyValue\V1\KeyValueGetResponse;
 use stdClass;
 
+/**
+ * Class KeyValueClient provides a client for the Nitric Key Value Service.
+ * @package Nitric\Api
+ */
 class KeyValueClient extends AbstractClient
 {
     private GrpcClient $client;

@@ -18,12 +18,31 @@
 
 namespace Nitric\Faas;
 
+/**
+ * Class SourceType represents the source type of a request such as HTTP Requests and Subscription Events.
+ * @package Nitric\Faas
+ */
 abstract class SourceType
 {
+    /**
+     * HTTP Request source type
+     */
     public const REQUEST = "REQUEST";
+    /**
+     * Event source type
+     */
     public const SUBSCRIPTION = "SUBSCRIPTION";
+    /**
+     * Unknown source type
+     */
     public const UNKNOWN = "UNKNOWN";
 
+    /**
+     * Parse a SourceType from a string representation. Supported values are:
+     * REQUEST & SUBSCRIPTION, all other values will return UNKNOWN.
+     * @param $sourceType
+     * @return string
+     */
     public static function fromString($sourceType)
     {
         $sourceType = strtoupper($sourceType);

@@ -20,6 +20,11 @@ namespace Nitric\Api;
 
 use stdClass;
 
+/**
+ * Class Task represents a task message to be sent or received via a queue.
+ * @see QueueClient
+ * @package Nitric\Api
+ */
 class Task
 {
     private string $id;

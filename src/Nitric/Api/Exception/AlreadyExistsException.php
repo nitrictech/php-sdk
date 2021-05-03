@@ -20,6 +20,10 @@ namespace Nitric\Api\Exception;
 
 use Exception;
 
+/**
+ * Class AlreadyExistsException
+ * @package Nitric\Api\Exception
+ */
 class AlreadyExistsException extends Exception
 {
 }

@@ -24,12 +24,28 @@ use Amp\Http\Server\Request;
 use Amp\Http\Server\Response;
 use Amp\Loop;
 use Amp\Socket\Server;
+use Closure;
 
+/**
+ * Function-as-a-Service (Faas) class provides method that assist in writing Serverless Functions, using PHP.
+ * @package Nitric\Faas
+ */
 class Faas
 {
+    /**
+     * Bind address for the FaaS service, defaults to "127.0.0.1:8080".
+     * Can be modified via CHILD_ADDRESS environment variable.
+     */
     private const CHILD_ADDRESS = "CHILD_ADDRESS";
 
-    public static function start($handler)
+    /**
+     * Begin handling FaaS triggers such as HTTP requests and Events.
+     * Each trigger will be passed to the provided handler function, which accepts a Request and returns a Response.
+     * @see \Nitric\Faas\Request
+     * @see \Nitric\Faas\Response
+     * @param $handler Closure function that handles incoming requests
+     */
+    public static function start(Closure $handler)
     {
         $address = getenv(self::CHILD_ADDRESS) ?: "127.0.0.1:8080";
 
@@ -77,7 +93,12 @@ class Faas
         );
     }
 
-    public static function httpResponse(\Nitric\Faas\Response $response): Response
+    /**
+     * Convert a NitricResponse to a HTTP response. Used when the FaaS service is operating as an HTTP server.
+     * @param \Nitric\Faas\Response $response to be converted
+     * @return Response HTTP response representing the input response
+     */
+    private static function httpResponse(\Nitric\Faas\Response $response): Response
     {
         return new Response(
             $response->getStatus(),

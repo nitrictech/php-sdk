@@ -20,6 +20,10 @@ namespace Nitric\Api\Exception;
 
 use Exception;
 
+/**
+ * Class AbortedException
+ * @package Nitric\Api\Exception
+ */
 class AbortedException extends Exception
 {
 }

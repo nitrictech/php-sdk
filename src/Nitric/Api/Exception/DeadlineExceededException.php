@@ -20,6 +20,10 @@ namespace Nitric\Api\Exception;
 
 use Exception;
 
+/**
+ * Class DeadlineExceededException
+ * @package Nitric\Api\Exception
+ */
 class DeadlineExceededException extends Exception
 {
 }

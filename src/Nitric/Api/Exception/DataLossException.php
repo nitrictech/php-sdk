@@ -20,6 +20,10 @@ namespace Nitric\Api\Exception;
 
 use Exception;
 
+/**
+ * Class DataLossException
+ * @package Nitric\Api\Exception
+ */
 class DataLossException extends Exception
 {
 }

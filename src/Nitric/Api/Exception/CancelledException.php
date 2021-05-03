@@ -20,6 +20,10 @@ namespace Nitric\Api\Exception;
 
 use Exception;
 
+/**
+ * Class CancelledException
+ * @package Nitric\Api\Exception
+ */
 class CancelledException extends Exception
 {
 }

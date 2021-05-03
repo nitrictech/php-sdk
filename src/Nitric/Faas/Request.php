@@ -18,6 +18,10 @@
 
 namespace Nitric\Faas;
 
+/**
+ * Class Request represents a normalized request in the Nitric runtime.
+ * @package Nitric\Faas
+ */
 class Request
 {
     private Context $context;
@@ -39,6 +43,14 @@ class Request
     }
 
 
+    /**
+     * Return a Request from an HTTP request using standard conventions. Used when FaaS services is operating as
+     * an HTTP server.
+     * @param array $headers
+     * @param string $payload
+     * @param string $path
+     * @return Request
+     */
     public static function fromHTTPRequest(array $headers, string $payload, string $path): Request
     {
         $context = Context::fromHeaders($headers);

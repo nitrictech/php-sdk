@@ -18,6 +18,11 @@
 
 namespace Nitric\Faas;
 
+/**
+ * Class Response represents a normalized response in the Nitric runtime. Will be converted to a specific response type
+ * such as an HTTP response, depending on runtime environment.
+ * @package Nitric\Faas
+ */
 class Response
 {
     private string $body;

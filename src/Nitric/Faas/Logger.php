@@ -20,8 +20,18 @@ namespace Nitric\Faas;
 
 use Psr\Log\AbstractLogger;
 
+/**
+ * Class Logger provides a basic logger implementation, enabling the FaaS HTTP server to print to stdout.
+ * @package Nitric\Faas
+ */
 class Logger extends AbstractLogger
 {
+    /**
+     * Combine a message and its context into a static string.
+     * @param string $message template string
+     * @param array $context message context, containing variables to be merged into $message
+     * @return string the resulting message string, with context merged
+     */
     public static function interpolate($message, $context): string
     {
         $contextTokens = array();
@@ -31,6 +41,12 @@ class Logger extends AbstractLogger
         return strtr($message, $contextTokens);
     }
 
+    /**
+     * Log output to stdout (printf) in the format: `{level}: {message}\n{exception}`.
+     * @param mixed $level log level
+     * @param string $message to be merged with $context before output
+     * @param array $context to be merged into $message before output
+     */
     public function log($level, $message, array $context = array())
     {
         $mergedMessage = self::interpolate($message, $context);

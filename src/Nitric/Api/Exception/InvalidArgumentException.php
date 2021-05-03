@@ -20,6 +20,10 @@ namespace Nitric\Api\Exception;
 
 use Exception;
 
+/**
+ * Class InvalidArgumentException
+ * @package Nitric\Api\Exception
+ */
 class InvalidArgumentException extends Exception
 {
 }

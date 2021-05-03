@@ -20,6 +20,10 @@ namespace Nitric\Api\Exception;
 
 use Exception;
 
+/**
+ * Class PermissionDeniedException
+ * @package Nitric\Api\Exception
+ */
 class PermissionDeniedException extends Exception
 {
 }

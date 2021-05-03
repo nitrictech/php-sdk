@@ -20,6 +20,10 @@ namespace Nitric\Api\Exception;
 
 use Exception;
 
+/**
+ * Class InternalException
+ * @package Nitric\Api\Exception
+ */
 class InternalException extends Exception
 {
 }

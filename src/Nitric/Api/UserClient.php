@@ -21,6 +21,10 @@ namespace Nitric\Api;
 use Nitric\Proto\Auth\V1\UserCreateRequest;
 use Nitric\Proto\Auth\V1\UserClient as GrpcClient;
 
+/**
+ * Class UserClient provides a client for the Nitric User Service.
+ * @package Nitric\Api
+ */
 class UserClient extends AbstractClient
 {
     private GrpcClient $client;

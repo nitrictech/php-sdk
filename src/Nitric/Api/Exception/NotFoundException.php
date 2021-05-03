@@ -20,6 +20,10 @@ namespace Nitric\Api\Exception;
 
 use Exception;
 
+/**
+ * Class NotFoundException
+ * @package Nitric\Api\Exception
+ */
 class NotFoundException extends Exception
 {
 }

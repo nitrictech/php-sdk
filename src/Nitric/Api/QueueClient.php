@@ -26,6 +26,10 @@ use Nitric\Proto\Queue\V1\QueueReceiveResponse;
 use Nitric\Proto\Queue\V1\QueueSendBatchRequest;
 use Nitric\Proto\Queue\V1\QueueSendBatchResponse;
 
+/**
+ * Class QueueClient provides a client for the Nitric Queue Service.
+ * @package Nitric\Api
+ */
 class QueueClient extends AbstractClient
 {
     private GrpcClient $client;

@@ -20,6 +20,11 @@ namespace Nitric\Api;
 
 use stdClass;
 
+/**
+ * Class Event represents an event, sent via topics and subscriptions.
+ * @see EventClient
+ * @package Nitric\Api
+ */
 class Event
 {
     private string $id;

@@ -23,6 +23,10 @@ use Nitric\Proto\Event\V1\TopicClient as GrpcClient;
 use Nitric\Proto\Event\V1\TopicListRequest;
 use Nitric\Proto\Event\V1\TopicListResponse;
 
+/**
+ * Class TopicClient provides a client for the Nitric Topic Service.
+ * @package Nitric\Api
+ */
 class TopicClient extends AbstractClient
 {
     private GrpcClient $client;
