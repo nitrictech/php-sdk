@@ -51,7 +51,7 @@
       "post-merge": "composer install"
     }
   },
-  "license": "proprietary",
+  "license": "Apache-2.0",
   "authors": [
     {
       "name": "Nitric",

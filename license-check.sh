@@ -1,0 +1,1 @@
+exit $(composer licenses --format=json | jq -c '.dependencies[].license[]' | grep -v -E 'MIT|BSD-3-Clause|Apache-2.0' | wc -l)
