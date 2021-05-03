@@ -28,6 +28,8 @@ jobs:
         key: ${{ runner.os }}-modules-${{ hashFiles('composer.lock') }}
     - name: Install Modules
       run: composer install
+    - name: OSS License Checks
+      run: ./license-check.sh
     - name: License Header Check
       run: composer license-header-check
     - name: Generate proto
