@@ -25,6 +25,7 @@ use Nitric\Proto\Queue\V1\QueueReceiveRequest;
 use Nitric\Proto\Queue\V1\QueueReceiveResponse;
 use Nitric\Proto\Queue\V1\QueueSendBatchRequest;
 use Nitric\Proto\Queue\V1\QueueSendBatchResponse;
+use Nitric\Proto\Queue\V1\QueueSendRequest;
 
 /**
  * Class QueueClient provides a client for the Nitric Queue Service.
@@ -49,6 +50,29 @@ class QueueClient extends AbstractClient
         }
     }
 
+    private static function taskToWire(Task $task): NitricTask 
+    {
+        $ne = new NitricTask();
+        $ne->setPayload(
+            self::structFromClass($task->getPayload())
+        );
+        $ne->setPayloadType($task->getPayloadType());
+        $ne->setId($task->getId());
+
+        return $ne;
+    }
+
+    public function send(string $queueName, Task $task)
+    {
+        $request = new QueueSendRequest();
+        $request->setQueue($queueName);
+
+        $request->setTask(self::taskToWire($task));
+
+        [$response, $status] = $this->client->Send($request)->wait();
+        $this->okOrThrow($status);
+    }
+
     /**
      * Send a collection of tasks to a queue, which can be received by other services.
      *
@@ -64,13 +88,7 @@ class QueueClient extends AbstractClient
 
         $nitricTasks = array_map(
             function (Task $task) {
-                $ne = new NitricTask();
-                $ne->setPayload(
-                    self::structFromClass($task->getPayload())
-                );
-                $ne->setPayloadType($task->getPayloadType());
-                $ne->setId($task->getId());
-                return $ne;
+                return self::taskToWire($task);
             },
             $tasks
         );
