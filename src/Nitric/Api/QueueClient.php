@@ -26,6 +26,7 @@ use Nitric\Proto\Queue\V1\QueueReceiveResponse;
 use Nitric\Proto\Queue\V1\QueueSendBatchRequest;
 use Nitric\Proto\Queue\V1\QueueSendBatchResponse;
 use Nitric\Proto\Queue\V1\QueueSendRequest;
+use Nitric\Proto\Queue\V1\QueueCompleteRequest;
 
 /**
  * Class QueueClient provides a client for the Nitric Queue Service.
@@ -50,7 +51,7 @@ class QueueClient extends AbstractClient
         }
     }
 
-    private static function taskToWire(Task $task): NitricTask 
+    private static function taskToWire(Task $task): NitricTask
     {
         $ne = new NitricTask();
         $ne->setPayload(
@@ -158,5 +159,15 @@ class QueueClient extends AbstractClient
             },
             [...$response->getTasks()]
         );
+    }
+
+    public function complete(string $queue, string $leaseId) {
+        $request = new QueueCompleteRequest();
+
+        $request->setQueue($queue);
+        $request->setLeaseId($leaseId);
+
+        [$response, $status] = $this->client->Complete($request);
+        $this->okOrThrow($status);
     }
 }
