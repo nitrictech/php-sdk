@@ -161,7 +161,8 @@ class QueueClient extends AbstractClient
         );
     }
 
-    public function complete(string $queue, string $leaseId) {
+    public function complete(string $queue, string $leaseId)
+    {
         $request = new QueueCompleteRequest();
 
         $request->setQueue($queue);
