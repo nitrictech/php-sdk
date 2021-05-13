@@ -25,6 +25,8 @@ use Nitric\Proto\Queue\V1\QueueReceiveRequest;
 use Nitric\Proto\Queue\V1\QueueReceiveResponse;
 use Nitric\Proto\Queue\V1\QueueSendBatchRequest;
 use Nitric\Proto\Queue\V1\QueueSendBatchResponse;
+use Nitric\Proto\Queue\V1\QueueSendRequest;
+use Nitric\Proto\Queue\V1\QueueCompleteRequest;
 
 /**
  * Class QueueClient provides a client for the Nitric Queue Service.
@@ -50,27 +52,58 @@ class QueueClient extends AbstractClient
     }
 
     /**
+     * Convert the API class representing a task to the protobuf class
+     *
+     * @param Task $task
+     * @return NitricTask
+     * @throws Exception
+     */
+    private static function taskToWire(Task $task): NitricTask
+    {
+        $ne = new NitricTask();
+        $ne->setPayload(
+            self::structFromClass($task->getPayload())
+        );
+        $ne->setPayloadType($task->getPayloadType());
+        $ne->setId($task->getId());
+
+        return $ne;
+    }
+
+    /**
+     * Send a task to a queue, which can be received by other services.
+     *
+     * @param string $queue the name of the queue to publish to
+     * @param Task $task        the task to push to the queue
+     * @throws Exception
+     */
+    public function send(string $queue, Task $task)
+    {
+        $request = new QueueSendRequest();
+        $request->setQueue($queue);
+
+        $request->setTask(self::taskToWire($task));
+
+        [$response, $status] = $this->client->Send($request)->wait();
+        $this->okOrThrow($status);
+    }
+
+    /**
      * Send a collection of tasks to a queue, which can be received by other services.
      *
-     * @param  string $queueName the name of the queue to publish to
+     * @param  string $queue the name of the queue to publish to
      * @param  Task[] $tasks     The tasks to push to the queue
      * @return FailedTask[] containing a list containing details of any messages that failed to publish.
      * @throws Exception
      */
-    public function sendBatch(string $queueName, array $tasks): array
+    public function sendBatch(string $queue, array $tasks): array
     {
         $request = new QueueSendBatchRequest();
-        $request->setQueue($queueName);
+        $request->setQueue($queue);
 
         $nitricTasks = array_map(
             function (Task $task) {
-                $ne = new NitricTask();
-                $ne->setPayload(
-                    self::structFromClass($task->getPayload())
-                );
-                $ne->setPayloadType($task->getPayloadType());
-                $ne->setId($task->getId());
-                return $ne;
+                return self::taskToWire($task);
             },
             $tasks
         );
@@ -140,5 +173,22 @@ class QueueClient extends AbstractClient
             },
             [...$response->getTasks()]
         );
+    }
+
+    /**
+     * Mark a task as complete, removing it from the queue to prevent reprocessing.
+     *
+     * @param string $queue the task came from
+     * @param string $leaseId for the task, provided when receiving the task
+     */
+    public function complete(string $queue, string $leaseId)
+    {
+        $request = new QueueCompleteRequest();
+
+        $request->setQueue($queue);
+        $request->setLeaseId($leaseId);
+
+        [$response, $status] = $this->client->Complete($request);
+        $this->okOrThrow($status);
     }
 }

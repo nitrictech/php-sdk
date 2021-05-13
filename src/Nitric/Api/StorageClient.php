@@ -20,6 +20,8 @@ namespace Nitric\Api;
 
 use Exception;
 use Nitric\Proto\Storage\V1\StorageClient as GrpcClient;
+use Nitric\Proto\Storage\V1\StorageDeleteRequest;
+use Nitric\Proto\Storage\V1\StorageDeleteResponse;
 use Nitric\Proto\Storage\V1\StorageReadRequest;
 use Nitric\Proto\Storage\V1\StorageReadResponse;
 use Nitric\Proto\Storage\V1\StorageWriteRequest;
@@ -83,5 +85,20 @@ class StorageClient extends AbstractClient
         $response = (fn ($r): StorageReadResponse => $r)($response);
 
         return $response->getBody();
+    }
+
+     /**
+     * @param  string $bucket Nitric name of the bucket where the file is stored.
+     * @param  string $key    for the file to retrieve
+     * @throws Exception
+     */
+    public function delete(string $bucket, string $key)
+    {
+        $request = new StorageDeleteRequest();
+        $request->setBucketName($bucket);
+        $request->setKey($key);
+
+        [$response, $status] = $this->client->Delete($request)->wait();
+        $this->okOrThrow($status);
     }
 }
