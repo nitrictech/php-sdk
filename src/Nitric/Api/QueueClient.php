@@ -51,6 +51,13 @@ class QueueClient extends AbstractClient
         }
     }
 
+    /**
+     * Convert the API class representing a task to the protobuf class
+     *
+     * @param Task $task
+     * @return NitricTask
+     * @throws Exception
+     */
     private static function taskToWire(Task $task): NitricTask
     {
         $ne = new NitricTask();
@@ -63,10 +70,17 @@ class QueueClient extends AbstractClient
         return $ne;
     }
 
-    public function send(string $queueName, Task $task)
+    /**
+     * Send a task to a queue, which can be received by other services.
+     *
+     * @param string $queue the name of the queue to publish to
+     * @param Task $task        the task to push to the queue
+     * @throws Exception
+     */
+    public function send(string $queue, Task $task)
     {
         $request = new QueueSendRequest();
-        $request->setQueue($queueName);
+        $request->setQueue($queue);
 
         $request->setTask(self::taskToWire($task));
 
@@ -77,15 +91,15 @@ class QueueClient extends AbstractClient
     /**
      * Send a collection of tasks to a queue, which can be received by other services.
      *
-     * @param  string $queueName the name of the queue to publish to
+     * @param  string $queue the name of the queue to publish to
      * @param  Task[] $tasks     The tasks to push to the queue
      * @return FailedTask[] containing a list containing details of any messages that failed to publish.
      * @throws Exception
      */
-    public function sendBatch(string $queueName, array $tasks): array
+    public function sendBatch(string $queue, array $tasks): array
     {
         $request = new QueueSendBatchRequest();
-        $request->setQueue($queueName);
+        $request->setQueue($queue);
 
         $nitricTasks = array_map(
             function (Task $task) {
@@ -161,6 +175,12 @@ class QueueClient extends AbstractClient
         );
     }
 
+    /**
+     * Mark a task as complete, removing it from the queue to prevent reprocessing.
+     *
+     * @param string $queue the task came from
+     * @param string $leaseId for the task, provided when receiving the task
+     */
     public function complete(string $queue, string $leaseId)
     {
         $request = new QueueCompleteRequest();
