@@ -271,6 +271,16 @@ Search.appendIndex(
             "summary": "QueueClient\u0020constructor.",
             "url": "classes/Nitric-Api-QueueClient.html#method___construct"
         },                {
+            "fqsen": "\\Nitric\\Api\\QueueClient\u003A\u003AtaskToWire\u0028\u0029",
+            "name": "taskToWire",
+            "summary": "Convert\u0020the\u0020API\u0020class\u0020representing\u0020a\u0020task\u0020to\u0020the\u0020protobuf\u0020class",
+            "url": "classes/Nitric-Api-QueueClient.html#method_taskToWire"
+        },                {
+            "fqsen": "\\Nitric\\Api\\QueueClient\u003A\u003Asend\u0028\u0029",
+            "name": "send",
+            "summary": "Send\u0020a\u0020task\u0020to\u0020a\u0020queue,\u0020which\u0020can\u0020be\u0020received\u0020by\u0020other\u0020services.",
+            "url": "classes/Nitric-Api-QueueClient.html#method_send"
+        },                {
             "fqsen": "\\Nitric\\Api\\QueueClient\u003A\u003AsendBatch\u0028\u0029",
             "name": "sendBatch",
             "summary": "Send\u0020a\u0020collection\u0020of\u0020tasks\u0020to\u0020a\u0020queue,\u0020which\u0020can\u0020be\u0020received\u0020by\u0020other\u0020services.",
@@ -280,6 +290,11 @@ Search.appendIndex(
             "name": "receive",
             "summary": "Pop\u00201\u0020or\u0020more\u0020items\u0020from\u0020the\u0020specified\u0020queue\u0020up\u0020to\u0020the\u0020depth\u0020limit.",
             "url": "classes/Nitric-Api-QueueClient.html#method_receive"
+        },                {
+            "fqsen": "\\Nitric\\Api\\QueueClient\u003A\u003Acomplete\u0028\u0029",
+            "name": "complete",
+            "summary": "Mark\u0020a\u0020task\u0020as\u0020complete,\u0020removing\u0020it\u0020from\u0020the\u0020queue\u0020to\u0020prevent\u0020reprocessing.",
+            "url": "classes/Nitric-Api-QueueClient.html#method_complete"
         },                {
             "fqsen": "\\Nitric\\Api\\QueueClient\u003A\u003A\u0024client",
             "name": "client",
@@ -305,6 +320,11 @@ Search.appendIndex(
             "name": "read",
             "summary": "",
             "url": "classes/Nitric-Api-StorageClient.html#method_read"
+        },                {
+            "fqsen": "\\Nitric\\Api\\StorageClient\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "",
+            "url": "classes/Nitric-Api-StorageClient.html#method_delete"
         },                {
             "fqsen": "\\Nitric\\Api\\StorageClient\u003A\u003A\u0024client",
             "name": "client",

@@ -112,7 +112,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/QueueClient.php"><a href="files/nitric-api-queueclient.html"><abbr title="Nitric/Api/QueueClient.php">QueueClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 </aside>
 
             <p class="phpdocumentor-summary">Class QueueClient provides a client for the Nitric Queue Service.</p>
@@ -174,11 +174,25 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Nitric-Api-QueueClient.html#method_complete">complete()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd>Mark a task as complete, removing it from the queue to prevent reprocessing.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Nitric-Api-QueueClient.html#method_receive">receive()</a>
     <span>
                         &nbsp;: array&lt;string|int, <a href="classes/Nitric-Api-Task.html"><abbr title="\Nitric\Api\Task">Task</abbr></a>&gt;    </span>
 </dt>
 <dd>Pop 1 or more items from the specified queue up to the depth limit.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Nitric-Api-QueueClient.html#method_send">send()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd>Send a task to a queue, which can be received by other services.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Nitric-Api-QueueClient.html#method_sendBatch">sendBatch()</a>
@@ -201,6 +215,13 @@
 </dt>
 <dd>Check the status returned from an autogenerate gRPC client call. If any status other than OK is detected, throw
 the corresponding exception type.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/Nitric-Api-QueueClient.html#method_taskToWire">taskToWire()</a>
+    <span>
+                        &nbsp;: <abbr title="\Nitric\Proto\Queue\V1\NitricTask">NitricTask</abbr>    </span>
+</dt>
+<dd>Convert the API class representing a task to the protobuf class</dd>
 
         </dl>
 
@@ -330,7 +351,7 @@ the corresponding exception type.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/QueueClient.php"><a href="files/nitric-api-queueclient.html"><abbr title="Nitric/Api/QueueClient.php">QueueClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 </aside>
 
     
@@ -367,7 +388,7 @@ the corresponding exception type.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/QueueClient.php"><a href="files/nitric-api-queueclient.html"><abbr title="Nitric/Api/QueueClient.php">QueueClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 </aside>
 
         <p class="phpdocumentor-summary">QueueClient constructor.</p>
@@ -447,6 +468,59 @@ the corresponding exception type.</dd>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_complete">
+        complete()
+        <a href="classes/Nitric-Api-QueueClient.html#method_complete" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/QueueClient.php"><a href="files/nitric-api-queueclient.html"><abbr title="Nitric/Api/QueueClient.php">QueueClient.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">184</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Mark a task as complete, removing it from the queue to prevent reprocessing.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">complete</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$queue</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$leaseId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$queue</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>the task came from</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$leaseId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>for the task, provided when receiving the task</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_receive">
         receive()
         <a href="classes/Nitric-Api-QueueClient.html#method_receive" class="headerlink"><i class="fas fa-link"></i></a>
@@ -454,7 +528,7 @@ the corresponding exception type.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/QueueClient.php"><a href="files/nitric-api-queueclient.html"><abbr title="Nitric/Api/QueueClient.php">QueueClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">118</span>
+    <span class="phpdocumentor-element-found-in__line">151</span>
 </aside>
 
         <p class="phpdocumentor-summary">Pop 1 or more items from the specified queue up to the depth limit.</p>
@@ -522,6 +596,73 @@ This will be automatically resolved to the provider specific identifier.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_send">
+        send()
+        <a href="classes/Nitric-Api-QueueClient.html#method_send" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/QueueClient.php"><a href="files/nitric-api-queueclient.html"><abbr title="Nitric/Api/QueueClient.php">QueueClient.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">80</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Send a task to a queue, which can be received by other services.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">send</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$queue</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Nitric-Api-Task.html"><abbr title="\Nitric\Api\Task">Task</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$task</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$queue</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>the name of the queue to publish to</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$task</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Nitric-Api-Task.html"><abbr title="\Nitric\Api\Task">Task</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>the task to push to the queue</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_sendBatch">
         sendBatch()
         <a href="classes/Nitric-Api-QueueClient.html#method_sendBatch" class="headerlink"><i class="fas fa-link"></i></a>
@@ -529,20 +670,20 @@ This will be automatically resolved to the provider specific identifier.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/QueueClient.php"><a href="files/nitric-api-queueclient.html"><abbr title="Nitric/Api/QueueClient.php">QueueClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">60</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 </aside>
 
         <p class="phpdocumentor-summary">Send a collection of tasks to a queue, which can be received by other services.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">sendBatch</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$queueName</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Nitric-Api-Task.html"><abbr title="\Nitric\Api\Task">Task</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tasks</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Nitric-Api-FailedTask.html"><abbr title="\Nitric\Api\FailedTask">FailedTask</abbr></a>&gt;</span></code>
+                <span class="phpdocumentor-signature__name">sendBatch</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$queue</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Nitric-Api-Task.html"><abbr title="\Nitric\Api\Task">Task</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tasks</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Nitric-Api-FailedTask.html"><abbr title="\Nitric\Api\FailedTask">FailedTask</abbr></a>&gt;</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$queueName</span>
+                <span class="phpdocumentor-signature__argument__name">$queue</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
@@ -667,6 +808,62 @@ the corresponding exception type.</p>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_taskToWire">
+        taskToWire()
+        <a href="classes/Nitric-Api-QueueClient.html#method_taskToWire" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/QueueClient.php"><a href="files/nitric-api-queueclient.html"><abbr title="Nitric/Api/QueueClient.php">QueueClient.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">61</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Convert the API class representing a task to the protobuf class</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">taskToWire</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Nitric-Api-Task.html"><abbr title="\Nitric\Api\Task">Task</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$task</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Nitric\Proto\Queue\V1\NitricTask">NitricTask</abbr></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$task</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Nitric-Api-Task.html"><abbr title="\Nitric\Api\Task">Task</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\Nitric\Proto\Queue\V1\NitricTask">NitricTask</abbr></span>
             &mdash;
         
     
