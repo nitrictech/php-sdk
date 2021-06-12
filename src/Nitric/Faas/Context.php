@@ -18,118 +18,88 @@
 
 namespace Nitric\Faas;
 
+use Nitric\Proto\Faas\V1\HttpTriggerContext;
+use Nitric\Proto\Faas\V1\TopicTriggerContext;
+use Nitric\Proto\Faas\V1\TriggerRequest;
+
 /**
- * Class Context represents the metadata of a FaaS request, including the source, payload type, unique request Id, etc.
+ * Class Context represents the metadata of a FaaS request
  * @package Nitric\Faas
  */
-class Context
+abstract class Context
 {
-    private string|null $requestID;
-    private string|null $source;
-    private string $sourceType;
-    private string|null $payloadType;
 
     /**
-     * Context constructor.
-     *
-     * @param string|null $requestID
-     * @param string|null $source
-     * @param string      $sourceType
-     * @param string|null $payloadType
+     * @return boolean
      */
-    public function __construct(
-        string|null $requestID,
-        string|null $source,
-        string $sourceType,
-        string|null $payloadType
-    ) {
-        $this->requestID = $requestID;
-        $this->source = $source;
-        $this->sourceType = SourceType::fromString($sourceType);
-        $this->payloadType = $payloadType;
+    public function isTopic()
+    {
+        return $this instanceof TopicContext;
     }
 
-    private static function getValueIfExists($array, $key)
+    /**
+     * @return boolean
+     */
+    public function isHttp()
     {
-        return isset($array[$key]) ? $array[$key][0] : null;
+        return $this instanceof HttpContext;
     }
 
-    public static function fromHeaders(array $headers): Context
+    /**
+     * @return TopicContext
+     */
+    public function asTopicContext()
     {
-        $requestId = self::getValueIfExists($headers, "x-nitric-request-id");
-        $sourceType = self::getValueIfExists($headers, "x-nitric-source-type") ?: "UNKNOWN";
-        $source =  self::getValueIfExists($headers, "x-nitric-source");
-        $payloadType = self::getValueIfExists($headers, "x-nitric-payload-type");
+        if ($this instanceof TopicContext) {
+            return $this;
+        }
+        // Throw exception
+    }
 
-        return new Context(
-            $requestId,
-            $source,
-            $sourceType,
-            $payloadType
+    /**
+     * @return HttpContext
+     */
+    public function asHttpContext()
+    {
+        if ($this instanceof HttpContext) {
+            return $this;
+        }
+
+        // Throw exception
+    }
+
+    /**
+     * @return HttpContext
+     */
+    public static function fromHttpTriggerContext(HttpTriggerContext $context)
+    {
+        return new HttpContext(
+            $context->getMethod(),
+            (array) $context->getHeaders(),
+            (array) $context->getQueryParams(),
+            (array) $context->getPathParams()
         );
     }
 
     /**
-     * @return string
+     * @return TopicContext
      */
-    public function getRequestID(): string|null
+    public static function fromTopicTriggerContext(TopicTriggerContext $context)
     {
-        return $this->requestID;
+        return new TopicContext(
+            $context->getTopic()
+        );
     }
 
     /**
-     * @param string $requestID
+     * @return Context
      */
-    public function setRequestID(string|null $requestID): void
+    public static function fromTriggerRequest(TriggerRequest $request)
     {
-        $this->requestID = $requestID;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSource(): string|null
-    {
-        return $this->source;
-    }
-
-    /**
-     * @param string $source
-     */
-    public function setSource(string|null $source): void
-    {
-        $this->source = $source;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSourceType(): string
-    {
-        return $this->sourceType;
-    }
-
-    /**
-     * @param string $sourceType
-     */
-    public function setSourceType(string $sourceType): void
-    {
-        $this->sourceType = SourceType::fromString($sourceType);
-    }
-
-    /**
-     * @return string
-     */
-    public function getPayloadType(): string|null
-    {
-        return $this->payloadType;
-    }
-
-    /**
-     * @param string $payloadType
-     */
-    public function setPayloadType(string|null $payloadType): void
-    {
-        $this->payloadType = $payloadType;
+        if ($request->hasHttp()) {
+            return Context::fromHttpTriggerContext($request->getHttp());
+        } elseif ($request->hasTopic()) {
+            return Context::fromTopicTriggerContext($request->getTopic());
+        }
     }
 }

@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
         <script src="js/search.js"></script>
@@ -109,8 +110,9 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Faas/Faas.php"><a href="files/nitric-faas-faas.html"><abbr title="Nitric/Faas/Faas.php">Faas.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
-</aside>
+    <span class="phpdocumentor-element-found-in__line">39</span>
+
+    </aside>
 
             <p class="phpdocumentor-summary">Function-as-a-Service (Faas) class provides method that assist in writing Serverless Functions, using PHP.</p>
 
@@ -129,11 +131,11 @@
 
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -private">
-    <a href="classes/Nitric-Faas-Faas.html#constant_CHILD_ADDRESS">CHILD_ADDRESS</a>
+    <a href="classes/Nitric-Faas-Faas.html#constant_SERVICE_ADDRESS">SERVICE_ADDRESS</a>
     <span>
-        &nbsp;= &quot;CHILD_ADDRESS&quot;                    </span>
+        &nbsp;= &quot;SERVICE_ADDRESS&quot;                    </span>
 </dt>
-<dd>Bind address for the FaaS service, defaults to &quot;127.0.0.1:8080&quot;.</dd>
+<dd></dd>
 
                     <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Nitric-Faas-Faas.html#method_start">start()</a>
@@ -141,13 +143,6 @@
                         &nbsp;: mixed    </span>
 </dt>
 <dd>Begin handling FaaS triggers such as HTTP requests and Events.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Nitric-Faas-Faas.html#method_httpResponse">httpResponse()</a>
-    <span>
-                        &nbsp;: <abbr title="\Amp\Http\Server\Response">Response</abbr>    </span>
-</dt>
-<dd>Convert a NitricResponse to a HTTP response. Used when the FaaS service is operating as an HTTP server.</dd>
 
         </dl>
 
@@ -160,29 +155,28 @@
             <a href="classes/Nitric-Faas-Faas.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article class="phpdocumentor-element -constant -private ">
-    <h4 class="phpdocumentor-element__name" id="constant_CHILD_ADDRESS">
-        CHILD_ADDRESS
-        <a href="classes/Nitric-Faas-Faas.html#constant_CHILD_ADDRESS" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_SERVICE_ADDRESS">
+        SERVICE_ADDRESS
+        <a href="classes/Nitric-Faas-Faas.html#constant_SERVICE_ADDRESS" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Faas/Faas.php"><a href="files/nitric-faas-faas.html"><abbr title="Nitric/Faas/Faas.php">Faas.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">39</span>
-</aside>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
-        <p class="phpdocumentor-summary">Bind address for the FaaS service, defaults to &quot;127.0.0.1:8080&quot;.</p>
+    </aside>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">private</span>
     <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">CHILD_ADDRESS</span>
-    = <span class="phpdocumentor-signature__default-value">&quot;CHILD_ADDRESS&quot;</span>
+    <span class="phpdocumentor-signature__name">SERVICE_ADDRESS</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;SERVICE_ADDRESS&quot;</span>
 </code>
 
 
-        <section class="phpdocumentor-description"><p>Can be modified via CHILD_ADDRESS environment variable.</p>
-</section>
+        <section class="phpdocumentor-description"></section>
 
         <section class="phpdocumentor-description"></section>
 
@@ -211,8 +205,9 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Faas/Faas.php"><a href="files/nitric-faas-faas.html"><abbr title="Nitric/Faas/Faas.php">Faas.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
-</aside>
+    <span class="phpdocumentor-element-found-in__line">50</span>
+
+    </aside>
 
         <p class="phpdocumentor-summary">Begin handling FaaS triggers such as HTTP requests and Events.</p>
 
@@ -266,53 +261,69 @@
         
     
 </article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -private
-                                    -static                    "
->
-    <h4 class="phpdocumentor-element__name" id="method_httpResponse">
-        httpResponse()
-        <a href="classes/Nitric-Faas-Faas.html#method_httpResponse" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Faas/Faas.php"><a href="files/nitric-faas-faas.html"><abbr title="Nitric/Faas/Faas.php">Faas.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">101</span>
-</aside>
-
-        <p class="phpdocumentor-summary">Convert a NitricResponse to a HTTP response. Used when the FaaS service is operating as an HTTP server.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">httpResponse</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Nitric-Faas-Response.html"><abbr title="\Nitric\Faas\Response">Response</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Amp\Http\Server\Response">Response</abbr></span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$response</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Nitric-Faas-Response.html"><abbr title="\Nitric\Faas\Response">Response</abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>to be converted</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\Amp\Http\Server\Response">Response</abbr></span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>HTTP response representing the input response</p>
-</section>
-
-    
-</article>
             </section>
+
+        
+    <script type="text/javascript">
+        function loadExternalCodeSnippets(line) {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                pre.setAttribute('data-line', line)
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        var modals = document.querySelectorAll("[data-modal]");
+
+        modals.forEach(function (trigger) {
+            trigger.addEventListener("click", function (event) {
+                //event.preventDefault();
+                const modal = document.getElementById(trigger.dataset.modal);
+                modal.classList.add("phpdocumentor-modal__open");
+                loadExternalCodeSnippets(trigger.dataset.line)
+                const exits = modal.querySelectorAll("[data-exit-button]");
+                exits.forEach(function (exit) {
+                    exit.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        modal.classList.remove("phpdocumentor-modal__open");
+                    });
+                });
+            });
+        });
+    </script>
 
     </article>
                 <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
@@ -338,5 +349,6 @@
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
 </body>
 </html>

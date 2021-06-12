@@ -443,83 +443,43 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Nitric\\Faas\\Context",
             "name": "Context",
-            "summary": "Class\u0020Context\u0020represents\u0020the\u0020metadata\u0020of\u0020a\u0020FaaS\u0020request,\u0020including\u0020the\u0020source,\u0020payload\u0020type,\u0020unique\u0020request\u0020Id,\u0020etc.",
+            "summary": "Class\u0020Context\u0020represents\u0020the\u0020metadata\u0020of\u0020a\u0020FaaS\u0020request",
             "url": "classes/Nitric-Faas-Context.html"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Context\u0020constructor.",
-            "url": "classes/Nitric-Faas-Context.html#method___construct"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003AgetValueIfExists\u0028\u0029",
-            "name": "getValueIfExists",
+            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003AisTopic\u0028\u0029",
+            "name": "isTopic",
             "summary": "",
-            "url": "classes/Nitric-Faas-Context.html#method_getValueIfExists"
+            "url": "classes/Nitric-Faas-Context.html#method_isTopic"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003AfromHeaders\u0028\u0029",
-            "name": "fromHeaders",
+            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003AisHttp\u0028\u0029",
+            "name": "isHttp",
             "summary": "",
-            "url": "classes/Nitric-Faas-Context.html#method_fromHeaders"
+            "url": "classes/Nitric-Faas-Context.html#method_isHttp"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003AgetRequestID\u0028\u0029",
-            "name": "getRequestID",
+            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003AasTopicContext\u0028\u0029",
+            "name": "asTopicContext",
             "summary": "",
-            "url": "classes/Nitric-Faas-Context.html#method_getRequestID"
+            "url": "classes/Nitric-Faas-Context.html#method_asTopicContext"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003AsetRequestID\u0028\u0029",
-            "name": "setRequestID",
+            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003AasHttpContext\u0028\u0029",
+            "name": "asHttpContext",
             "summary": "",
-            "url": "classes/Nitric-Faas-Context.html#method_setRequestID"
+            "url": "classes/Nitric-Faas-Context.html#method_asHttpContext"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003AgetSource\u0028\u0029",
-            "name": "getSource",
+            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003AfromHttpTriggerContext\u0028\u0029",
+            "name": "fromHttpTriggerContext",
             "summary": "",
-            "url": "classes/Nitric-Faas-Context.html#method_getSource"
+            "url": "classes/Nitric-Faas-Context.html#method_fromHttpTriggerContext"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003AsetSource\u0028\u0029",
-            "name": "setSource",
+            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003AfromTopicTriggerContext\u0028\u0029",
+            "name": "fromTopicTriggerContext",
             "summary": "",
-            "url": "classes/Nitric-Faas-Context.html#method_setSource"
+            "url": "classes/Nitric-Faas-Context.html#method_fromTopicTriggerContext"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003AgetSourceType\u0028\u0029",
-            "name": "getSourceType",
+            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003AfromTriggerRequest\u0028\u0029",
+            "name": "fromTriggerRequest",
             "summary": "",
-            "url": "classes/Nitric-Faas-Context.html#method_getSourceType"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003AsetSourceType\u0028\u0029",
-            "name": "setSourceType",
-            "summary": "",
-            "url": "classes/Nitric-Faas-Context.html#method_setSourceType"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003AgetPayloadType\u0028\u0029",
-            "name": "getPayloadType",
-            "summary": "",
-            "url": "classes/Nitric-Faas-Context.html#method_getPayloadType"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003AsetPayloadType\u0028\u0029",
-            "name": "setPayloadType",
-            "summary": "",
-            "url": "classes/Nitric-Faas-Context.html#method_setPayloadType"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003A\u0024requestID",
-            "name": "requestID",
-            "summary": "",
-            "url": "classes/Nitric-Faas-Context.html#property_requestID"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003A\u0024source",
-            "name": "source",
-            "summary": "",
-            "url": "classes/Nitric-Faas-Context.html#property_source"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003A\u0024sourceType",
-            "name": "sourceType",
-            "summary": "",
-            "url": "classes/Nitric-Faas-Context.html#property_sourceType"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\Context\u003A\u003A\u0024payloadType",
-            "name": "payloadType",
-            "summary": "",
-            "url": "classes/Nitric-Faas-Context.html#property_payloadType"
+            "url": "classes/Nitric-Faas-Context.html#method_fromTriggerRequest"
         },                {
             "fqsen": "\\Nitric\\Faas\\Faas",
             "name": "Faas",
@@ -531,15 +491,85 @@ Search.appendIndex(
             "summary": "Begin\u0020handling\u0020FaaS\u0020triggers\u0020such\u0020as\u0020HTTP\u0020requests\u0020and\u0020Events.",
             "url": "classes/Nitric-Faas-Faas.html#method_start"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Faas\u003A\u003AhttpResponse\u0028\u0029",
-            "name": "httpResponse",
-            "summary": "Convert\u0020a\u0020NitricResponse\u0020to\u0020a\u0020HTTP\u0020response.\u0020Used\u0020when\u0020the\u0020FaaS\u0020service\u0020is\u0020operating\u0020as\u0020an\u0020HTTP\u0020server.",
-            "url": "classes/Nitric-Faas-Faas.html#method_httpResponse"
+            "fqsen": "\\Nitric\\Faas\\Faas\u003A\u003ASERVICE_ADDRESS",
+            "name": "SERVICE_ADDRESS",
+            "summary": "",
+            "url": "classes/Nitric-Faas-Faas.html#constant_SERVICE_ADDRESS"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Faas\u003A\u003ACHILD_ADDRESS",
-            "name": "CHILD_ADDRESS",
-            "summary": "Bind\u0020address\u0020for\u0020the\u0020FaaS\u0020service,\u0020defaults\u0020to\u0020\u0022127.0.0.1\u003A8080\u0022.",
-            "url": "classes/Nitric-Faas-Faas.html#constant_CHILD_ADDRESS"
+            "fqsen": "\\Nitric\\Faas\\HttpContext",
+            "name": "HttpContext",
+            "summary": "Class\u0020Context\u0020represents\u0020the\u0020metadata\u0020of\u0020a\u0020FaaS\u0020request",
+            "url": "classes/Nitric-Faas-HttpContext.html"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpContext.html#method___construct"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003AgetMethod\u0028\u0029",
+            "name": "getMethod",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpContext.html#method_getMethod"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003AgetHeaders\u0028\u0029",
+            "name": "getHeaders",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpContext.html#method_getHeaders"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003AgetQueryParams\u0028\u0029",
+            "name": "getQueryParams",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpContext.html#method_getQueryParams"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003AgetPathParams\u0028\u0029",
+            "name": "getPathParams",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpContext.html#method_getPathParams"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003A\u0024method",
+            "name": "method",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpContext.html#property_method"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003A\u0024headers",
+            "name": "headers",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpContext.html#property_headers"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003A\u0024queryParams",
+            "name": "queryParams",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpContext.html#property_queryParams"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003A\u0024pathParams",
+            "name": "pathParams",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpContext.html#property_pathParams"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpResponseContext",
+            "name": "HttpResponseContext",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpResponseContext.html"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpResponseContext.html#method___construct"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003AtoGrpcResponseContext\u0028\u0029",
+            "name": "toGrpcResponseContext",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpResponseContext.html#method_toGrpcResponseContext"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003A\u0024headers",
+            "name": "headers",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpResponseContext.html#property_headers"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003A\u0024status",
+            "name": "status",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpResponseContext.html#property_status"
         },                {
             "fqsen": "\\Nitric\\Faas\\Logger",
             "name": "Logger",
@@ -566,110 +596,110 @@ Search.appendIndex(
             "summary": "Request\u0020constructor.",
             "url": "classes/Nitric-Faas-Request.html#method___construct"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Request\u003A\u003AfromHTTPRequest\u0028\u0029",
-            "name": "fromHTTPRequest",
-            "summary": "Return\u0020a\u0020Request\u0020from\u0020an\u0020HTTP\u0020request\u0020using\u0020standard\u0020conventions.\u0020Used\u0020when\u0020FaaS\u0020services\u0020is\u0020operating\u0020as\nan\u0020HTTP\u0020server.",
-            "url": "classes/Nitric-Faas-Request.html#method_fromHTTPRequest"
+            "fqsen": "\\Nitric\\Faas\\Request\u003A\u003AfromTriggerRequest\u0028\u0029",
+            "name": "fromTriggerRequest",
+            "summary": "Return\u0020a\u0020Request\u0020from\u0020an\u0020NitricTriggerRequest",
+            "url": "classes/Nitric-Faas-Request.html#method_fromTriggerRequest"
         },                {
             "fqsen": "\\Nitric\\Faas\\Request\u003A\u003AgetContext\u0028\u0029",
             "name": "getContext",
             "summary": "",
             "url": "classes/Nitric-Faas-Request.html#method_getContext"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Request\u003A\u003AsetContext\u0028\u0029",
-            "name": "setContext",
+            "fqsen": "\\Nitric\\Faas\\Request\u003A\u003AgetData\u0028\u0029",
+            "name": "getData",
             "summary": "",
-            "url": "classes/Nitric-Faas-Request.html#method_setContext"
+            "url": "classes/Nitric-Faas-Request.html#method_getData"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Request\u003A\u003AgetPayload\u0028\u0029",
-            "name": "getPayload",
+            "fqsen": "\\Nitric\\Faas\\Request\u003A\u003AgetDefaultResponse\u0028\u0029",
+            "name": "getDefaultResponse",
             "summary": "",
-            "url": "classes/Nitric-Faas-Request.html#method_getPayload"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\Request\u003A\u003AsetPayload\u0028\u0029",
-            "name": "setPayload",
-            "summary": "",
-            "url": "classes/Nitric-Faas-Request.html#method_setPayload"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\Request\u003A\u003AgetPath\u0028\u0029",
-            "name": "getPath",
-            "summary": "",
-            "url": "classes/Nitric-Faas-Request.html#method_getPath"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\Request\u003A\u003AsetPath\u0028\u0029",
-            "name": "setPath",
-            "summary": "",
-            "url": "classes/Nitric-Faas-Request.html#method_setPath"
+            "url": "classes/Nitric-Faas-Request.html#method_getDefaultResponse"
         },                {
             "fqsen": "\\Nitric\\Faas\\Request\u003A\u003A\u0024context",
             "name": "context",
             "summary": "",
             "url": "classes/Nitric-Faas-Request.html#property_context"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Request\u003A\u003A\u0024payload",
-            "name": "payload",
+            "fqsen": "\\Nitric\\Faas\\Request\u003A\u003A\u0024data",
+            "name": "data",
             "summary": "",
-            "url": "classes/Nitric-Faas-Request.html#property_payload"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\Request\u003A\u003A\u0024path",
-            "name": "path",
-            "summary": "",
-            "url": "classes/Nitric-Faas-Request.html#property_path"
+            "url": "classes/Nitric-Faas-Request.html#property_data"
         },                {
             "fqsen": "\\Nitric\\Faas\\Response",
             "name": "Response",
             "summary": "Class\u0020Response\u0020represents\u0020a\u0020normalized\u0020response\u0020in\u0020the\u0020Nitric\u0020runtime.\u0020Will\u0020be\u0020converted\u0020to\u0020a\u0020specific\u0020response\u0020type\nsuch\u0020as\u0020an\u0020HTTP\u0020response,\u0020depending\u0020on\u0020runtime\u0020environment.",
             "url": "classes/Nitric-Faas-Response.html"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Response\u003A\u003AgetBody\u0028\u0029",
-            "name": "getBody",
+            "fqsen": "\\Nitric\\Faas\\Response\u003A\u003AsetData\u0028\u0029",
+            "name": "setData",
             "summary": "",
-            "url": "classes/Nitric-Faas-Response.html#method_getBody"
+            "url": "classes/Nitric-Faas-Response.html#method_setData"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Response\u003A\u003AsetBody\u0028\u0029",
-            "name": "setBody",
+            "fqsen": "\\Nitric\\Faas\\Response\u003A\u003AsetContext\u0028\u0029",
+            "name": "setContext",
             "summary": "",
-            "url": "classes/Nitric-Faas-Response.html#method_setBody"
+            "url": "classes/Nitric-Faas-Response.html#method_setContext"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Response\u003A\u003AgetStatus\u0028\u0029",
-            "name": "getStatus",
+            "fqsen": "\\Nitric\\Faas\\Response\u003A\u003AgetContext\u0028\u0029",
+            "name": "getContext",
             "summary": "",
-            "url": "classes/Nitric-Faas-Response.html#method_getStatus"
+            "url": "classes/Nitric-Faas-Response.html#method_getContext"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Response\u003A\u003AsetStatus\u0028\u0029",
-            "name": "setStatus",
+            "fqsen": "\\Nitric\\Faas\\Response\u003A\u003AgetData\u0028\u0029",
+            "name": "getData",
             "summary": "",
-            "url": "classes/Nitric-Faas-Response.html#method_setStatus"
+            "url": "classes/Nitric-Faas-Response.html#method_getData"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Response\u003A\u003AgetHeaders\u0028\u0029",
-            "name": "getHeaders",
+            "fqsen": "\\Nitric\\Faas\\Response\u003A\u003AtoTriggerResponse\u0028\u0029",
+            "name": "toTriggerResponse",
             "summary": "",
-            "url": "classes/Nitric-Faas-Response.html#method_getHeaders"
+            "url": "classes/Nitric-Faas-Response.html#method_toTriggerResponse"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Response\u003A\u003AsetHeaders\u0028\u0029",
-            "name": "setHeaders",
+            "fqsen": "\\Nitric\\Faas\\Response\u003A\u003A\u0024context",
+            "name": "context",
             "summary": "",
-            "url": "classes/Nitric-Faas-Response.html#method_setHeaders"
+            "url": "classes/Nitric-Faas-Response.html#property_context"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Response\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Response\u0020constructor.",
-            "url": "classes/Nitric-Faas-Response.html#method___construct"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\Response\u003A\u003A\u0024body",
-            "name": "body",
+            "fqsen": "\\Nitric\\Faas\\Response\u003A\u003A\u0024data",
+            "name": "data",
             "summary": "",
-            "url": "classes/Nitric-Faas-Response.html#property_body"
+            "url": "classes/Nitric-Faas-Response.html#property_data"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Response\u003A\u003A\u0024status",
-            "name": "status",
+            "fqsen": "\\Nitric\\Faas\\ResponseContext",
+            "name": "ResponseContext",
             "summary": "",
-            "url": "classes/Nitric-Faas-Response.html#property_status"
+            "url": "classes/Nitric-Faas-ResponseContext.html"
         },                {
-            "fqsen": "\\Nitric\\Faas\\Response\u003A\u003A\u0024headers",
-            "name": "headers",
+            "fqsen": "\\Nitric\\Faas\\ResponseContext\u003A\u003AisHttp\u0028\u0029",
+            "name": "isHttp",
             "summary": "",
-            "url": "classes/Nitric-Faas-Response.html#property_headers"
+            "url": "classes/Nitric-Faas-ResponseContext.html#method_isHttp"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\ResponseContext\u003A\u003AisTopic\u0028\u0029",
+            "name": "isTopic",
+            "summary": "",
+            "url": "classes/Nitric-Faas-ResponseContext.html#method_isTopic"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\ResponseContext\u003A\u003AasHttp\u0028\u0029",
+            "name": "asHttp",
+            "summary": "",
+            "url": "classes/Nitric-Faas-ResponseContext.html#method_asHttp"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\ResponseContext\u003A\u003AasTopic\u0028\u0029",
+            "name": "asTopic",
+            "summary": "",
+            "url": "classes/Nitric-Faas-ResponseContext.html#method_asTopic"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\ResponseContext\u003A\u003Ahttp\u0028\u0029",
+            "name": "http",
+            "summary": "",
+            "url": "classes/Nitric-Faas-ResponseContext.html#method_http"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\ResponseContext\u003A\u003Atopic\u0028\u0029",
+            "name": "topic",
+            "summary": "",
+            "url": "classes/Nitric-Faas-ResponseContext.html#method_topic"
         },                {
             "fqsen": "\\Nitric\\Faas\\SourceType",
             "name": "SourceType",
@@ -695,6 +725,46 @@ Search.appendIndex(
             "name": "UNKNOWN",
             "summary": "Unknown\u0020source\u0020type",
             "url": "classes/Nitric-Faas-SourceType.html#constant_UNKNOWN"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\TopicContext",
+            "name": "TopicContext",
+            "summary": "Class\u0020Context\u0020represents\u0020the\u0020metadata\u0020of\u0020a\u0020FaaS\u0020request",
+            "url": "classes/Nitric-Faas-TopicContext.html"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\TopicContext\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Nitric-Faas-TopicContext.html#method___construct"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\TopicContext\u003A\u003AgetTopic\u0028\u0029",
+            "name": "getTopic",
+            "summary": "",
+            "url": "classes/Nitric-Faas-TopicContext.html#method_getTopic"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\TopicContext\u003A\u003A\u0024topic",
+            "name": "topic",
+            "summary": "",
+            "url": "classes/Nitric-Faas-TopicContext.html#property_topic"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\TopicResponseContext",
+            "name": "TopicResponseContext",
+            "summary": "",
+            "url": "classes/Nitric-Faas-TopicResponseContext.html"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\TopicResponseContext\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Nitric-Faas-TopicResponseContext.html#method___construct"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\TopicResponseContext\u003A\u003AtoGrpcResponseContext\u0028\u0029",
+            "name": "toGrpcResponseContext",
+            "summary": "",
+            "url": "classes/Nitric-Faas-TopicResponseContext.html#method_toGrpcResponseContext"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\TopicResponseContext\u003A\u003A\u0024success",
+            "name": "success",
+            "summary": "",
+            "url": "classes/Nitric-Faas-TopicResponseContext.html#property_success"
         },                {
             "fqsen": "\\",
             "name": "\\",

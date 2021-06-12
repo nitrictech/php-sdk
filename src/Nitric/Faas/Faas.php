@@ -18,13 +18,19 @@
 
 namespace Nitric\Faas;
 
-use Amp\Http\Server\RequestHandler\CallableRequestHandler;
-use Amp\Http\Server\HttpServer;
-use Amp\Http\Server\Request;
-use Amp\Http\Server\Response;
+use Amp\ByteStream\IteratorStream;
+use Amp\Http\Server\Driver\Client;
+use Grpc\ChannelCredentials;
 use Amp\Loop;
-use Amp\Socket\Server;
+use Amp\Parallel\Worker;
+use Amp\Producer;
+use Nitric\Proto\Faas\V1\FaasClient;
+use Nitric\Proto\Faas\V1\InitRequest;
+use Nitric\Proto\Faas\V1\ServerMessage;
+use Nitric\Proto\Faas\V1\ClientMessage;
 use Closure;
+
+use function Amp\call;
 
 /**
  * Function-as-a-Service (Faas) class provides method that assist in writing Serverless Functions, using PHP.
@@ -32,11 +38,7 @@ use Closure;
  */
 class Faas
 {
-    /**
-     * Bind address for the FaaS service, defaults to "127.0.0.1:8080".
-     * Can be modified via CHILD_ADDRESS environment variable.
-     */
-    private const CHILD_ADDRESS = "CHILD_ADDRESS";
+    private const SERVICE_ADDRESS = "SERVICE_ADDRESS";
 
     /**
      * Begin handling FaaS triggers such as HTTP requests and Events.
@@ -47,63 +49,84 @@ class Faas
      */
     public static function start(Closure $handler)
     {
-        $address = getenv(self::CHILD_ADDRESS) ?: "127.0.0.1:8080";
+        $address = getenv(self::SERVICE_ADDRESS) ?: "127.0.0.1:50051";
+
+        $opts = [
+            'credentials' => ChannelCredentials::createInsecure(),
+        ];
+
+        // TODO: Set credentials here...
+        $faasClient = new FaasClient($address, $opts);
+        $call = $faasClient->TriggerStream();
+        $init = new InitRequest();
+        // Write the InitRequest to connect
+        $msg = new ClientMessage();
+        $msg->setInitRequest($init);
+        $call->write($msg);
 
         Loop::run(
-            function () use ($handler, $address) {
-                $sockets = [
-                Server::listen($address),
-                ];
-
-                $server = new HttpServer(
-                    $sockets,
-                    new CallableRequestHandler(
-                        function (Request $request) use ($handler) {
-                            $body = yield $request->getBody()->buffer();
-
-                            // Convert HTTP Request to Nitric Request
-                            $nitricRequest = \Nitric\Faas\Request::fromHTTPRequest(
-                                $request->getHeaders(),
-                                $body,
-                                $request->getUri()->getPath()
-                            );
-
-                            // Call the handler function
-                            $nitricResponse = $handler($nitricRequest);
-
-                            // Return the Nitric Response as an HTTP Response
-                            return self::httpResponse($nitricResponse);
-                        }
-                    ),
-                    new Logger()
-                );
-
-                yield $server->start();
-
-                // Stop the server gracefully when SIGINT is received.
-                // This is technically optional, but it is best to call Server::stop().
+            function () use ($call, $handler) {
                 Loop::onSignal(
                     SIGINT,
-                    function (string $watcherId) use ($server) {
+                    function (string $watcherId) use ($call) {
                         Loop::cancel($watcherId);
-                        yield $server->stop();
+                        // Cancel the gRPC stream
+                        $call->writesDone();
                     }
                 );
+
+                while (1) {
+                    // print("\nstarting read!\n");
+                    $readResult = yield call(array($call, 'read'));
+                    // print("\nGot request:\n");
+                    //print($readResult->serializeToJsonString());
+
+                    if ($readResult == null) {
+                        break;
+                    }
+
+                    if ($readResult instanceof ServerMessage) {
+                        if ($readResult->hasInitResponse()) {
+                            // We're one with the membrane
+                            // continue the loop and do nothing
+                            print("Function connected to membrane");
+                        } elseif ($readResult->hasTriggerRequest()) {
+                            // handle the trigger request
+                            $triggerRequest = $readResult->getTriggerRequest();
+                            $request = Request::fromTriggerRequest($triggerRequest);
+
+                            // Handle the userspace function
+                            $result = yield call($handler, $request);
+
+                            $triggerResponse = null;
+
+                            if ($result instanceof Response) {
+                                // Assume its a string
+                                $triggerResponse = $result->toTriggerResponse();
+                            } else {
+                                // Assume its a string
+                                $dataResult = (string) $result;
+
+                                $defaultResponse = $request->getDefaultResponse();
+                                $defaultResponse->setData($dataResult);
+
+                                $triggerResponse = $defaultResponse->toTriggerResponse();
+                            }
+
+                            $returnMsg = new ClientMessage();
+                            $returnMsg->setId($readResult->getId());
+                            $returnMsg->setTriggerResponse($triggerResponse);
+
+                            yield call(array($call, 'write'), $returnMsg);
+                            //yield $emit(".");
+                        } else {
+                            // Invalid message recieved
+                        }
+                    }
+                }
             }
         );
-    }
 
-    /**
-     * Convert a NitricResponse to a HTTP response. Used when the FaaS service is operating as an HTTP server.
-     * @param \Nitric\Faas\Response $response to be converted
-     * @return Response HTTP response representing the input response
-     */
-    private static function httpResponse(\Nitric\Faas\Response $response): Response
-    {
-        return new Response(
-            $response->getStatus(),
-            $response->getHeaders(),
-            $response->getBody()
-        );
+        //print("Exited loop :( \n");
     }
 }
