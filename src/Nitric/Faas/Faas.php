@@ -22,9 +22,12 @@ use Amp\Http\Server\RequestHandler\CallableRequestHandler;
 use Amp\Http\Server\HttpServer;
 use Amp\Http\Server\Request;
 use Amp\Http\Server\Response;
+use Amp\Http\Status;
 use Amp\Loop;
 use Amp\Socket\Server;
 use Closure;
+use Exception;
+use Nitric\Proto\Faas\V1\TriggerRequest;
 
 /**
  * Function-as-a-Service (Faas) class provides method that assist in writing Serverless Functions, using PHP.
@@ -61,18 +64,32 @@ class Faas
                         function (Request $request) use ($handler) {
                             $body = yield $request->getBody()->buffer();
 
+                            $triggerRequest = new TriggerRequest();
+                            // Get the trigger request from the request body
+                            $triggerRequest->mergeFromJsonString($body);
+
                             // Convert HTTP Request to Nitric Request
-                            $nitricRequest = \Nitric\Faas\Request::fromHTTPRequest(
-                                $request->getHeaders(),
-                                $body,
-                                $request->getUri()->getPath()
+                            $nitricRequest = \Nitric\Faas\Request::fromTriggerRequest(
+                                $triggerRequest
                             );
 
-                            // Call the handler function
                             $nitricResponse = $handler($nitricRequest);
+                            if ($nitricResponse instanceof \Nitric\Faas\Response) {
+                                // Return the Nitric Response as an HTTP Response
+                                return self::httpResponse($nitricResponse);
+                            } else {
+                                $stringData = "";
+                                if (is_array($nitricResponse)) {
+                                    $stringData = json_encode($nitricResponse);
+                                } else {
+                                    $stringData = $nitricResponse;
+                                }
+                                // Assume simple string return for now...
+                                $defaultResponse = $nitricRequest->getDefaultResponse();
+                                $defaultResponse->setData($stringData);
 
-                            // Return the Nitric Response as an HTTP Response
-                            return self::httpResponse($nitricResponse);
+                                return self::httpResponse($defaultResponse);
+                            }
                         }
                     ),
                     new Logger()
@@ -100,10 +117,14 @@ class Faas
      */
     private static function httpResponse(\Nitric\Faas\Response $response): Response
     {
+        $triggerResponse = $response->toTriggerResponse();
+
         return new Response(
-            $response->getStatus(),
-            $response->getHeaders(),
-            $response->getBody()
+            Status::OK,
+            array(
+                "Content-Type" => "application/json"
+            ),
+            $triggerResponse->serializeToJsonString()
         );
     }
 }

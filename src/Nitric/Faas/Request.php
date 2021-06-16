@@ -18,6 +18,9 @@
 
 namespace Nitric\Faas;
 
+use Amp\Http\Server\Request as ServerRequest;
+use Nitric\Proto\Faas\V1\TriggerRequest;
+
 /**
  * Class Request represents a normalized request in the Nitric runtime.
  * @package Nitric\Faas
@@ -25,8 +28,8 @@ namespace Nitric\Faas;
 class Request
 {
     private Context $context;
-    private string $payload;
-    private string $path;
+    private string $data;
+    private string $mimeType;
 
     /**
      * Request constructor.
@@ -35,30 +38,26 @@ class Request
      * @param string  $payload
      * @param string  $path
      */
-    public function __construct(Context $context, string $payload, string $path)
+    public function __construct(Context $context, string $data, string $mimeType)
     {
         $this->context = $context;
-        $this->payload = $payload;
-        $this->path = $path;
+        $this->data = $data;
+        $this->mimeType = $mimeType;
     }
 
-
     /**
-     * Return a Request from an HTTP request using standard conventions. Used when FaaS services is operating as
-     * an HTTP server.
-     * @param array $headers
-     * @param string $payload
-     * @param string $path
+     * Return a Request from an NitricTriggerRequest
+     * @param TriggerRequest $request
      * @return Request
      */
-    public static function fromHTTPRequest(array $headers, string $payload, string $path): Request
+    public static function fromTriggerRequest(TriggerRequest $request): Request
     {
-        $context = Context::fromHeaders($headers);
+        $context = Context::fromTriggerRequest($request);
 
         return new Request(
-            context:  $context,
-            payload: $payload,
-            path: $path
+            $context,
+            $request->getData(),
+            $request->getMimeType()
         );
     }
 
@@ -71,42 +70,27 @@ class Request
     }
 
     /**
-     * @param Context $context
-     */
-    public function setContext(Context $context): void
-    {
-        $this->context = $context;
-    }
-
-    /**
      * @return string
      */
-    public function getPayload(): string
+    public function getData(): string
     {
-        return $this->payload;
+        return $this->data;
     }
 
-    /**
-     * @param string $payload
-     */
-    public function setPayload(string $payload): void
+    public function getMimeType(): string
     {
-        $this->payload = $payload;
+        return $this->mimeType;
     }
 
-    /**
-     * @return string
-     */
-    public function getPath(): string
+    public function getDefaultResponse(): Response
     {
-        return $this->path;
-    }
+        $response = new Response();
+        if ($this->context->isHttp()) {
+            $response->setContext(ResponseContext::http());
+        } elseif ($this->context->isTopic()) {
+            $response->setContext(ResponseContext::topic());
+        }
 
-    /**
-     * @param string $path
-     */
-    public function setPath(string $path): void
-    {
-        $this->path = $path;
+        return $response;
     }
 }

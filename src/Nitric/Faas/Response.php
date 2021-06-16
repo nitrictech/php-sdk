@@ -18,6 +18,11 @@
 
 namespace Nitric\Faas;
 
+use Nitric\Proto\Faas\V1\HttpResponseContext;
+use Nitric\Proto\Faas\V1\HttpTriggerContext;
+use Nitric\Proto\Faas\V1\TriggerRequest;
+use Nitric\Proto\Faas\V1\TriggerResponse;
+
 /**
  * Class Response represents a normalized response in the Nitric runtime. Will be converted to a specific response type
  * such as an HTTP response, depending on runtime environment.
@@ -25,72 +30,61 @@ namespace Nitric\Faas;
  */
 class Response
 {
-    private string $body;
-    private int $status;
-    private array $headers;
+    private ResponseContext $context;
+    private string $data;
+
+    /**
+     * @return Response
+     */
+    public function setData(string $data): Response
+    {
+        $this->data = $data;
+        return $this;
+    }
+
+    /**
+     * @return Response
+     */
+    public function setContext(ResponseContext $context): Response
+    {
+        $this->context = $context;
+        return $this;
+    }
+
+    /**
+     * @return Response
+     */
+    public function getContext(): ResponseContext
+    {
+        return $this->context;
+    }
 
     /**
      * @return string
      */
-    public function getBody(): string
+    public function getData(): string
     {
-        if ($this->body == null) {
+        if ($this->data == null) {
             return "";
         }
-        return $this->body;
+        return $this->data;
     }
 
-    /**
-     * @param string $body
-     */
-    public function setBody(string $body): void
+    public function toTriggerResponse(): TriggerResponse
     {
-        $this->body = $body;
-    }
+        $triggerResponse = new TriggerResponse();
+        $triggerResponse->setData($this->data);
 
-    /**
-     * @return int
-     */
-    public function getStatus(): int
-    {
-        return $this->status;
-    }
+        if ($this->context->isHttp()) {
+            $origContext = $this->getContext()->asHttp();
 
-    /**
-     * @param int $status
-     */
-    public function setStatus(int $status): void
-    {
-        $this->status = $status;
-    }
+            $triggerResponse->setHttp($origContext->toGrpcResponseContext());
+        } elseif ($this->context->isTopic()) {
+            $origContext = $this->getContext()->asTopic();
 
-    /**
-     * @return string[]
-     */
-    public function getHeaders(): array
-    {
-        return $this->headers;
-    }
+            $triggerResponse->setTopic($origContext->toGrpcResponseContext());
+        }
 
-    /**
-     * @param array $headers
-     */
-    public function setHeaders(array $headers): void
-    {
-        $this->headers = $headers;
-    }
-
-    /**
-     * Response constructor.
-     *
-     * @param string $body
-     * @param int    $status
-     * @param array  $headers
-     */
-    public function __construct(string $body = "", int $status = 200, array $headers = [])
-    {
-        $this->body = $body;
-        $this->status = $status;
-        $this->headers = $headers;
+        return $triggerResponse;
     }
 }
