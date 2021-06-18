@@ -546,6 +546,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Nitric-Faas-HttpResponseContext.html#method_toGrpcResponseContext"
         },                {
+            "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003AaddHeader\u0028\u0029",
+            "name": "addHeader",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpResponseContext.html#method_addHeader"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003AsetStatus\u0028\u0029",
+            "name": "setStatus",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpResponseContext.html#method_setStatus"
+        },                {
             "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003A\u0024headers",
             "name": "headers",
             "summary": "",

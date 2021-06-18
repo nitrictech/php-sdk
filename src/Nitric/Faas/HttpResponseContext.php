@@ -42,12 +42,14 @@ class HttpResponseContext extends ResponseContext
         return $grpcContext;
     }
 
-    public function addHeader(string $key, string $val): HttpResponseContext {
+    public function addHeader(string $key, string $val): HttpResponseContext
+    {
         $this->headers[$key] = $val;
         return $this;
     }
 
-    public function setStatus(int $status): HttpResponseContext {
+    public function setStatus(int $status): HttpResponseContext
+    {
         $this->status = $status;
         return $this;
     }
