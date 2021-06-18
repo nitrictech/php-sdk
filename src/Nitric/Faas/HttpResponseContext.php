@@ -24,7 +24,7 @@ use Nitric\Proto\Faas\V1\HttpResponseContext as V1HttpResponseContext;
 class HttpResponseContext extends ResponseContext
 {
     public array $headers = [];
-    public $status = 200;
+    public int $status = 200;
 
     public function __construct()
     {
@@ -40,5 +40,15 @@ class HttpResponseContext extends ResponseContext
         $grpcContext->setStatus($this->status);
 
         return $grpcContext;
+    }
+
+    public function addHeader(string $key, string $val): HttpResponseContext {
+        $this->headers[$key] = $val;
+        return $this;
+    }
+
+    public function setStatus(int $status): HttpResponseContext {
+        $this->status = $status;
+        return $this;
     }
 }
