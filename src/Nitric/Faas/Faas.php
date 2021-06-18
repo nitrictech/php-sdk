@@ -28,6 +28,7 @@ use Amp\Socket\Server;
 use Closure;
 use Exception;
 use Nitric\Proto\Faas\V1\TriggerRequest;
+use stdClass;
 
 /**
  * Function-as-a-Service (Faas) class provides method that assist in writing Serverless Functions, using PHP.
@@ -79,7 +80,7 @@ class Faas
                                 return self::httpResponse($nitricResponse);
                             } else {
                                 $stringData = "";
-                                if (is_array($nitricResponse)) {
+                                if (is_array($nitricResponse) || $nitricResponse instanceof stdClass) {
                                     $stringData = json_encode($nitricResponse);
                                 } else {
                                     $stringData = $nitricResponse;
