@@ -421,26 +421,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Nitric-Api-TopicClient.html#property_client"
         },                {
-            "fqsen": "\\Nitric\\Api\\UserClient",
-            "name": "UserClient",
-            "summary": "Class\u0020UserClient\u0020provides\u0020a\u0020client\u0020for\u0020the\u0020Nitric\u0020User\u0020Service.",
-            "url": "classes/Nitric-Api-UserClient.html"
-        },                {
-            "fqsen": "\\Nitric\\Api\\UserClient\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "UserClient\u0020constructor.",
-            "url": "classes/Nitric-Api-UserClient.html#method___construct"
-        },                {
-            "fqsen": "\\Nitric\\Api\\UserClient\u003A\u003Acreate\u0028\u0029",
-            "name": "create",
-            "summary": "",
-            "url": "classes/Nitric-Api-UserClient.html#method_create"
-        },                {
-            "fqsen": "\\Nitric\\Api\\UserClient\u003A\u003A\u0024client",
-            "name": "client",
-            "summary": "",
-            "url": "classes/Nitric-Api-UserClient.html#property_client"
-        },                {
             "fqsen": "\\Nitric\\Faas\\Context",
             "name": "Context",
             "summary": "Class\u0020Context\u0020represents\u0020the\u0020metadata\u0020of\u0020a\u0020FaaS\u0020request",
