@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
         <script src="js/search.js"></script>
@@ -110,7 +111,8 @@
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/AbstractClient.php"><a href="files/nitric-api-abstractclient.html"><abbr title="Nitric/Api/AbstractClient.php">AbstractClient.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">64</span>
-</aside>
+
+    </aside>
 
             <p class="phpdocumentor-summary">Class AbstractClient, provides common client class functionality and configuration.</p>
 
@@ -200,7 +202,8 @@ the corresponding exception type.</dd>
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/AbstractClient.php"><a href="files/nitric-api-abstractclient.html"><abbr title="Nitric/Api/AbstractClient.php">AbstractClient.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">66</span>
-</aside>
+
+    </aside>
 
     
     <code class="phpdocumentor-signature phpdocumentor-code ">
@@ -243,7 +246,8 @@ the corresponding exception type.</dd>
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/AbstractClient.php"><a href="files/nitric-api-abstractclient.html"><abbr title="Nitric/Api/AbstractClient.php">AbstractClient.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">67</span>
-</aside>
+
+    </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -276,7 +280,8 @@ the corresponding exception type.</dd>
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/AbstractClient.php"><a href="files/nitric-api-abstractclient.html"><abbr title="Nitric/Api/AbstractClient.php">AbstractClient.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">68</span>
-</aside>
+
+    </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -313,7 +318,8 @@ the corresponding exception type.</dd>
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/AbstractClient.php"><a href="files/nitric-api-abstractclient.html"><abbr title="Nitric/Api/AbstractClient.php">AbstractClient.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">70</span>
-</aside>
+
+    </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -345,7 +351,8 @@ the corresponding exception type.</dd>
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/AbstractClient.php"><a href="files/nitric-api-abstractclient.html"><abbr title="Nitric/Api/AbstractClient.php">AbstractClient.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">90</span>
-</aside>
+
+    </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -388,7 +395,8 @@ the corresponding exception type.</dd>
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/AbstractClient.php"><a href="files/nitric-api-abstractclient.html"><abbr title="Nitric/Api/AbstractClient.php">AbstractClient.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">79</span>
-</aside>
+
+    </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -431,7 +439,8 @@ the corresponding exception type.</dd>
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/AbstractClient.php"><a href="files/nitric-api-abstractclient.html"><abbr title="Nitric/Api/AbstractClient.php">AbstractClient.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">108</span>
-</aside>
+
+    </aside>
 
         <p class="phpdocumentor-summary">Check the status returned from an autogenerate gRPC client call. If any status other than OK is detected, throw
 the corresponding exception type.</p>
@@ -462,6 +471,68 @@ the corresponding exception type.</p>
 </article>
             </section>
 
+        
+    <script type="text/javascript">
+        function loadExternalCodeSnippets(line) {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                pre.setAttribute('data-line', line)
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        var modals = document.querySelectorAll("[data-modal]");
+
+        modals.forEach(function (trigger) {
+            trigger.addEventListener("click", function (event) {
+                //event.preventDefault();
+                const modal = document.getElementById(trigger.dataset.modal);
+                modal.classList.add("phpdocumentor-modal__open");
+                loadExternalCodeSnippets(trigger.dataset.line)
+                const exits = modal.querySelectorAll("[data-exit-button]");
+                exits.forEach(function (exit) {
+                    exit.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        modal.classList.remove("phpdocumentor-modal__open");
+                    });
+                });
+            });
+        });
+    </script>
+
     </article>
                 <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
@@ -486,5 +557,6 @@ the corresponding exception type.</p>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
 </body>
 </html>
