@@ -18,7 +18,7 @@ class FaasClient extends \Grpc\BaseStub {
     }
 
     /**
-     * Return a list of existing topics in the provider environment
+     * Begin streaming triggers/response to/from the membrane
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\BidiStreamingCall
