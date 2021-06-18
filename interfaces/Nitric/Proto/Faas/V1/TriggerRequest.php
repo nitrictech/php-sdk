@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * The membrane has a trigger for this function to handle
+ * The server has a trigger for the client to handle
  *
  * Generated from protobuf message <code>nitric.faas.v1.TriggerRequest</code>
  */

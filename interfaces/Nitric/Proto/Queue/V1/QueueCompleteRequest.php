@@ -23,9 +23,9 @@ class QueueCompleteRequest extends \Google\Protobuf\Internal\Message
     /**
      * Lease id of the task to be completed
      *
-     * Generated from protobuf field <code>string leaseId = 2;</code>
+     * Generated from protobuf field <code>string lease_id = 2;</code>
      */
-    protected $leaseId = '';
+    protected $lease_id = '';
 
     /**
      * Constructor.
@@ -36,7 +36,7 @@ class QueueCompleteRequest extends \Google\Protobuf\Internal\Message
      *     @type string $queue
      *           The nitric name for the queue
      *            this will automatically be resolved to the provider specific queue identifier.
-     *     @type string $leaseId
+     *     @type string $lease_id
      *           Lease id of the task to be completed
      * }
      */
@@ -76,25 +76,25 @@ class QueueCompleteRequest extends \Google\Protobuf\Internal\Message
     /**
      * Lease id of the task to be completed
      *
-     * Generated from protobuf field <code>string leaseId = 2;</code>
+     * Generated from protobuf field <code>string lease_id = 2;</code>
      * @return string
      */
     public function getLeaseId()
     {
-        return $this->leaseId;
+        return $this->lease_id;
     }
 
     /**
      * Lease id of the task to be completed
      *
-     * Generated from protobuf field <code>string leaseId = 2;</code>
+     * Generated from protobuf field <code>string lease_id = 2;</code>
      * @param string $var
      * @return $this
      */
     public function setLeaseId($var)
     {
         GPBUtil::checkString($var, True);
-        $this->leaseId = $var;
+        $this->lease_id = $var;
 
         return $this;
     }

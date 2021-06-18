@@ -16,23 +16,20 @@ class Storage
         }
         $pool->internalAddGeneratedFile(
             '
-Ç
-storage/v1/storage.protonitric.storage.v1"D
-StorageWriteRequest
-
-bucketName (	
+Ê
+storage/v1/storage.protonitric.storage.v1"E
+StorageWriteRequest
+bucket_name (	
 key (	
 body ("
-StorageWriteResponse"5
-StorageReadRequest
-
-bucketName (	
+StorageWriteResponse"6
+StorageReadRequest
+bucket_name (	
 key (	"#
 StorageReadResponse
-body ("7
-StorageDeleteRequest
-
-bucketName (	
+body ("8
+StorageDeleteRequest
+bucket_name (	
 key (	"
 StorageDeleteResponse2—
 StorageU

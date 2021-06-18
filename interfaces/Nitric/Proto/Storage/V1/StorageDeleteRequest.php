@@ -18,9 +18,9 @@ class StorageDeleteRequest extends \Google\Protobuf\Internal\Message
     /**
      * Name of the bucket to delete from
      *
-     * Generated from protobuf field <code>string bucketName = 1;</code>
+     * Generated from protobuf field <code>string bucket_name = 1;</code>
      */
-    protected $bucketName = '';
+    protected $bucket_name = '';
     /**
      * Key of item to delete
      *
@@ -34,7 +34,7 @@ class StorageDeleteRequest extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string $bucketName
+     *     @type string $bucket_name
      *           Name of the bucket to delete from
      *     @type string $key
      *           Key of item to delete
@@ -48,25 +48,25 @@ class StorageDeleteRequest extends \Google\Protobuf\Internal\Message
     /**
      * Name of the bucket to delete from
      *
-     * Generated from protobuf field <code>string bucketName = 1;</code>
+     * Generated from protobuf field <code>string bucket_name = 1;</code>
      * @return string
      */
     public function getBucketName()
     {
-        return $this->bucketName;
+        return $this->bucket_name;
     }
 
     /**
      * Name of the bucket to delete from
      *
-     * Generated from protobuf field <code>string bucketName = 1;</code>
+     * Generated from protobuf field <code>string bucket_name = 1;</code>
      * @param string $var
      * @return $this
      */
     public function setBucketName($var)
     {
         GPBUtil::checkString($var, True);
-        $this->bucketName = $var;
+        $this->bucket_name = $var;
 
         return $this;
     }

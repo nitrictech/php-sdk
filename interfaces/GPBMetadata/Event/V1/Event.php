@@ -17,7 +17,7 @@ class Event
         \GPBMetadata\Google\Protobuf\Struct::initOnce();
         $pool->internalAddGeneratedFile(
             '
-‘
+’
 event/v1/event.protonitric.event.v1"Q
 EventPublishRequest
 topic (	+
@@ -29,11 +29,11 @@ class Event
 TopicListResponse,
 topics (2.nitric.event.v1.NitricTopic"
 NitricTopic
-name (	"X
+name (	"Y
 NitricEvent
 
-id (	
-payloadType (	(
+id (	
+payload_type (	(
 payload (2.google.protobuf.Struct2_
 EventV
 Publish$.nitric.event.v1.EventPublishRequest%.nitric.event.v1.EventPublishResponse2V

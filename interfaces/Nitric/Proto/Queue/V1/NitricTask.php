@@ -24,15 +24,15 @@ class NitricTask extends \Google\Protobuf\Internal\Message
     /**
      * The lease id unique to the pop request, this must be used to complete, extend the lease or release the task.
      *
-     * Generated from protobuf field <code>string leaseId = 2;</code>
+     * Generated from protobuf field <code>string lease_id = 2;</code>
      */
-    protected $leaseId = '';
+    protected $lease_id = '';
     /**
      * A content hint for the tasks payload
      *
-     * Generated from protobuf field <code>string payloadType = 3;</code>
+     * Generated from protobuf field <code>string payload_type = 3;</code>
      */
-    protected $payloadType = '';
+    protected $payload_type = '';
     /**
      * The payload of the task
      *
@@ -48,9 +48,9 @@ class NitricTask extends \Google\Protobuf\Internal\Message
      *
      *     @type string $id
      *           A unique id for the task
-     *     @type string $leaseId
+     *     @type string $lease_id
      *           The lease id unique to the pop request, this must be used to complete, extend the lease or release the task.
-     *     @type string $payloadType
+     *     @type string $payload_type
      *           A content hint for the tasks payload
      *     @type \Google\Protobuf\Struct $payload
      *           The payload of the task
@@ -90,25 +90,25 @@ class NitricTask extends \Google\Protobuf\Internal\Message
     /**
      * The lease id unique to the pop request, this must be used to complete, extend the lease or release the task.
      *
-     * Generated from protobuf field <code>string leaseId = 2;</code>
+     * Generated from protobuf field <code>string lease_id = 2;</code>
      * @return string
      */
     public function getLeaseId()
     {
-        return $this->leaseId;
+        return $this->lease_id;
     }
 
     /**
      * The lease id unique to the pop request, this must be used to complete, extend the lease or release the task.
      *
-     * Generated from protobuf field <code>string leaseId = 2;</code>
+     * Generated from protobuf field <code>string lease_id = 2;</code>
      * @param string $var
      * @return $this
      */
     public function setLeaseId($var)
     {
         GPBUtil::checkString($var, True);
-        $this->leaseId = $var;
+        $this->lease_id = $var;
 
         return $this;
     }
@@ -116,25 +116,25 @@ class NitricTask extends \Google\Protobuf\Internal\Message
     /**
      * A content hint for the tasks payload
      *
-     * Generated from protobuf field <code>string payloadType = 3;</code>
+     * Generated from protobuf field <code>string payload_type = 3;</code>
      * @return string
      */
     public function getPayloadType()
     {
-        return $this->payloadType;
+        return $this->payload_type;
     }
 
     /**
      * A content hint for the tasks payload
      *
-     * Generated from protobuf field <code>string payloadType = 3;</code>
+     * Generated from protobuf field <code>string payload_type = 3;</code>
      * @param string $var
      * @return $this
      */
     public function setPayloadType($var)
     {
         GPBUtil::checkString($var, True);
-        $this->payloadType = $var;
+        $this->payload_type = $var;
 
         return $this;
     }

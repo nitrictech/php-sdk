@@ -19,9 +19,9 @@ class StorageReadRequest extends \Google\Protobuf\Internal\Message
      * Nitric name of the bucket to retrieve from
      *  this will be automatically resolved to the provider specific bucket identifier.
      *
-     * Generated from protobuf field <code>string bucketName = 1;</code>
+     * Generated from protobuf field <code>string bucket_name = 1;</code>
      */
-    protected $bucketName = '';
+    protected $bucket_name = '';
     /**
      * Key of item to retrieve
      *
@@ -35,7 +35,7 @@ class StorageReadRequest extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string $bucketName
+     *     @type string $bucket_name
      *           Nitric name of the bucket to retrieve from
      *            this will be automatically resolved to the provider specific bucket identifier.
      *     @type string $key
@@ -51,26 +51,26 @@ class StorageReadRequest extends \Google\Protobuf\Internal\Message
      * Nitric name of the bucket to retrieve from
      *  this will be automatically resolved to the provider specific bucket identifier.
      *
-     * Generated from protobuf field <code>string bucketName = 1;</code>
+     * Generated from protobuf field <code>string bucket_name = 1;</code>
      * @return string
      */
     public function getBucketName()
     {
-        return $this->bucketName;
+        return $this->bucket_name;
     }
 
     /**
      * Nitric name of the bucket to retrieve from
      *  this will be automatically resolved to the provider specific bucket identifier.
      *
-     * Generated from protobuf field <code>string bucketName = 1;</code>
+     * Generated from protobuf field <code>string bucket_name = 1;</code>
      * @param string $var
      * @return $this
      */
     public function setBucketName($var)
     {
         GPBUtil::checkString($var, True);
-        $this->bucketName = $var;
+        $this->bucket_name = $var;
 
         return $this;
     }

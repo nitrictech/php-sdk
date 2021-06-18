@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Specific event response message
  * We do not accept responses for events
- * only whether or not they were successfully responded to
+ * only whether or not they were successfully processed
  *
  * Generated from protobuf message <code>nitric.faas.v1.TopicResponseContext</code>
  */

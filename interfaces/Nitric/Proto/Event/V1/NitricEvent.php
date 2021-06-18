@@ -24,9 +24,9 @@ class NitricEvent extends \Google\Protobuf\Internal\Message
     /**
      * A content hint for the events payload
      *
-     * Generated from protobuf field <code>string payloadType = 2;</code>
+     * Generated from protobuf field <code>string payload_type = 2;</code>
      */
-    protected $payloadType = '';
+    protected $payload_type = '';
     /**
      * The payload of the event
      *
@@ -42,7 +42,7 @@ class NitricEvent extends \Google\Protobuf\Internal\Message
      *
      *     @type string $id
      *           A Unique ID for the Nitric Event
-     *     @type string $payloadType
+     *     @type string $payload_type
      *           A content hint for the events payload
      *     @type \Google\Protobuf\Struct $payload
      *           The payload of the event
@@ -82,25 +82,25 @@ class NitricEvent extends \Google\Protobuf\Internal\Message
     /**
      * A content hint for the events payload
      *
-     * Generated from protobuf field <code>string payloadType = 2;</code>
+     * Generated from protobuf field <code>string payload_type = 2;</code>
      * @return string
      */
     public function getPayloadType()
     {
-        return $this->payloadType;
+        return $this->payload_type;
     }
 
     /**
      * A content hint for the events payload
      *
-     * Generated from protobuf field <code>string payloadType = 2;</code>
+     * Generated from protobuf field <code>string payload_type = 2;</code>
      * @param string $var
      * @return $this
      */
     public function setPayloadType($var)
     {
         GPBUtil::checkString($var, True);
-        $this->payloadType = $var;
+        $this->payload_type = $var;
 
         return $this;
     }

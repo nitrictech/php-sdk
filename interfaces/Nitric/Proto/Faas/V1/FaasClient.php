@@ -4,7 +4,7 @@
 namespace Nitric\Proto\Faas\V1;
 
 /**
- * Service for management of event topics
+ * Service for streaming communication with gRPC FaaS implementations
  */
 class FaasClient extends \Grpc\BaseStub {
 
