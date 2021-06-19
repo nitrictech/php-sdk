@@ -46,7 +46,7 @@ abstract class Context
     }
 
     /**
-     * @return TopicContext
+     * @return TopicContext | void
      */
     public function asTopicContext()
     {
@@ -57,7 +57,7 @@ abstract class Context
     }
 
     /**
-     * @return HttpContext
+     * @return HttpContext | void
      */
     public function asHttpContext()
     {
@@ -92,7 +92,7 @@ abstract class Context
     }
 
     /**
-     * @return Context
+     * @return Context | void
      */
     public static function fromTriggerRequest(TriggerRequest $request)
     {
