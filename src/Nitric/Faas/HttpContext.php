@@ -25,7 +25,7 @@ class HttpContext extends Context
     private string $method;
     private array $headers;
     private array $queryParams;
-    private array $path;
+    private string $path;
 
     public function __construct(
         string $method,

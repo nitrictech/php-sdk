@@ -18,7 +18,6 @@
 
 namespace Nitric\Faas;
 
-use Nitric\Faas\ResponseContext;
 use Nitric\Proto\Faas\V1\HttpResponseContext as V1HttpResponseContext;
 
 class HttpResponseContext extends ResponseContext
@@ -31,9 +30,9 @@ class HttpResponseContext extends ResponseContext
     }
 
     /**
-     * @return Nitric\Proto\Faas\V1\HttpResponseContext
+     * @return V1HttpResponseContext
      */
-    public function toGrpcResponseContext()
+    public function toGrpcResponseContext(): V1HttpResponseContext
     {
         $grpcContext = new V1HttpResponseContext();
         $grpcContext->setHeaders($this->headers);
