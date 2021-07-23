@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * Copyright 2021 Nitric Technologies Pty Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+namespace Nitric\Api\Documents;
+
+use InvalidArgumentException;
+
+class QueryExpression
+{
+    private string $operand;
+    private string $operator;
+    private $value;
+
+    public function __construct(string $operand, string $operator, $value)
+    {
+        if (!Operator::isValidValue($operator)) {
+            throw new InvalidArgumentException("Invalid operator provided.");
+        }
+        $this->operand = $operand;
+        $this->operator = $operator;
+        $this->value = $value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOperand(): string
+    {
+        return $this->operand;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOperator(): string
+    {
+        return $this->operator;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+}

@@ -143,7 +143,7 @@ class NitricTask extends \Google\Protobuf\Internal\Message
      * The payload of the task
      *
      * Generated from protobuf field <code>.google.protobuf.Struct payload = 4;</code>
-     * @return \Google\Protobuf\Struct|null
+     * @return \Google\Protobuf\Struct
      */
     public function getPayload()
     {

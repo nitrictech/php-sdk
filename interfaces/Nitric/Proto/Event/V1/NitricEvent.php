@@ -109,7 +109,7 @@ class NitricEvent extends \Google\Protobuf\Internal\Message
      * The payload of the event
      *
      * Generated from protobuf field <code>.google.protobuf.Struct payload = 3;</code>
-     * @return \Google\Protobuf\Struct|null
+     * @return \Google\Protobuf\Struct
      */
     public function getPayload()
     {

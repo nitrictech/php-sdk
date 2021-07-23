@@ -77,7 +77,7 @@ class ServerMessage extends \Google\Protobuf\Internal\Message
      * InitRequest
      *
      * Generated from protobuf field <code>.nitric.faas.v1.InitResponse init_response = 2;</code>
-     * @return \Nitric\Proto\Faas\V1\InitResponse|null
+     * @return \Nitric\Proto\Faas\V1\InitResponse
      */
     public function getInitResponse()
     {
@@ -111,7 +111,7 @@ class ServerMessage extends \Google\Protobuf\Internal\Message
      * process a trigger
      *
      * Generated from protobuf field <code>.nitric.faas.v1.TriggerRequest trigger_request = 3;</code>
-     * @return \Nitric\Proto\Faas\V1\TriggerRequest|null
+     * @return \Nitric\Proto\Faas\V1\TriggerRequest
      */
     public function getTriggerRequest()
     {

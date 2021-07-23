@@ -79,7 +79,7 @@ class QueueSendRequest extends \Google\Protobuf\Internal\Message
      * The task to push to the queue
      *
      * Generated from protobuf field <code>.nitric.queue.v1.NitricTask task = 2;</code>
-     * @return \Nitric\Proto\Queue\V1\NitricTask|null
+     * @return \Nitric\Proto\Queue\V1\NitricTask
      */
     public function getTask()
     {
