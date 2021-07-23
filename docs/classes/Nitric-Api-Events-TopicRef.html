@@ -110,7 +110,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/Events/TopicRef.php"><a href="files/nitric-api-events-topicref.html"><abbr title="Nitric/Api/Events/TopicRef.php">TopicRef.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 </aside>
 
         
@@ -160,7 +160,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Nitric-Api-Events-TopicRef.html#method_publish">publish()</a>
     <span>
-                        &nbsp;: string    </span>
+                        &nbsp;: <a href="classes/Nitric-Api-Events-Event.html"><abbr title="\Nitric\Api\Events\Event">Event</abbr></a>    </span>
 </dt>
 <dd>Publish an event/message to a topic, which can be subscribed to by other services.</dd>
 
@@ -192,7 +192,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/Events/TopicRef.php"><a href="files/nitric-api-events-topicref.html"><abbr title="Nitric/Api/Events/TopicRef.php">TopicRef.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 </aside>
 
     
@@ -225,7 +225,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/Events/TopicRef.php"><a href="files/nitric-api-events-topicref.html"><abbr title="Nitric/Api/Events/TopicRef.php">TopicRef.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 </aside>
 
     
@@ -262,7 +262,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/Events/TopicRef.php"><a href="files/nitric-api-events-topicref.html"><abbr title="Nitric/Api/Events/TopicRef.php">TopicRef.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 </aside>
 
         <p class="phpdocumentor-summary">TopicRef constructor.</p>
@@ -316,7 +316,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/Events/TopicRef.php"><a href="files/nitric-api-events-topicref.html"><abbr title="Nitric/Api/Events/TopicRef.php">TopicRef.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 </aside>
 
     
@@ -347,46 +347,24 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Nitric/Api/Events/TopicRef.php"><a href="files/nitric-api-events-topicref.html"><abbr title="Nitric/Api/Events/TopicRef.php">TopicRef.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 </aside>
 
         <p class="phpdocumentor-summary">Publish an event/message to a topic, which can be subscribed to by other services.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">publish</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$payload</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$payloadType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&quot;&quot;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                <span class="phpdocumentor-signature__name">publish</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Nitric-Api-Events-Event.html"><abbr title="\Nitric\Api\Events\Event">Event</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$event</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Nitric-Api-Events-Event.html"><abbr title="\Nitric\Api\Events\Event">Event</abbr></a></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$payload</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+                <span class="phpdocumentor-signature__argument__name">$event</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Nitric-Api-Events-Event.html"><abbr title="\Nitric\Api\Events\Event">Event</abbr></a></span>
+                            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>content of the message to send</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$payloadType</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&quot;&quot;</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>fully qualified name of the event payload type,
-e.g. io.nitric.example.customer.created</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$id</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>a unique id, used to ensure idempotent processing of events.
-Defaults to a version 4 UUID.</p>
-</section>
-
+                
             </dd>
             </dl>
 
@@ -407,11 +385,9 @@ Defaults to a version 4 UUID.</p>
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Nitric-Api-Events-Event.html"><abbr title="\Nitric\Api\Events\Event">Event</abbr></a></span>
             &mdash;
-            <section class="phpdocumentor-description"><p>the request id on successful publish</p>
-</section>
-
+        
     
 </article>
             </section>

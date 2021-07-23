@@ -33,6 +33,9 @@ class Event
 
     public function __construct(array|stdClass $payload = null, string $payloadType = "", string $id = "")
     {
+        if ($payload == null) {
+            $payload = new stdClass();
+        }
         $this->payload = $payload;
         $this->payloadType = $payloadType;
         $this->id = $id;
@@ -48,26 +51,30 @@ class Event
 
     /**
      * @param string $id
+     * @return Event
      */
-    public function setId(string $id): void
+    public function setId(string $id): Event
     {
         $this->id = $id;
+        return $this;
     }
 
     /**
-     * @return array|stdClass
+     * @return array|stdClass|null
      */
-    public function getPayload(): array|stdClass
+    public function getPayload(): array|stdClass|null
     {
         return $this->payload;
     }
 
     /**
-     * @param array|stdClass $payload
+     * @param array|stdClass|null $payload
+     * @return Event
      */
-    public function setPayload(array|stdClass $payload): void
+    public function setPayload(array|stdClass|null $payload): Event
     {
         $this->payload = $payload;
+        return $this;
     }
 
     /**
@@ -80,9 +87,11 @@ class Event
 
     /**
      * @param string $payloadType
+     * @return Event
      */
-    public function setPayloadType(string $payloadType): void
+    public function setPayloadType(string $payloadType): Event
     {
         $this->payloadType = $payloadType;
+        return $this;
     }
 }

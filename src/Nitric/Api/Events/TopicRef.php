@@ -22,6 +22,7 @@ use Exception;
 use Google\Protobuf\Struct;
 use Nitric\Api\Events;
 use Nitric\Proto\Event\V1\EventPublishRequest;
+use Nitric\Proto\Event\V1\EventPublishResponse;
 use Nitric\Proto\Event\V1\NitricEvent;
 use Nitric\ProtoUtils\Utils;
 
@@ -55,35 +56,33 @@ class TopicRef
     /**
      * Publish an event/message to a topic, which can be subscribed to by other services.
      *
-     * @param  array       $payload     content of the message to send
-     * @param  string      $payloadType fully qualified name of the event payload type,
-     *                                  e.g. io.nitric.example.customer.created
-     * @param  string|null $id          a unique id, used to ensure idempotent processing of events.
-     *                                  Defaults to a version 4 UUID.
-     * @return string the request id on successful publish
+     * @param Event $event
+     * @return Event
      * @throws Exception
      */
-    public function publish(array $payload = [], string $payloadType = "", string $id = null): string
+    public function publish(Event $event): Event
     {
         $payloadStruct = new Struct();
         try {
-            $payloadStruct->mergeFromJsonString(json_encode($payload));
+            $payloadStruct->mergeFromJsonString(json_encode($event->getPayload()));
         } catch (Exception $e) {
             throw new Exception("Failed to serialize payload. Details: " . $e->getMessage());
         }
 
-        $event = new NitricEvent();
-        $event->setPayload($payloadStruct);
-        $event->setPayloadType($payloadType);
-        $event->setId($id);
+        $eventMessage = (new NitricEvent())
+            ->setPayload($payloadStruct)
+            ->setPayloadType($event->getPayloadType())
+            ->setId($event->getId());
 
-        $publishRequest = new EventPublishRequest();
-        $publishRequest->setTopic($this->name);
-        $publishRequest->setEvent($event);
+        $publishRequest = (new EventPublishRequest())
+            ->setTopic($this->name)
+            ->setEvent($eventMessage);
 
-        list($reply, $status) = $this->events->_baseEventClient->Publish($publishRequest)->wait();
+        list($response, $status) = $this->events->_baseEventClient->Publish($publishRequest)->wait();
+        $response = (fn($r): EventPublishResponse => $r)($response);
 
         Utils::okOrThrow($status);
-        return $id;
+        $event->setId($response->getId());
+        return $event;
     }
 }

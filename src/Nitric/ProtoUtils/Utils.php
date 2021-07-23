@@ -127,7 +127,7 @@ abstract class Utils
     /**
      * @throws Exception
      */
-    public static function structFromClass(stdClass $obj): Struct
+    public static function structFromClass(mixed $obj): Struct
     {
         $struct = new Struct();
         try {
