@@ -17,7 +17,7 @@ class Queue
         \GPBMetadata\Google\Protobuf\Struct::initOnce();
         $pool->internalAddGeneratedFile(
             '
-Å	
+à	
 queue/v1/queue.protonitric.queue.v1"L
 QueueSendRequest
 queue (	)
@@ -47,8 +47,8 @@ NitricTask
 id (	
 lease_id (	
 payload_type (	(
-payload (2.google.protobuf.Struct2Á
-QueueM
+payload (2.google.protobuf.Struct2Ó
+QueueServiceM
 Send!.nitric.queue.v1.QueueSendRequest".nitric.queue.v1.QueueSendResponse\\
 	SendBatch&.nitric.queue.v1.QueueSendBatchRequest\'.nitric.queue.v1.QueueSendBatchResponseV
 Receive$.nitric.queue.v1.QueueReceiveRequest%.nitric.queue.v1.QueueReceiveResponseY

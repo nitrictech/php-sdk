@@ -106,7 +106,7 @@ class TriggerRequest extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.nitric.faas.v1.HttpTriggerContext http = 3;</code>
-     * @return \Nitric\Proto\Faas\V1\HttpTriggerContext|null
+     * @return \Nitric\Proto\Faas\V1\HttpTriggerContext
      */
     public function getHttp()
     {
@@ -133,7 +133,7 @@ class TriggerRequest extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.nitric.faas.v1.TopicTriggerContext topic = 4;</code>
-     * @return \Nitric\Proto\Faas\V1\TopicTriggerContext|null
+     * @return \Nitric\Proto\Faas\V1\TopicTriggerContext
      */
     public function getTopic()
     {
