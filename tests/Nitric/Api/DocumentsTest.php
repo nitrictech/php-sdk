@@ -47,6 +47,14 @@ class DocumentsTest extends TestCase
         $this->assertEquals(null, $ref->getParent());
     }
 
+    public function testCreateCollectionGroupRef()
+    {
+        $colRef = (new Documents())->collection("the-collection");
+        $subcol = $colRef->collection("the-sub-collection");
+        $this->assertEquals($subcol->getName(), "the-sub-collection");
+        $this->assertEquals($subcol->getParent()->getName(), "the-collection");
+    }
+
     public function testCreateDocRef()
     {
         $col = (new Documents())->collection("the-collection");
