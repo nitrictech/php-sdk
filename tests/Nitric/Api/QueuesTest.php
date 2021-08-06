@@ -57,6 +57,44 @@ class QueuesTest extends TestCase
         $this->assertCount(0, $resp);
     }
 
+    public function testSendArrayPayload()
+    {
+        $mockStatusObj = new stdClass();
+        $mockStatusObj->code = STATUS_OK;
+
+        $testResponse = new QueueSendBatchResponse();
+        $testResponse->setFailedTasks([]);
+
+        $stubUnaryCall = $this->createMock(UnaryCall::class);
+        $stubUnaryCall
+            ->expects($this->once())
+            ->method('wait')
+            ->willReturn([
+                $testResponse, # Reply
+                $mockStatusObj # Status
+            ]);
+
+        $stubGrpcQueueClient = $this->createMock(QueueServiceClient::class);
+        $stubGrpcQueueClient
+            ->expects($this->once())
+            ->method('SendBatch')
+            ->with($this->callback(function (QueueSendBatchRequest $request) {
+                return count($request->getTasks()) == 1;
+            }))
+            ->willReturn($stubUnaryCall);
+
+        $tasks = [
+            (new Task())->setPayload([
+                "example" => "payload"
+            ])
+        ];
+
+        $queues = new Queues($stubGrpcQueueClient);
+        $resp = $queues->queue('test-queue')->sendBatch($tasks);
+        // Assert no failed tasks were returned.
+        $this->assertCount(0, $resp);
+    }
+
     public function testReceive()
     {
         $mockStatusObj = new stdClass();

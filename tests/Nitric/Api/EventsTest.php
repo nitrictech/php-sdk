@@ -4,7 +4,9 @@ namespace Nitric\Api;
 
 use Exception;
 use Grpc\UnaryCall;
+use Nitric\Api\Events\Event;
 use Nitric\Api\Exception\UnimplementedException;
+use Nitric\Proto\Event\V1\EventPublishResponse;
 use Nitric\Proto\Event\V1\EventServiceClient;
 use Nitric\Proto\Event\V1\NitricTopic;
 use Nitric\Proto\Event\V1\TopicServiceClient;
@@ -33,8 +35,11 @@ class EventsTest extends TestCase
             ->expects($this->once())
             ->method('wait')
             ->willReturn([
-                null, # Reply
-                $mockStatusObj # Status
+                # Reply
+                (new EventPublishResponse())
+                    ->setId("abc-123"),
+                # Status
+                $mockStatusObj
             ]);
 
         $stubGrpcEventClient = $this->createMock(EventServiceClient::class);
@@ -45,14 +50,15 @@ class EventsTest extends TestCase
             ->willReturn($stubUnaryCall);
 
         $events = new Events($stubGrpcEventClient);
-        $id = $events->topic("topic")->publish(
-            payload: [
-                "key" => "value",
-            ],
-            id: "abc-123"
+        $event = $events->topic("topic")->publish(
+            (new Event())
+                ->setPayload([
+                    "key" => "value",
+                ])
+                ->setId("abc-123")
         );
 
-        $this->assertEquals("abc-123", $id);
+        $this->assertEquals("abc-123", $event->getId());
     }
 
     public function testPublishGrpcError()
@@ -65,7 +71,7 @@ class EventsTest extends TestCase
             ->expects($this->once())
             ->method('wait')
             ->willReturn([
-                null, # Reply
+                new EventPublishResponse(), # Reply
                 $mockStatusObj # Status
             ]);
 
@@ -78,12 +84,7 @@ class EventsTest extends TestCase
         $events = new Events($stubGrpcEventClient);
 
         $this->expectException(UnimplementedException::class);
-        $events->topic("topic")->publish(
-            payload: [
-                "key" => "value",
-            ],
-            id: "abc-123"
-        );
+        $events->topic("topic")->publish(new Event());
     }
 
     public function testPublishException()
@@ -103,12 +104,7 @@ class EventsTest extends TestCase
         $events = new Events($stubGrpcEventClient);
 
         $this->expectException(Exception::class);
-        $id = $events->topic("topic")->publish(
-            payload: [
-                "key" => "value",
-            ],
-            id: "abc-123"
-        );
+        $id = $events->topic("topic")->publish(new Event());
     }
 
     // Topic Tests ============================================================
