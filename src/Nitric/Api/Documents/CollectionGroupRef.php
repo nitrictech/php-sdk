@@ -73,7 +73,7 @@ class CollectionGroupRef
         return $this->parent;
     }
 
-        /**
+    /**
      * @return CollectionRef
      */
     private function toCollectionRef(): CollectionRef
