@@ -136,6 +136,91 @@ Search.appendIndex(
             "summary": "Bind\u0020address\u0020for\u0020the\u0020FaaS\u0020service,\u0020defaults\u0020to\u0020\u0022127.0.0.1\u003A8080\u0022.",
             "url": "classes/Nitric-Faas-Faas.html#constant_CHILD_ADDRESS"
         },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext",
+            "name": "HttpContext",
+            "summary": "Class\u0020Context\u0020represents\u0020the\u0020metadata\u0020of\u0020a\u0020FaaS\u0020request",
+            "url": "classes/Nitric-Faas-HttpContext.html"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpContext.html#method___construct"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003AgetMethod\u0028\u0029",
+            "name": "getMethod",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpContext.html#method_getMethod"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003AgetHeaders\u0028\u0029",
+            "name": "getHeaders",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpContext.html#method_getHeaders"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003AgetQueryParams\u0028\u0029",
+            "name": "getQueryParams",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpContext.html#method_getQueryParams"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003AgetPath\u0028\u0029",
+            "name": "getPath",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpContext.html#method_getPath"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003A\u0024method",
+            "name": "method",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpContext.html#property_method"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003A\u0024headers",
+            "name": "headers",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpContext.html#property_headers"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003A\u0024queryParams",
+            "name": "queryParams",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpContext.html#property_queryParams"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003A\u0024path",
+            "name": "path",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpContext.html#property_path"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpResponseContext",
+            "name": "HttpResponseContext",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpResponseContext.html"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpResponseContext.html#method___construct"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003AtoGrpcResponseContext\u0028\u0029",
+            "name": "toGrpcResponseContext",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpResponseContext.html#method_toGrpcResponseContext"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003AaddHeader\u0028\u0029",
+            "name": "addHeader",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpResponseContext.html#method_addHeader"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003AsetStatus\u0028\u0029",
+            "name": "setStatus",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpResponseContext.html#method_setStatus"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003A\u0024headers",
+            "name": "headers",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpResponseContext.html#property_headers"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003A\u0024status",
+            "name": "status",
+            "summary": "",
+            "url": "classes/Nitric-Faas-HttpResponseContext.html#property_status"
+        },                {
             "fqsen": "\\Nitric\\Faas\\Logger",
             "name": "Logger",
             "summary": "Class\u0020Logger\u0020provides\u0020a\u0020basic\u0020logger\u0020implementation,\u0020enabling\u0020the\u0020FaaS\u0020HTTP\u0020server\u0020to\u0020print\u0020to\u0020stdout.",
@@ -241,116 +326,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Nitric-Faas-Response.html#property_data"
         },                {
-            "fqsen": "\\Nitric\\Faas\\SourceType",
-            "name": "SourceType",
-            "summary": "Class\u0020SourceType\u0020represents\u0020the\u0020source\u0020type\u0020of\u0020a\u0020request\u0020such\u0020as\u0020HTTP\u0020Requests\u0020and\u0020Subscription\u0020Events.",
-            "url": "classes/Nitric-Faas-SourceType.html"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\SourceType\u003A\u003AfromString\u0028\u0029",
-            "name": "fromString",
-            "summary": "Parse\u0020a\u0020SourceType\u0020from\u0020a\u0020string\u0020representation.\u0020Supported\u0020values\u0020are\u003A\nREQUEST\u0020\u0026\u0020SUBSCRIPTION,\u0020all\u0020other\u0020values\u0020will\u0020return\u0020UNKNOWN.",
-            "url": "classes/Nitric-Faas-SourceType.html#method_fromString"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\SourceType\u003A\u003AREQUEST",
-            "name": "REQUEST",
-            "summary": "HTTP\u0020Request\u0020source\u0020type",
-            "url": "classes/Nitric-Faas-SourceType.html#constant_REQUEST"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\SourceType\u003A\u003ASUBSCRIPTION",
-            "name": "SUBSCRIPTION",
-            "summary": "Event\u0020source\u0020type",
-            "url": "classes/Nitric-Faas-SourceType.html#constant_SUBSCRIPTION"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\SourceType\u003A\u003AUNKNOWN",
-            "name": "UNKNOWN",
-            "summary": "Unknown\u0020source\u0020type",
-            "url": "classes/Nitric-Faas-SourceType.html#constant_UNKNOWN"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\HttpContext",
-            "name": "HttpContext",
-            "summary": "Class\u0020Context\u0020represents\u0020the\u0020metadata\u0020of\u0020a\u0020FaaS\u0020request",
-            "url": "classes/Nitric-Faas-HttpContext.html"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Nitric-Faas-HttpContext.html#method___construct"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003AgetMethod\u0028\u0029",
-            "name": "getMethod",
-            "summary": "",
-            "url": "classes/Nitric-Faas-HttpContext.html#method_getMethod"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003AgetHeaders\u0028\u0029",
-            "name": "getHeaders",
-            "summary": "",
-            "url": "classes/Nitric-Faas-HttpContext.html#method_getHeaders"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003AgetQueryParams\u0028\u0029",
-            "name": "getQueryParams",
-            "summary": "",
-            "url": "classes/Nitric-Faas-HttpContext.html#method_getQueryParams"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003AgetPath\u0028\u0029",
-            "name": "getPath",
-            "summary": "",
-            "url": "classes/Nitric-Faas-HttpContext.html#method_getPath"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003A\u0024method",
-            "name": "method",
-            "summary": "",
-            "url": "classes/Nitric-Faas-HttpContext.html#property_method"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003A\u0024headers",
-            "name": "headers",
-            "summary": "",
-            "url": "classes/Nitric-Faas-HttpContext.html#property_headers"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003A\u0024queryParams",
-            "name": "queryParams",
-            "summary": "",
-            "url": "classes/Nitric-Faas-HttpContext.html#property_queryParams"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\HttpContext\u003A\u003A\u0024path",
-            "name": "path",
-            "summary": "",
-            "url": "classes/Nitric-Faas-HttpContext.html#property_path"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\HttpResponseContext",
-            "name": "HttpResponseContext",
-            "summary": "",
-            "url": "classes/Nitric-Faas-HttpResponseContext.html"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Nitric-Faas-HttpResponseContext.html#method___construct"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003AtoGrpcResponseContext\u0028\u0029",
-            "name": "toGrpcResponseContext",
-            "summary": "",
-            "url": "classes/Nitric-Faas-HttpResponseContext.html#method_toGrpcResponseContext"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003AaddHeader\u0028\u0029",
-            "name": "addHeader",
-            "summary": "",
-            "url": "classes/Nitric-Faas-HttpResponseContext.html#method_addHeader"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003AsetStatus\u0028\u0029",
-            "name": "setStatus",
-            "summary": "",
-            "url": "classes/Nitric-Faas-HttpResponseContext.html#method_setStatus"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003A\u0024headers",
-            "name": "headers",
-            "summary": "",
-            "url": "classes/Nitric-Faas-HttpResponseContext.html#property_headers"
-        },                {
-            "fqsen": "\\Nitric\\Faas\\HttpResponseContext\u003A\u003A\u0024status",
-            "name": "status",
-            "summary": "",
-            "url": "classes/Nitric-Faas-HttpResponseContext.html#property_status"
-        },                {
             "fqsen": "\\Nitric\\Faas\\ResponseContext",
             "name": "ResponseContext",
             "summary": "",
@@ -385,6 +360,31 @@ Search.appendIndex(
             "name": "topic",
             "summary": "",
             "url": "classes/Nitric-Faas-ResponseContext.html#method_topic"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\SourceType",
+            "name": "SourceType",
+            "summary": "Class\u0020SourceType\u0020represents\u0020the\u0020source\u0020type\u0020of\u0020a\u0020request\u0020such\u0020as\u0020HTTP\u0020Requests\u0020and\u0020Subscription\u0020Events.",
+            "url": "classes/Nitric-Faas-SourceType.html"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\SourceType\u003A\u003AfromString\u0028\u0029",
+            "name": "fromString",
+            "summary": "Parse\u0020a\u0020SourceType\u0020from\u0020a\u0020string\u0020representation.\u0020Supported\u0020values\u0020are\u003A\nREQUEST\u0020\u0026\u0020SUBSCRIPTION,\u0020all\u0020other\u0020values\u0020will\u0020return\u0020UNKNOWN.",
+            "url": "classes/Nitric-Faas-SourceType.html#method_fromString"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\SourceType\u003A\u003AREQUEST",
+            "name": "REQUEST",
+            "summary": "HTTP\u0020Request\u0020source\u0020type",
+            "url": "classes/Nitric-Faas-SourceType.html#constant_REQUEST"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\SourceType\u003A\u003ASUBSCRIPTION",
+            "name": "SUBSCRIPTION",
+            "summary": "Event\u0020source\u0020type",
+            "url": "classes/Nitric-Faas-SourceType.html#constant_SUBSCRIPTION"
+        },                {
+            "fqsen": "\\Nitric\\Faas\\SourceType\u003A\u003AUNKNOWN",
+            "name": "UNKNOWN",
+            "summary": "Unknown\u0020source\u0020type",
+            "url": "classes/Nitric-Faas-SourceType.html#constant_UNKNOWN"
         },                {
             "fqsen": "\\Nitric\\Faas\\TopicContext",
             "name": "TopicContext",
@@ -425,101 +425,6 @@ Search.appendIndex(
             "name": "success",
             "summary": "",
             "url": "classes/Nitric-Faas-TopicResponseContext.html#property_success"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Events",
-            "name": "Events",
-            "summary": "Class\u0020Events\u0020provides\u0020a\u0020client\u0020for\u0020the\u0020Nitric\u0020Event\u0020Service.",
-            "url": "classes/Nitric-Api-Events.html"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Events\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "EventClient\u0020constructor.",
-            "url": "classes/Nitric-Api-Events.html#method___construct"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Events\u003A\u003Atopic\u0028\u0029",
-            "name": "topic",
-            "summary": "Return\u0020a\u0020reference\u0020to\u0020topic.",
-            "url": "classes/Nitric-Api-Events.html#method_topic"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Events\u003A\u003Atopics\u0028\u0029",
-            "name": "topics",
-            "summary": "Return\u0020a\u0020list\u0020of\u0020topics\u0020available\u0020for\u0020publishing\u0020or\u0020subscriptions.",
-            "url": "classes/Nitric-Api-Events.html#method_topics"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Events\u003A\u003A\u0024_baseEventClient",
-            "name": "_baseEventClient",
-            "summary": "",
-            "url": "classes/Nitric-Api-Events.html#property__baseEventClient"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Events\u003A\u003A\u0024_baseTopicClient",
-            "name": "_baseTopicClient",
-            "summary": "",
-            "url": "classes/Nitric-Api-Events.html#property__baseTopicClient"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Queues",
-            "name": "Queues",
-            "summary": "Class\u0020Queues\u0020provides\u0020a\u0020client\u0020for\u0020the\u0020Nitric\u0020Queue\u0020Service.",
-            "url": "classes/Nitric-Api-Queues.html"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Queues\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "QueueClient\u0020constructor.",
-            "url": "classes/Nitric-Api-Queues.html#method___construct"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Queues\u003A\u003Aqueue\u0028\u0029",
-            "name": "queue",
-            "summary": "",
-            "url": "classes/Nitric-Api-Queues.html#method_queue"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Queues\u003A\u003A\u0024_baseQueueClient",
-            "name": "_baseQueueClient",
-            "summary": "",
-            "url": "classes/Nitric-Api-Queues.html#property__baseQueueClient"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Storage",
-            "name": "Storage",
-            "summary": "Class\u0020Storage\u0020provides\u0020a\u0020client\u0020for\u0020the\u0020Nitric\u0020Storage\u0020Service.",
-            "url": "classes/Nitric-Api-Storage.html"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Storage\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "StorageClient\u0020constructor.",
-            "url": "classes/Nitric-Api-Storage.html#method___construct"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Storage\u003A\u003Abucket\u0028\u0029",
-            "name": "bucket",
-            "summary": "Return\u0020a\u0020reference\u0020to\u0020a\u0020storage\u0020bucket.",
-            "url": "classes/Nitric-Api-Storage.html#method_bucket"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Storage\u003A\u003A\u0024_baseStorageClient",
-            "name": "_baseStorageClient",
-            "summary": "",
-            "url": "classes/Nitric-Api-Storage.html#property__baseStorageClient"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Documents",
-            "name": "Documents",
-            "summary": "Class\u0020Documents\u0020provides\u0020a\u0020client\u0020for\u0020the\u0020Nitric\u0020Document\u0020Service.",
-            "url": "classes/Nitric-Api-Documents.html"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Documents\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Nitric-Api-Documents.html#method___construct"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Documents\u003A\u003Acollection\u0028\u0029",
-            "name": "collection",
-            "summary": "Return\u0020reference\u0020to\u0020a\u0020collection\u0020from\u0020the\u0020document\u0020service.\u0020The\u0020collection\u0020may\u0020or\u0020may\u0020not\u0020exist.",
-            "url": "classes/Nitric-Api-Documents.html#method_collection"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Documents\u003A\u003AMAX_COLLECTION_DEPTH",
-            "name": "MAX_COLLECTION_DEPTH",
-            "summary": "",
-            "url": "classes/Nitric-Api-Documents.html#constant_MAX_COLLECTION_DEPTH"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Documents\u003A\u003A\u0024_baseDocumentClient",
-            "name": "_baseDocumentClient",
-            "summary": "",
-            "url": "classes/Nitric-Api-Documents.html#property__baseDocumentClient"
         },                {
             "fqsen": "\\Nitric\\Api\\Documents\\CollectionRef",
             "name": "CollectionRef",
@@ -836,6 +741,31 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Nitric-Api-Documents-QueryResultsPage.html#property_pagingToken"
         },                {
+            "fqsen": "\\Nitric\\Api\\Documents",
+            "name": "Documents",
+            "summary": "Class\u0020Documents\u0020provides\u0020a\u0020client\u0020for\u0020the\u0020Nitric\u0020Document\u0020Service.",
+            "url": "classes/Nitric-Api-Documents.html"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents.html#method___construct"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\u003A\u003Acollection\u0028\u0029",
+            "name": "collection",
+            "summary": "Return\u0020reference\u0020to\u0020a\u0020collection\u0020from\u0020the\u0020document\u0020service.\u0020The\u0020collection\u0020may\u0020or\u0020may\u0020not\u0020exist.",
+            "url": "classes/Nitric-Api-Documents.html#method_collection"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\u003A\u003AMAX_COLLECTION_DEPTH",
+            "name": "MAX_COLLECTION_DEPTH",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents.html#constant_MAX_COLLECTION_DEPTH"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\u003A\u003A\u0024_baseDocumentClient",
+            "name": "_baseDocumentClient",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents.html#property__baseDocumentClient"
+        },                {
             "fqsen": "\\Nitric\\Api\\Events\\Event",
             "name": "Event",
             "summary": "Class\u0020Event\u0020represents\u0020an\u0020event,\u0020sent\u0020via\u0020topics\u0020and\u0020subscriptions.",
@@ -920,6 +850,36 @@ Search.appendIndex(
             "name": "events",
             "summary": "",
             "url": "classes/Nitric-Api-Events-TopicRef.html#property_events"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Events",
+            "name": "Events",
+            "summary": "Class\u0020Events\u0020provides\u0020a\u0020client\u0020for\u0020the\u0020Nitric\u0020Event\u0020Service.",
+            "url": "classes/Nitric-Api-Events.html"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Events\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "EventClient\u0020constructor.",
+            "url": "classes/Nitric-Api-Events.html#method___construct"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Events\u003A\u003Atopic\u0028\u0029",
+            "name": "topic",
+            "summary": "Return\u0020a\u0020reference\u0020to\u0020topic.",
+            "url": "classes/Nitric-Api-Events.html#method_topic"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Events\u003A\u003Atopics\u0028\u0029",
+            "name": "topics",
+            "summary": "Return\u0020a\u0020list\u0020of\u0020topics\u0020available\u0020for\u0020publishing\u0020or\u0020subscriptions.",
+            "url": "classes/Nitric-Api-Events.html#method_topics"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Events\u003A\u003A\u0024_baseEventClient",
+            "name": "_baseEventClient",
+            "summary": "",
+            "url": "classes/Nitric-Api-Events.html#property__baseEventClient"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Events\u003A\u003A\u0024_baseTopicClient",
+            "name": "_baseTopicClient",
+            "summary": "",
+            "url": "classes/Nitric-Api-Events.html#property__baseTopicClient"
         },                {
             "fqsen": "\\Nitric\\Api\\Queues\\FailedTask",
             "name": "FailedTask",
@@ -1096,6 +1056,26 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Nitric-Api-Queues-Task.html#property_payloadType"
         },                {
+            "fqsen": "\\Nitric\\Api\\Queues",
+            "name": "Queues",
+            "summary": "Class\u0020Queues\u0020provides\u0020a\u0020client\u0020for\u0020the\u0020Nitric\u0020Queue\u0020Service.",
+            "url": "classes/Nitric-Api-Queues.html"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Queues\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "QueueClient\u0020constructor.",
+            "url": "classes/Nitric-Api-Queues.html#method___construct"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Queues\u003A\u003Aqueue\u0028\u0029",
+            "name": "queue",
+            "summary": "",
+            "url": "classes/Nitric-Api-Queues.html#method_queue"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Queues\u003A\u003A\u0024_baseQueueClient",
+            "name": "_baseQueueClient",
+            "summary": "",
+            "url": "classes/Nitric-Api-Queues.html#property__baseQueueClient"
+        },                {
             "fqsen": "\\Nitric\\Api\\Storage\\BucketRef",
             "name": "BucketRef",
             "summary": "Class\u0020BucketRef\u0020represents\u0020a\u0020reference\u0020to\u0020a\u0020bucket\u0020from\u0020a\u0020storage\u0020service.\u0020The\u0020bucket\u0020may\u0020or\u0020may\u0020not\u0020exist.",
@@ -1171,6 +1151,26 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Nitric-Api-Storage-FileRef.html#property_key"
         },                {
+            "fqsen": "\\Nitric\\Api\\Storage",
+            "name": "Storage",
+            "summary": "Class\u0020Storage\u0020provides\u0020a\u0020client\u0020for\u0020the\u0020Nitric\u0020Storage\u0020Service.",
+            "url": "classes/Nitric-Api-Storage.html"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Storage\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "StorageClient\u0020constructor.",
+            "url": "classes/Nitric-Api-Storage.html#method___construct"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Storage\u003A\u003Abucket\u0028\u0029",
+            "name": "bucket",
+            "summary": "Return\u0020a\u0020reference\u0020to\u0020a\u0020storage\u0020bucket.",
+            "url": "classes/Nitric-Api-Storage.html#method_bucket"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Storage\u003A\u003A\u0024_baseStorageClient",
+            "name": "_baseStorageClient",
+            "summary": "",
+            "url": "classes/Nitric-Api-Storage.html#property__baseStorageClient"
+        },                {
             "fqsen": "\\Nitric\\ProtoUtils\\Utils",
             "name": "Utils",
             "summary": "",
@@ -1241,6 +1241,141 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Nitric-ProtoUtils-Utils.html#constant_SERVICE_BIND"
         },                {
+            "fqsen": "\\Nitric\\Api\\Secrets",
+            "name": "Secrets",
+            "summary": "Class\u0020Secrets\u0020provides\u0020a\u0020client\u0020for\u0020the\u0020Nitric\u0020Secret\u0020Service.",
+            "url": "classes/Nitric-Api-Secrets.html"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets.html#method___construct"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\u003A\u003Asecret\u0028\u0029",
+            "name": "secret",
+            "summary": "Return\u0020reference\u0020to\u0020a\u0020secret\u0020from\u0020the\u0020document\u0020service.\u0020The\u0020secret\u0020may\u0020or\u0020may\u0020not\u0020exist.",
+            "url": "classes/Nitric-Api-Secrets.html#method_secret"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\u003A\u003A\u0024_baseSecretClient",
+            "name": "_baseSecretClient",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets.html#property__baseSecretClient"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretRef",
+            "name": "SecretRef",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-SecretRef.html"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretRef\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "SecretRef\u0020constructor.",
+            "url": "classes/Nitric-Api-Secrets-SecretRef.html#method___construct"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretRef\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-SecretRef.html#method_getName"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretRef\u003A\u003Aput\u0028\u0029",
+            "name": "put",
+            "summary": "put",
+            "url": "classes/Nitric-Api-Secrets-SecretRef.html#method_put"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretRef\u003A\u003Alatest\u0028\u0029",
+            "name": "latest",
+            "summary": "latest",
+            "url": "classes/Nitric-Api-Secrets-SecretRef.html#method_latest"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretRef\u003A\u003Aversion\u0028\u0029",
+            "name": "version",
+            "summary": "version",
+            "url": "classes/Nitric-Api-Secrets-SecretRef.html#method_version"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretRef\u003A\u003AtoWire\u0028\u0029",
+            "name": "toWire",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-SecretRef.html#method_toWire"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretRef\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-SecretRef.html#property_name"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretRef\u003A\u003A\u0024secrets",
+            "name": "secrets",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-SecretRef.html#property_secrets"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretValue",
+            "name": "SecretValue",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-SecretValue.html"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretValue\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "TopicRef\u0020constructor.",
+            "url": "classes/Nitric-Api-Secrets-SecretValue.html#method___construct"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretValue\u003A\u003AgetVersion\u0028\u0029",
+            "name": "getVersion",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-SecretValue.html#method_getVersion"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretValue\u003A\u003A\u0024value",
+            "name": "value",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-SecretValue.html#property_value"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretValue\u003A\u003A\u0024version",
+            "name": "version",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-SecretValue.html#property_version"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretVersionRef",
+            "name": "SecretVersionRef",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-SecretVersionRef.html"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretVersionRef\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "TopicRef\u0020constructor.",
+            "url": "classes/Nitric-Api-Secrets-SecretVersionRef.html#method___construct"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretVersionRef\u003A\u003AgetParent\u0028\u0029",
+            "name": "getParent",
+            "summary": "Retrieve\u0020parent\u0020SecretRef\u0020for\u0020this\u0020SecretVersionRef",
+            "url": "classes/Nitric-Api-Secrets-SecretVersionRef.html#method_getParent"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretVersionRef\u003A\u003AgetVersion\u0028\u0029",
+            "name": "getVersion",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-SecretVersionRef.html#method_getVersion"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretVersionRef\u003A\u003AtoWire\u0028\u0029",
+            "name": "toWire",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-SecretVersionRef.html#method_toWire"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretVersionRef\u003A\u003Aaccess\u0028\u0029",
+            "name": "access",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-SecretVersionRef.html#method_access"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretVersionRef\u003A\u003A\u0024parent",
+            "name": "parent",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-SecretVersionRef.html#property_parent"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretVersionRef\u003A\u003A\u0024version",
+            "name": "version",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-SecretVersionRef.html#property_version"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\SecretVersionRef\u003A\u003A\u0024secrets",
+            "name": "secrets",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-SecretVersionRef.html#property_secrets"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -1275,6 +1410,11 @@ Search.appendIndex(
             "name": "Queues",
             "summary": "",
             "url": "namespaces/nitric-api-queues.html"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets",
+            "name": "Secrets",
+            "summary": "",
+            "url": "namespaces/nitric-api-secrets.html"
         },                {
             "fqsen": "\\Nitric\\Api\\Storage",
             "name": "Storage",
