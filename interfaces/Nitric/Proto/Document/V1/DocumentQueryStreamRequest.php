@@ -55,11 +55,11 @@ class DocumentQueryStreamRequest extends \Google\Protobuf\Internal\Message
      * The collection to query
      *
      * Generated from protobuf field <code>.nitric.document.v1.Collection collection = 1;</code>
-     * @return \Nitric\Proto\Document\V1\Collection
+     * @return \Nitric\Proto\Document\V1\Collection|null
      */
     public function getCollection()
     {
-        return isset($this->collection) ? $this->collection : null;
+        return $this->collection;
     }
 
     public function hasCollection()

@@ -47,11 +47,11 @@ class FailedTask extends \Google\Protobuf\Internal\Message
      * The task that failed to be pushed
      *
      * Generated from protobuf field <code>.nitric.queue.v1.NitricTask task = 1;</code>
-     * @return \Nitric\Proto\Queue\V1\NitricTask
+     * @return \Nitric\Proto\Queue\V1\NitricTask|null
      */
     public function getTask()
     {
-        return isset($this->task) ? $this->task : null;
+        return $this->task;
     }
 
     public function hasTask()

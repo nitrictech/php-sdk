@@ -49,11 +49,11 @@ class Document extends \Google\Protobuf\Internal\Message
      * The document content (JSON object)
      *
      * Generated from protobuf field <code>.google.protobuf.Struct content = 1;</code>
-     * @return \Google\Protobuf\Struct
+     * @return \Google\Protobuf\Struct|null
      */
     public function getContent()
     {
-        return isset($this->content) ? $this->content : null;
+        return $this->content;
     }
 
     public function hasContent()
@@ -85,11 +85,11 @@ class Document extends \Google\Protobuf\Internal\Message
      * The document's unique key, including collection/sub-collections
      *
      * Generated from protobuf field <code>.nitric.document.v1.Key key = 2;</code>
-     * @return \Nitric\Proto\Document\V1\Key
+     * @return \Nitric\Proto\Document\V1\Key|null
      */
     public function getKey()
     {
-        return isset($this->key) ? $this->key : null;
+        return $this->key;
     }
 
     public function hasKey()

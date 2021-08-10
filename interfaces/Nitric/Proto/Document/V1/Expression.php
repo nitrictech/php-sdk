@@ -109,11 +109,11 @@ class Expression extends \Google\Protobuf\Internal\Message
      * The query expression value
      *
      * Generated from protobuf field <code>.nitric.document.v1.ExpressionValue value = 3;</code>
-     * @return \Nitric\Proto\Document\V1\ExpressionValue
+     * @return \Nitric\Proto\Document\V1\ExpressionValue|null
      */
     public function getValue()
     {
-        return isset($this->value) ? $this->value : null;
+        return $this->value;
     }
 
     public function hasValue()
