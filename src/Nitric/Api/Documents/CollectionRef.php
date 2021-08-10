@@ -62,6 +62,21 @@ class CollectionRef
     }
 
     /**
+     * Return a collection reference as a subcollection of this collection
+     *
+     * @param string $name the name of the sub collection
+     * @return CollectionGroupRef
+     */
+    public function collection(string $name): CollectionGroupRef
+    {
+        return new CollectionGroupRef(
+            $this->documents,
+            $name,
+            CollectionGroupRef::fromCollectionRef($this, $this->documents),
+        );
+    }
+
+    /**
      * Return a new QueryBuilder scoped to this collection.
      *
      * @return QueryBuilder
