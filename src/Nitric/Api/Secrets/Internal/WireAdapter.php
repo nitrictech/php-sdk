@@ -33,7 +33,7 @@ abstract class WireAdapter
     {
         $s = new Secret();
 
-        $s->setName($value->name);
+        $s->setName($value->getName());
 
         return $s;
     }
