@@ -18,9 +18,8 @@
 
 namespace Nitric\Api\Secrets;
 
-use Exception;
-use Google\Protobuf\Struct;
 use Nitric\Api\Secrets;
+use Nitric\Api\Secrets\Internal\WireAdapter;
 use Nitric\Proto\Secret\V1\SecretVersion;
 use Nitric\Proto\Secret\V1\SecretAccessRequest;
 use Nitric\ProtoUtils\Utils;
@@ -33,19 +32,18 @@ class SecretVersionRef
     private Secrets $secrets;
 
     /**
-     * TopicRef constructor.
+     * SecretVersionRef constructor.
      *
-     * Should not be called directly, use Events().topic() instead.
+     * Should not be called directly, use Secrets().secret().version() instead.
      *
      * @param Events $events nested reference to the Events client
      */
     public function __construct(Secrets $secrets, SecretRef $parent, string $version)
     {
         $this->version = $version;
-                $this->parent = $parent;
+        $this->parent = $parent;
         $this->secrets = $secrets;
     }
-
 
     /**
      * Retrieve parent SecretRef for this SecretVersionRef
@@ -63,22 +61,13 @@ class SecretVersionRef
         return $this->version;
     }
 
-    public function toWire(): SecretVersion
-    {
-        $sv = new SecretVersion();
-
-        $sv->setSecret($this->parent->toWire());
-        $sv->setVersion($this->version);
-
-        return $sv;
-    }
-
-
+    /**
+     * @return SecretValue - The value of the secret held by this secret version
+     */
     public function access(): SecretValue
     {
         $sar = new SecretAccessRequest();
-
-        $sar->setSecretVersion($this->toWire());
+        $sar->setSecretVersion(WireAdapter::secretVersionRefToWire($this));
 
         [$resp, $status] = $this->secrets->_baseSecretClient->Access($sar)->wait();
         Utils::okOrThrow($status);

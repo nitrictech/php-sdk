@@ -47,7 +47,7 @@ class Secrets
     }
 
     /**
-     * Return reference to a secret from the document service. The secret may or may not exist.
+     * Return reference to a secret from the secret service. The secret may or may not exist.
      *
      * @param string $name
      * @return SecretRef

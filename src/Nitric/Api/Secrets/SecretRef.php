@@ -19,6 +19,7 @@
 namespace Nitric\Api\Secrets;
 
 use Nitric\Api\Secrets;
+use Nitric\Api\Secrets\Internal\WireAdapter;
 use Nitric\ProtoUtils\Utils;
 use Nitric\Proto\Secret\V1\Secret;
 use Nitric\Proto\Secret\V1\SecretPutRequest;
@@ -62,7 +63,7 @@ class SecretRef
     {
         $spr = new SecretPutRequest();
 
-        $spr->setSecret($this->toWire());
+        $spr->setSecret(WireAdapter::secretRefToWire($this));
         $spr->setValue($value);
 
         [$resp, $status] = $this->secrets->_baseSecretClient->Put($spr)->wait();
@@ -99,14 +100,5 @@ class SecretRef
             $this,
             $version,
         );
-    }
-
-    public function toWire(): Secret
-    {
-        $s = new Secret();
-
-        $s->setName($this->name);
-
-        return $s;
     }
 }

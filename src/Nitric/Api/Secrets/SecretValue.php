@@ -25,20 +25,20 @@ class SecretValue
     private string $value;
 
     /**
-     * TopicRef constructor.
+     * SecretValue constructor.
      *
-     * Should not be called directly, use Events().topic() instead.
+     * Should not be called directly, use access on SecretVersion instead.
      *
      * @param Events $events nested reference to the Events client
      */
     public function __construct(SecretVersionRef $version, string $value)
     {
         $this->version = $version;
-                $this->value = $value;
+        $this->value = $value;
     }
 
     /**
-     * @return string
+     * @return SecretVersionRef the reference of the version of this secret value.
      */
     public function getVersion(): SecretVersionRef
     {
@@ -46,6 +46,9 @@ class SecretValue
     }
 
 
+    /**
+     * @return string the value of this secret
+     */
     public function value(): string
     {
         return $this->value;
