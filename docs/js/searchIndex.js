@@ -441,6 +441,11 @@ Search.appendIndex(
             "summary": "Return\u0020a\u0020reference\u0020to\u0020a\u0020document\u0020in\u0020this\u0020collection.",
             "url": "classes/Nitric-Api-Documents-CollectionRef.html#method_doc"
         },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\CollectionRef\u003A\u003Acollection\u0028\u0029",
+            "name": "collection",
+            "summary": "Return\u0020a\u0020collection\u0020reference\u0020as\u0020a\u0020subcollection\u0020of\u0020this\u0020collection",
+            "url": "classes/Nitric-Api-Documents-CollectionRef.html#method_collection"
+        },                {
             "fqsen": "\\Nitric\\Api\\Documents\\CollectionRef\u003A\u003Aquery\u0028\u0029",
             "name": "query",
             "summary": "Return\u0020a\u0020new\u0020QueryBuilder\u0020scoped\u0020to\u0020this\u0020collection.",
@@ -1253,7 +1258,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Nitric\\Api\\Secrets\u003A\u003Asecret\u0028\u0029",
             "name": "secret",
-            "summary": "Return\u0020reference\u0020to\u0020a\u0020secret\u0020from\u0020the\u0020document\u0020service.\u0020The\u0020secret\u0020may\u0020or\u0020may\u0020not\u0020exist.",
+            "summary": "Return\u0020reference\u0020to\u0020a\u0020secret\u0020from\u0020the\u0020secret\u0020service.\u0020The\u0020secret\u0020may\u0020or\u0020may\u0020not\u0020exist.",
             "url": "classes/Nitric-Api-Secrets.html#method_secret"
         },                {
             "fqsen": "\\Nitric\\Api\\Secrets\u003A\u003A\u0024_baseSecretClient",
@@ -1291,11 +1296,6 @@ Search.appendIndex(
             "summary": "version",
             "url": "classes/Nitric-Api-Secrets-SecretRef.html#method_version"
         },                {
-            "fqsen": "\\Nitric\\Api\\Secrets\\SecretRef\u003A\u003AtoWire\u0028\u0029",
-            "name": "toWire",
-            "summary": "",
-            "url": "classes/Nitric-Api-Secrets-SecretRef.html#method_toWire"
-        },                {
             "fqsen": "\\Nitric\\Api\\Secrets\\SecretRef\u003A\u003A\u0024name",
             "name": "name",
             "summary": "",
@@ -1313,7 +1313,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Nitric\\Api\\Secrets\\SecretValue\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "TopicRef\u0020constructor.",
+            "summary": "SecretValue\u0020constructor.",
             "url": "classes/Nitric-Api-Secrets-SecretValue.html#method___construct"
         },                {
             "fqsen": "\\Nitric\\Api\\Secrets\\SecretValue\u003A\u003AgetVersion\u0028\u0029",
@@ -1338,7 +1338,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Nitric\\Api\\Secrets\\SecretVersionRef\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "TopicRef\u0020constructor.",
+            "summary": "SecretVersionRef\u0020constructor.",
             "url": "classes/Nitric-Api-Secrets-SecretVersionRef.html#method___construct"
         },                {
             "fqsen": "\\Nitric\\Api\\Secrets\\SecretVersionRef\u003A\u003AgetParent\u0028\u0029",
@@ -1350,11 +1350,6 @@ Search.appendIndex(
             "name": "getVersion",
             "summary": "",
             "url": "classes/Nitric-Api-Secrets-SecretVersionRef.html#method_getVersion"
-        },                {
-            "fqsen": "\\Nitric\\Api\\Secrets\\SecretVersionRef\u003A\u003AtoWire\u0028\u0029",
-            "name": "toWire",
-            "summary": "",
-            "url": "classes/Nitric-Api-Secrets-SecretVersionRef.html#method_toWire"
         },                {
             "fqsen": "\\Nitric\\Api\\Secrets\\SecretVersionRef\u003A\u003Aaccess\u0028\u0029",
             "name": "access",
@@ -1375,6 +1370,71 @@ Search.appendIndex(
             "name": "secrets",
             "summary": "",
             "url": "classes/Nitric-Api-Secrets-SecretVersionRef.html#property_secrets"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\CollectionGroupRef",
+            "name": "CollectionGroupRef",
+            "summary": "Class\u0020CollectionRef\u0020represents\u0020a\u0020reference\u0020to\u0020a\u0020collection,\u0020which\u0020may\u0020or\u0020may\u0020not\u0020exist.",
+            "url": "classes/Nitric-Api-Documents-CollectionGroupRef.html"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\CollectionGroupRef\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents-CollectionGroupRef.html#method___construct"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\CollectionGroupRef\u003A\u003Aquery\u0028\u0029",
+            "name": "query",
+            "summary": "Return\u0020a\u0020new\u0020QueryBuilder\u0020scoped\u0020to\u0020this\u0020collection.",
+            "url": "classes/Nitric-Api-Documents-CollectionGroupRef.html#method_query"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\CollectionGroupRef\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents-CollectionGroupRef.html#method_getName"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\CollectionGroupRef\u003A\u003AgetParent\u0028\u0029",
+            "name": "getParent",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents-CollectionGroupRef.html#method_getParent"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\CollectionGroupRef\u003A\u003AtoCollectionRef\u0028\u0029",
+            "name": "toCollectionRef",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents-CollectionGroupRef.html#method_toCollectionRef"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\CollectionGroupRef\u003A\u003AfromCollectionRef\u0028\u0029",
+            "name": "fromCollectionRef",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents-CollectionGroupRef.html#method_fromCollectionRef"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\CollectionGroupRef\u003A\u003A\u0024documents",
+            "name": "documents",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents-CollectionGroupRef.html#property_documents"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\CollectionGroupRef\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents-CollectionGroupRef.html#property_name"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\CollectionGroupRef\u003A\u003A\u0024parent",
+            "name": "parent",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents-CollectionGroupRef.html#property_parent"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\Internal\\WireAdapter",
+            "name": "WireAdapter",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-Internal-WireAdapter.html"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\Internal\\WireAdapter\u003A\u003AsecretRefToWire\u0028\u0029",
+            "name": "secretRefToWire",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-Internal-WireAdapter.html#method_secretRefToWire"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\Internal\\WireAdapter\u003A\u003AsecretVersionRefToWire\u0028\u0029",
+            "name": "secretVersionRefToWire",
+            "summary": "",
+            "url": "classes/Nitric-Api-Secrets-Internal-WireAdapter.html#method_secretVersionRefToWire"
         },                {
             "fqsen": "\\",
             "name": "\\",
@@ -1410,6 +1470,11 @@ Search.appendIndex(
             "name": "Queues",
             "summary": "",
             "url": "namespaces/nitric-api-queues.html"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Secrets\\Internal",
+            "name": "Internal",
+            "summary": "",
+            "url": "namespaces/nitric-api-secrets-internal.html"
         },                {
             "fqsen": "\\Nitric\\Api\\Secrets",
             "name": "Secrets",
