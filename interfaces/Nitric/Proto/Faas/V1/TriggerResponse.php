@@ -72,7 +72,7 @@ class TriggerResponse extends \Google\Protobuf\Internal\Message
      * response to a http request
      *
      * Generated from protobuf field <code>.nitric.faas.v1.HttpResponseContext http = 10;</code>
-     * @return \Nitric\Proto\Faas\V1\HttpResponseContext
+     * @return \Nitric\Proto\Faas\V1\HttpResponseContext|null
      */
     public function getHttp()
     {
@@ -103,7 +103,7 @@ class TriggerResponse extends \Google\Protobuf\Internal\Message
      * response to a topic trigger
      *
      * Generated from protobuf field <code>.nitric.faas.v1.TopicResponseContext topic = 11;</code>
-     * @return \Nitric\Proto\Faas\V1\TopicResponseContext
+     * @return \Nitric\Proto\Faas\V1\TopicResponseContext|null
      */
     public function getTopic()
     {

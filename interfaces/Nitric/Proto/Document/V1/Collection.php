@@ -73,11 +73,11 @@ class Collection extends \Google\Protobuf\Internal\Message
      * Optional parent key, required when the collection is a sub-collection of another document
      *
      * Generated from protobuf field <code>.nitric.document.v1.Key parent = 2;</code>
-     * @return \Nitric\Proto\Document\V1\Key
+     * @return \Nitric\Proto\Document\V1\Key|null
      */
     public function getParent()
     {
-        return isset($this->parent) ? $this->parent : null;
+        return $this->parent;
     }
 
     public function hasParent()

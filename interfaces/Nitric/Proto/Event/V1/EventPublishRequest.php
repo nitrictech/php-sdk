@@ -75,11 +75,11 @@ class EventPublishRequest extends \Google\Protobuf\Internal\Message
      * The event to be published
      *
      * Generated from protobuf field <code>.nitric.event.v1.NitricEvent event = 2;</code>
-     * @return \Nitric\Proto\Event\V1\NitricEvent
+     * @return \Nitric\Proto\Event\V1\NitricEvent|null
      */
     public function getEvent()
     {
-        return isset($this->event) ? $this->event : null;
+        return $this->event;
     }
 
     public function hasEvent()

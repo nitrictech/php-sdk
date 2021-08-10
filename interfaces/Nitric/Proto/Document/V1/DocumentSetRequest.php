@@ -47,11 +47,11 @@ class DocumentSetRequest extends \Google\Protobuf\Internal\Message
      * Key of the document to set
      *
      * Generated from protobuf field <code>.nitric.document.v1.Key key = 1;</code>
-     * @return \Nitric\Proto\Document\V1\Key
+     * @return \Nitric\Proto\Document\V1\Key|null
      */
     public function getKey()
     {
-        return isset($this->key) ? $this->key : null;
+        return $this->key;
     }
 
     public function hasKey()
@@ -83,11 +83,11 @@ class DocumentSetRequest extends \Google\Protobuf\Internal\Message
      * The document content to store (JSON object)
      *
      * Generated from protobuf field <code>.google.protobuf.Struct content = 3;</code>
-     * @return \Google\Protobuf\Struct
+     * @return \Google\Protobuf\Struct|null
      */
     public function getContent()
     {
-        return isset($this->content) ? $this->content : null;
+        return $this->content;
     }
 
     public function hasContent()

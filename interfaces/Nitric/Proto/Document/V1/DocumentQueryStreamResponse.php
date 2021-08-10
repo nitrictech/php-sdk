@@ -39,11 +39,11 @@ class DocumentQueryStreamResponse extends \Google\Protobuf\Internal\Message
      * The stream document
      *
      * Generated from protobuf field <code>.nitric.document.v1.Document document = 1;</code>
-     * @return \Nitric\Proto\Document\V1\Document
+     * @return \Nitric\Proto\Document\V1\Document|null
      */
     public function getDocument()
     {
-        return isset($this->document) ? $this->document : null;
+        return $this->document;
     }
 
     public function hasDocument()

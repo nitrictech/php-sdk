@@ -39,11 +39,11 @@ class DocumentGetRequest extends \Google\Protobuf\Internal\Message
      * Key of the document to retrieve
      *
      * Generated from protobuf field <code>.nitric.document.v1.Key key = 1;</code>
-     * @return \Nitric\Proto\Document\V1\Key
+     * @return \Nitric\Proto\Document\V1\Key|null
      */
     public function getKey()
     {
-        return isset($this->key) ? $this->key : null;
+        return $this->key;
     }
 
     public function hasKey()
