@@ -34,66 +34,66 @@ use Nitric\ProtoUtils\Utils;
 abstract class WireAdapter
 {
 
-        /**
-         * @throws Exception
-         */
+    /**
+     * @throws Exception
+     */
     public static function docRefToWireKey(DocumentRef $ref): Key
     {
-            $key = new Key();
-            $key->setId($ref->getId());
-            $key->setCollection(self::collectionRefToWire($ref->getParent()));
-            return $key;
+        $key = new Key();
+        $key->setId($ref->getId());
+        $key->setCollection(self::collectionRefToWire($ref->getParent()));
+        return $key;
     }
 
-        /**
-         * @throws Exception
-         */
-    public static function expressionToWire(QueryExpression $expression): Expression
-    {
-            $valMessage = self::expValueToWire($expression->getValue());
-
-            $expMessage = new Expression();
-            $expMessage->setOperand($expression->getOperand());
-            $expMessage->setOperator($expression->getOperator());
-            $expMessage->setValue($valMessage);
-            return $expMessage;
-    }
-
-        /**
-         * @throws Exception
-         */
-    public static function expValueToWire($value): ExpressionValue
-    {
-            $valueMessage = new ExpressionValue();
-        if (is_int($value)) {
-                $valueMessage->setIntValue($value);
-        } elseif (is_double($value)) {
-                $valueMessage->setDoubleValue($value);
-        } elseif (is_string($value)) {
-                $valueMessage->setStringValue($value);
-        } elseif (is_bool($value)) {
-                $valueMessage->setBoolValue($value);
-        } else {
-                throw new InvalidArgumentException("Unsupported type " . gettype($value) .
-                        ", supported types are int, double, string and bool.");
-        }
-            return $valueMessage;
-    }
-
-        /**
-         * @throws Exception
-         */
+    /**
+     * @throws Exception
+     */
     public static function collectionRefToWire(CollectionRef $ref): Collection
     {
-            $collection = new Collection();
-            $collection->setName($ref->getName());
+        $collection = new Collection();
+        $collection->setName($ref->getName());
         if ($ref->isSubCollection()) {
-                $collection->setParent(self::docRefToWireKey($ref->getParent()));
+            $collection->setParent(self::docRefToWireKey($ref->getParent()));
         }
-            return $collection;
+        return $collection;
     }
 
-        /**
+    /**
+     * @throws Exception
+     */
+    public static function expressionToWire(QueryExpression $expression): Expression
+    {
+        $valMessage = self::expValueToWire($expression->getValue());
+
+        $expMessage = new Expression();
+        $expMessage->setOperand($expression->getOperand());
+        $expMessage->setOperator($expression->getOperator());
+        $expMessage->setValue($valMessage);
+        return $expMessage;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public static function expValueToWire($value): ExpressionValue
+    {
+        $valueMessage = new ExpressionValue();
+        if (is_int($value)) {
+            $valueMessage->setIntValue($value);
+        } elseif (is_double($value)) {
+            $valueMessage->setDoubleValue($value);
+        } elseif (is_string($value)) {
+            $valueMessage->setStringValue($value);
+        } elseif (is_bool($value)) {
+            $valueMessage->setBoolValue($value);
+        } else {
+            throw new InvalidArgumentException("Unsupported type " . gettype($value) .
+                ", supported types are int, double, string and bool.");
+        }
+        return $valueMessage;
+    }
+
+    /**
      * @throws Exception
      */
     public static function docFromWire(Documents $docsClient, Document $docMessage): DocumentSnapshot
