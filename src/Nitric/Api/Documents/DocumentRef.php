@@ -20,6 +20,7 @@ namespace Nitric\Api\Documents;
 
 use Exception;
 use Nitric\Api\Documents;
+use Nitric\Api\Documents\Internal\WireAdapter;
 use Nitric\Proto\Document\V1\DocumentDeleteRequest;
 use Nitric\Proto\Document\V1\DocumentGetRequest;
 use Nitric\Proto\Document\V1\DocumentGetResponse;
@@ -55,13 +56,13 @@ class DocumentRef
     public function get(): DocumentSnapshot
     {
         $request = new DocumentGetRequest();
-        $request->setKey(Utils::docRefToWireKey($this));
+        $request->setKey(WireAdapter::docRefToWireKey($this));
 
         [$response, $status] = $this->documents->_baseDocumentClient->Get($request)->wait();
         Utils::okOrThrow($status);
         $response = (fn($r): DocumentGetResponse => $r)($response);
 
-        return Utils::docFromWire($this->documents, $response->getDocument());
+        return WireAdapter::docFromWire($this->documents, $response->getDocument());
     }
 
     /**
@@ -71,7 +72,7 @@ class DocumentRef
     public function set(stdClass $content)
     {
         $request = new DocumentSetRequest();
-        $request->setKey(Utils::docRefToWireKey($this));
+        $request->setKey(WireAdapter::docRefToWireKey($this));
         $request->setContent(Utils::structFromClass($content));
 
         [$response, $status] = $this->documents->_baseDocumentClient->Set($request)->wait();
@@ -84,7 +85,7 @@ class DocumentRef
     public function delete()
     {
         $request = new DocumentDeleteRequest();
-        $request->setKey(Utils::docRefToWireKey($this));
+        $request->setKey(WireAdapter::docRefToWireKey($this));
 
         [$response, $status] = $this->documents->_baseDocumentClient->Delete($request)->wait();
         Utils::okOrThrow($status);

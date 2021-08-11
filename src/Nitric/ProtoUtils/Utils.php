@@ -22,12 +22,6 @@ use Closure;
 use Exception;
 use Google\Protobuf\Struct;
 use Grpc\ChannelCredentials;
-use InvalidArgumentException;
-use Nitric\Api\Documents;
-use Nitric\Api\Documents\CollectionRef;
-use Nitric\Api\Documents\DocumentRef;
-use Nitric\Api\Documents\DocumentSnapshot;
-use Nitric\Api\Documents\QueryExpression;
 use Nitric\Api\Exception\AbortedException;
 use Nitric\Api\Exception\AlreadyExistsException;
 use Nitric\Api\Exception\CancelledException;
@@ -43,11 +37,6 @@ use Nitric\Api\Exception\ResourceExhaustedException;
 use Nitric\Api\Exception\UnauthenticatedException;
 use Nitric\Api\Exception\UnavailableException;
 use Nitric\Api\Exception\UnimplementedException;
-use Nitric\Proto\Document\V1\Collection;
-use Nitric\Proto\Document\V1\Document;
-use Nitric\Proto\Document\V1\Expression;
-use Nitric\Proto\Document\V1\ExpressionValue;
-use Nitric\Proto\Document\V1\Key;
 use stdClass;
 
 use const Grpc\STATUS_ABORTED;
@@ -70,59 +59,6 @@ use const Grpc\STATUS_UNIMPLEMENTED;
 abstract class Utils
 {
     public const SERVICE_BIND = "SERVICE_BIND";
-
-    public static function docRefToWireKey(DocumentRef $ref): Key
-    {
-        $key = new Key();
-        $key->setId($ref->getId());
-        $key->setCollection(self::collectionRefToWire($ref->getParent()));
-        return $key;
-    }
-
-    /**
-     * @throws Exception
-     */
-    public static function expressionToWire(QueryExpression $expression): Expression
-    {
-        $valMessage = self::expValueToWire($expression->getValue());
-
-        $expMessage = new Expression();
-        $expMessage->setOperand($expression->getOperand());
-        $expMessage->setOperator($expression->getOperator());
-        $expMessage->setValue($valMessage);
-        return $expMessage;
-    }
-
-    /**
-     * @throws Exception
-     */
-    public static function expValueToWire($value): ExpressionValue
-    {
-        $valueMessage = new ExpressionValue();
-        if (is_int($value)) {
-            $valueMessage->setIntValue($value);
-        } elseif (is_double($value)) {
-            $valueMessage->setDoubleValue($value);
-        } elseif (is_string($value)) {
-            $valueMessage->setStringValue($value);
-        } elseif (is_bool($value)) {
-            $valueMessage->setBoolValue($value);
-        } else {
-            throw new InvalidArgumentException("Unsupported type " . gettype($value) .
-                ", supported types are int, double, string and bool.");
-        }
-        return $valueMessage;
-    }
-
-    public static function collectionRefToWire(CollectionRef $ref): Collection
-    {
-        $collection = new Collection();
-        $collection->setName($ref->getName());
-        if ($ref->isSubCollection()) {
-            $collection->setParent(self::docRefToWireKey($ref->getParent()));
-        }
-        return $collection;
-    }
 
     /**
      * @throws Exception
@@ -220,40 +156,5 @@ abstract class Utils
         } catch (Exception $e) {
             throw new Exception("Failed to deserialize struct. Details: " . $e->getMessage());
         }
-    }
-
-    /**
-     * @throws Exception
-     */
-    public static function docFromWire(Documents $docsClient, Document $docMessage): DocumentSnapshot
-    {
-        return new DocumentSnapshot(
-            ref: self::docRefFromWire($docsClient, $docMessage->getKey()),
-            content: self::classFromStruct($docMessage->getContent()),
-        );
-    }
-
-    /**
-     * @throws Exception
-     */
-    public static function docRefFromWire(Documents $docsClient, Key $keyMessage): DocumentRef
-    {
-        return new DocumentRef(
-            documents: $docsClient,
-            collection: self::collectionRefFromWire($docsClient, $keyMessage->getCollection()),
-            id: $keyMessage->getId(),
-        );
-    }
-
-    /**
-     * @throws Exception
-     */
-    public static function collectionRefFromWire(Documents $docsClient, Collection $collectionMessage): CollectionRef
-    {
-        $parent = null;
-        if ($collectionMessage->getParent()) {
-            $parent = self::docRefFromWire($docsClient, $collectionMessage->getParent());
-        }
-        return new CollectionRef(documents: $docsClient, name: $collectionMessage->getName(), parent: $parent);
     }
 }
