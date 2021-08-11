@@ -19,25 +19,12 @@
 namespace Nitric\Api\Secrets\Internal;
 
 use Nitric\Api\Secrets\SecretRef;
-use Nitric\Api\Secrets\SecretValue;
 use Nitric\Api\Secrets\SecretVersionRef;
 use Nitric\Proto\Secret\V1\Secret;
 use Nitric\Proto\Secret\V1\SecretVersion;
 
 abstract class WireAdapter
 {
-    /**
-     * @throws Exception
-     */
-    public static function secretRefToWire(SecretRef $value): Secret
-    {
-        $s = new Secret();
-
-        $s->setName($value->getName());
-
-        return $s;
-    }
-
     /**
      * @throws Exception
      */
@@ -49,5 +36,17 @@ abstract class WireAdapter
         $sv->setVersion($value->getVersion());
 
         return $sv;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public static function secretRefToWire(SecretRef $value): Secret
+    {
+        $s = new Secret();
+
+        $s->setName($value->getName());
+
+        return $s;
     }
 }

@@ -20,6 +20,7 @@ namespace Nitric\Api\Documents;
 
 use InvalidArgumentException;
 use Nitric\Api\Documents;
+use Nitric\Api\Documents\Internal\WireAdapter;
 use Nitric\Proto\Document\V1\Document;
 use Nitric\Proto\Document\V1\DocumentQueryRequest;
 use Nitric\Proto\Document\V1\DocumentQueryResponse;
@@ -103,13 +104,13 @@ class QueryBuilder
     public function fetch(): QueryResultsPage
     {
         $request = new DocumentQueryRequest();
-        $request->setCollection(Utils::collectionRefToWire($this->collection));
+        $request->setCollection(WireAdapter::collectionRefToWire($this->collection));
         $request->setLimit($this->limit);
         if ($this->pagingToken) {
             $request->setPagingToken($this->pagingToken);
         }
         $request->setExpressions(
-            array_map(fn($exp): Expression => Utils::expressionToWire($exp), $this->expressions)
+            array_map(fn($exp): Expression => WireAdapter::expressionToWire($exp), $this->expressions)
         );
 
         [$response, $status] = $this->documents->_baseDocumentClient->Query($request)->wait();
@@ -118,7 +119,7 @@ class QueryBuilder
 
         $docs = Utils::mapRepeatedField(
             $response->getDocuments(),
-            fn(Document $doc) => Utils::docFromWire($this->documents, $doc)
+            fn(Document $doc) => WireAdapter::docFromWire($this->documents, $doc)
         );
 
         $page = new QueryResultsPage(
