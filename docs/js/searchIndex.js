@@ -1181,26 +1181,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Nitric-ProtoUtils-Utils.html"
         },                {
-            "fqsen": "\\Nitric\\ProtoUtils\\Utils\u003A\u003AdocRefToWireKey\u0028\u0029",
-            "name": "docRefToWireKey",
-            "summary": "",
-            "url": "classes/Nitric-ProtoUtils-Utils.html#method_docRefToWireKey"
-        },                {
-            "fqsen": "\\Nitric\\ProtoUtils\\Utils\u003A\u003AexpressionToWire\u0028\u0029",
-            "name": "expressionToWire",
-            "summary": "",
-            "url": "classes/Nitric-ProtoUtils-Utils.html#method_expressionToWire"
-        },                {
-            "fqsen": "\\Nitric\\ProtoUtils\\Utils\u003A\u003AexpValueToWire\u0028\u0029",
-            "name": "expValueToWire",
-            "summary": "",
-            "url": "classes/Nitric-ProtoUtils-Utils.html#method_expValueToWire"
-        },                {
-            "fqsen": "\\Nitric\\ProtoUtils\\Utils\u003A\u003AcollectionRefToWire\u0028\u0029",
-            "name": "collectionRefToWire",
-            "summary": "",
-            "url": "classes/Nitric-ProtoUtils-Utils.html#method_collectionRefToWire"
-        },                {
             "fqsen": "\\Nitric\\ProtoUtils\\Utils\u003A\u003AstructFromClass\u0028\u0029",
             "name": "structFromClass",
             "summary": "",
@@ -1225,21 +1205,6 @@ Search.appendIndex(
             "name": "classFromStruct",
             "summary": "",
             "url": "classes/Nitric-ProtoUtils-Utils.html#method_classFromStruct"
-        },                {
-            "fqsen": "\\Nitric\\ProtoUtils\\Utils\u003A\u003AdocFromWire\u0028\u0029",
-            "name": "docFromWire",
-            "summary": "",
-            "url": "classes/Nitric-ProtoUtils-Utils.html#method_docFromWire"
-        },                {
-            "fqsen": "\\Nitric\\ProtoUtils\\Utils\u003A\u003AdocRefFromWire\u0028\u0029",
-            "name": "docRefFromWire",
-            "summary": "",
-            "url": "classes/Nitric-ProtoUtils-Utils.html#method_docRefFromWire"
-        },                {
-            "fqsen": "\\Nitric\\ProtoUtils\\Utils\u003A\u003AcollectionRefFromWire\u0028\u0029",
-            "name": "collectionRefFromWire",
-            "summary": "",
-            "url": "classes/Nitric-ProtoUtils-Utils.html#method_collectionRefFromWire"
         },                {
             "fqsen": "\\Nitric\\ProtoUtils\\Utils\u003A\u003ASERVICE_BIND",
             "name": "SERVICE_BIND",
@@ -1436,6 +1401,46 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Nitric-Api-Secrets-Internal-WireAdapter.html#method_secretVersionRefToWire"
         },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\Internal\\WireAdapter",
+            "name": "WireAdapter",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents-Internal-WireAdapter.html"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\Internal\\WireAdapter\u003A\u003AdocRefToWireKey\u0028\u0029",
+            "name": "docRefToWireKey",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents-Internal-WireAdapter.html#method_docRefToWireKey"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\Internal\\WireAdapter\u003A\u003AexpressionToWire\u0028\u0029",
+            "name": "expressionToWire",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents-Internal-WireAdapter.html#method_expressionToWire"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\Internal\\WireAdapter\u003A\u003AexpValueToWire\u0028\u0029",
+            "name": "expValueToWire",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents-Internal-WireAdapter.html#method_expValueToWire"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\Internal\\WireAdapter\u003A\u003AcollectionRefToWire\u0028\u0029",
+            "name": "collectionRefToWire",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents-Internal-WireAdapter.html#method_collectionRefToWire"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\Internal\\WireAdapter\u003A\u003AdocFromWire\u0028\u0029",
+            "name": "docFromWire",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents-Internal-WireAdapter.html#method_docFromWire"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\Internal\\WireAdapter\u003A\u003AdocRefFromWire\u0028\u0029",
+            "name": "docRefFromWire",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents-Internal-WireAdapter.html#method_docRefFromWire"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\Internal\\WireAdapter\u003A\u003AcollectionRefFromWire\u0028\u0029",
+            "name": "collectionRefFromWire",
+            "summary": "",
+            "url": "classes/Nitric-Api-Documents-Internal-WireAdapter.html#method_collectionRefFromWire"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -1445,6 +1450,11 @@ Search.appendIndex(
             "name": "Documents",
             "summary": "",
             "url": "namespaces/nitric-api-documents.html"
+        },                {
+            "fqsen": "\\Nitric\\Api\\Documents\\Internal",
+            "name": "Internal",
+            "summary": "",
+            "url": "namespaces/nitric-api-documents-internal.html"
         },                {
             "fqsen": "\\Nitric\\Api",
             "name": "Api",
