@@ -1,4 +1,5 @@
 <?php
+namespace Examples\Documents;
 
 /**
  * Copyright 2021 Nitric Technologies Pty Ltd.
@@ -19,15 +20,18 @@
 // [START import]
 use Nitric\Api\Documents;
 // [END import]
+class SubColQuery {
+  public function subColDocument() {
+    // [START snippet]
+    $docs = new Documents();
 
-// [START snippet]
-$docs = new Documents();
-
-$query = $docs->collection("Customers")
+    $query = $docs->collection("Customers")
         ->collection("Orders")
         ->query();
 
-// Execute query
-$results = $query->fetch();
-// [END snippet]
+    // Execute query
+    $results = $query->fetch();
+    // [END snippet]
+  }
+}
 ?>

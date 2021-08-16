@@ -1,5 +1,5 @@
 <?php
-
+namespace Examples\Queues;
 /**
  * Copyright 2021 Nitric Technologies Pty Ltd.
  *
@@ -20,14 +20,18 @@
 use Nitric\Api\Queues;
 use Nitric\Api\Queues\Task;
 // [END import]
-// [START snippet]
-$queues = new Queues();
+class Send {
+  public function sendQueue() {
+    // [START snippet]
+    $queues = new Queues();
 
-$task = (new Task())
-    ->setPayload([
-        "example" => "payload"
-    ]);
+    $task = (new Task())
+        ->setPayload([
+            "example" => "payload"
+        ]);
 
-$queues->queue("my-queue")->send($task);
-// [END snippet]
+    $queues->queue("my-queue")->send($task);
+    // [END snippet]
+  }
+}
 ?>

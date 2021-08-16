@@ -1,4 +1,5 @@
 <?php
+namespace Examples\Documents;
 
 /**
  * Copyright 2021 Nitric Technologies Pty Ltd.
@@ -20,14 +21,18 @@
 use Nitric\Api\Documents;
 // [END import]
 
-// [START snippet]
-$docs = new Documents();
+class QueryLimits {
+  public function queryLimitsDocument() {
+    // [START snippet]
+    $docs = new Documents();
 
-$query = $docs->collection("Customers")
+    $query = $docs->collection("Customers")
         ->collection("Orders")
         ->query()
         ->limit(1000);
 
-$results = $query->fetch();
-// [END snippet]
+    $results = $query->fetch();
+    // [END snippet]
+  }
+}
 ?>

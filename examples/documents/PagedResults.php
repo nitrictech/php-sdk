@@ -1,4 +1,5 @@
 <?php
+namespace Examples\Documents;
 
 /**
  * Copyright 2021 Nitric Technologies Pty Ltd.
@@ -20,18 +21,22 @@
 use Nitric\Api\Documents;
 // [END import]
 
-// [START snippet]
-$docs = new Documents();
+class PagedResults {
+  public function pagedResultsDocument() {
+    // [START snippet]
+    $docs = new Documents();
 
-$query = $docs->collection("Customers")
+    $query = $docs->collection("Customers")
         ->query()
         ->where("active", "==", true)
         ->limit(100);
 
-// Fetch first page
-$results = $query->fetch();
+    // Fetch first page
+    $results = $query->fetch();
 
-// Fetch next page
-$results = $query->pageFrom($results->getPagingToken())->fetch();
-// [END snippet]
+    // Fetch next page
+    $results = $query->pageFrom($results->getPagingToken())->fetch();
+    // [END snippet]
+  }
+}
 ?>

@@ -1,4 +1,5 @@
 <?php
+namespace Examples\Documents;
 
 /**
  * Copyright 2021 Nitric Technologies Pty Ltd.
@@ -20,11 +21,15 @@
 use Nitric\Api\Documents;
 // [END import]
 
-// [START snippet]
-$docs = new Documents();
+class Get {
+  public function getDocument() {
+    // [START snippet]
+    $docs = new Documents();
 
-$document = $docs->collection("products")->doc("nitric");
+    $document = $docs->collection("products")->doc("nitric");
 
-$product = $document->get();
-// [END snippet]
+    $product = $document->get();
+    // [END snippet]
+  }
+}
 ?>

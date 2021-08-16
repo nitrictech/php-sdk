@@ -1,5 +1,5 @@
 <?php
-
+namespace Examples\Storage;
 /**
  * Copyright 2021 Nitric Technologies Pty Ltd.
  *
@@ -19,13 +19,17 @@
 // [START import]
 use Nitric\Api\Storage;
 // [END import]
-// [START snippet]
-$storage = new Storage();
+class Read {
+  public function readStorage() {
+    // [START snippet]
+    $storage = new Storage();
 
-// Create a reference to the bucket
-$bucket = $storage->bucket('my-bucket');
+    // Create a reference to the bucket
+    $bucket = $storage->bucket('my-bucket');
 
-// Read contents from a file
-$contents = $bucket->file("some/file.txt")->read();
-// [END snippet]
+    // Read contents from a file
+    $contents = $bucket->file("some/file.txt")->read();
+    // [END snippet]
+  }
+}
 ?>

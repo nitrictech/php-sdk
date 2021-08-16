@@ -1,4 +1,5 @@
 <?php
+namespace Examples\Documents;
 
 /**
  * Copyright 2021 Nitric Technologies Pty Ltd.
@@ -20,13 +21,17 @@
 use Nitric\Api\Documents;
 // [END import]
 
-// [START snippet]
-$docs = new Documents();
+class Ref {
+  public function refDocument() {
+    // [START snippet]
+    $docs = new Documents();
 
-// Create a reference to a new collection named 'products'
-$products = $docs->collection("products");
+    // Create a reference to a new collection named 'products'
+    $products = $docs->collection("products");
 
-// Create a reference to a document with the id 'nitric'
-$nitric = $products->doc("nitric");
-// [END snippet]
+    // Create a reference to a document with the id 'nitric'
+    $nitric = $products->doc("nitric");
+    // [END snippet]
+  }
+}
 ?>

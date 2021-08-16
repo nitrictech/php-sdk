@@ -1,5 +1,5 @@
 <?php
-
+namespace Examples\Queues;
 /**
  * Copyright 2021 Nitric Technologies Pty Ltd.
  *
@@ -18,16 +18,19 @@
 
 // [START import]
 use Nitric\Api\Queues;
-use Nitric\Api\Queues\Task;
 // [END import]
-// [START snippet]
-$queues = new Queues();
+class Receive {
+  public function receiveQueue() {
+    // [START snippet]
+    $queues = new Queues();
 
-$tasks = $queues->queue("my-queue")->receive();
+    $tasks = $queues->queue("my-queue")->receive();
 
-foreach($tasks as $task) {
-    // process the task here...
-    $task->complete();
+    foreach($tasks as $task) {
+        // process the task here...
+        $task->complete();
+    }
+    // [END snippet]
+  }
 }
-// [END snippet]
 ?>

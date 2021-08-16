@@ -1,5 +1,5 @@
 <?php
-
+namespace Examples\Secrets;
 /**
  * Copyright 2021 Nitric Technologies Pty Ltd.
  *
@@ -19,11 +19,15 @@
 // [START import]
 use Nitric\Api\Secrets;
 // [END import]
-// [START snippet]
-$secrets = new Secrets();
+class Put {
+  public function putSecret() {
+    // [START snippet]
+    $secrets = new Secrets();
 
-// Store the new password value, making it the latest version
-$newPassword = "qxGJp9rWMbYvPEsNFXzukQa!";
-$secrets->secret("database.password")->put($newPassword);
-// [END snippet]
+    // Store the new password value, making it the latest version
+    $newPassword = "qxGJp9rWMbYvPEsNFXzukQa!";
+    $secrets->secret("database.password")->put($newPassword);
+    // [END snippet]
+  }
+}
 ?>

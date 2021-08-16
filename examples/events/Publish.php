@@ -1,5 +1,5 @@
 <?php
-
+namespace Examples\Events;
 /**
  * Copyright 2021 Nitric Technologies Pty Ltd.
  *
@@ -20,16 +20,20 @@
 use Nitric\Api\Events;
 use Nitric\Api\Events\Event;
 // [END import]
-// [START snippet]
-$events = new Events();
+class Publish {
+  public function publishTopic() {
+    // [START snippet]
+    $events = new Events();
 
-$event = $events->topic("my-topic")->publish(
-    (new Event())
-        ->setPayload([
-            "key" => "value",
-        ])
-    );
+    $event = $events->topic("my-topic")->publish(
+        (new Event())
+            ->setPayload([
+                "key" => "value",
+            ])
+        );
 
-echo "Generated Event ID is: " . $event->getId();
-// [END snippet]
+    echo "Generated Event ID is: " . $event->getId();
+    // [END snippet]
+  }
+}
 ?>

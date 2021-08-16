@@ -1,4 +1,5 @@
 <?php
+namespace Examples\Documents;
 
 /**
  * Copyright 2021 Nitric Technologies Pty Ltd.
@@ -20,13 +21,17 @@
 use Nitric\Api\Documents;
 // [END import]
 
-// [START snippet]
-$docs = new Documents();
+class QueryFilter {
+  public function queryFilterDocument() {
+    // [START snippet]
+    $docs = new Documents();
 
-$query = $docs->collection("Customers")->query()
-    ->where("country", "==", "US")
-    ->where("age", ">=", 21);
+    $query = $docs->collection("Customers")->query()
+        ->where("country", "==", "US")
+        ->where("age", ">=", 21);
 
-$results = $query->fetch();
-// [END snippet]
+    $results = $query->fetch();
+    // [END snippet]
+  }
+}
 ?>

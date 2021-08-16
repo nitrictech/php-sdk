@@ -1,5 +1,5 @@
 <?php
-
+namespace Examples\Events;
 /**
  * Copyright 2021 Nitric Technologies Pty Ltd.
  *
@@ -20,15 +20,19 @@
 use Nitric\Api\Events;
 use Nitric\Api\Events\Event;
 // [END import]
-// [START snippet]
-$events = new Events();
+class EventIDs {
+  public function eventIdsTopic() {
+    // [START snippet]
+    $events = new Events();
 
-$event = $events->topic("my-topic")->publish(
-    (new Event())
-        ->setPayload([
-            "key" => "value",
-        ])
-        ->setId("abc-123")
-    );
-// [END snippet]
+    $event = $events->topic("my-topic")->publish(
+        (new Event())
+            ->setPayload([
+                "key" => "value",
+            ])
+            ->setId("abc-123")
+        );
+    // [END snippet]
+  }
+}
 ?>
